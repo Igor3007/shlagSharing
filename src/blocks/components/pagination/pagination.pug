@@ -1,0 +1,13 @@
+mixin pagination(show_all, page)
+  .pagination
+    if show_all
+      .pagination__show-more
+        a(href="#"): span Показать еще
+    if page
+      .pagination__page
+        ul
+          li.active: a(href="#") 1
+          li: a(href="#") 2
+          li: a(href="#") 3
+          li: a(href="#") 4
+          li: a(href="#") 5

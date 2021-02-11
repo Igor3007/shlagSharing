@@ -1,0 +1,46 @@
+mixin basketcard(item, min)
+  .basketcard
+    .basketcard__left
+      .basketcard__image
+        a(href="catalog-card.html"): span: img(src=""+item.image[0]+"")
+
+
+      .basketcard__main(data-title="Товар")
+        .basketcard__code Код товара: 0008448
+        .basketcard__title
+          a(href="catalog-card.html")= item.title
+        if item.stick
+          .basketcard__stick
+            span(style="background-color: "+item.stick[0]+" ")= item.stick[1]
+    .basketcard__right
+
+      .basketcard__price(data-title="Цена")
+        //- .basketcard__title Цена
+        .basketcard__price-current
+          span= item.price
+          |  ₽
+        .basketcard__price-old= item.price+" ₽"
+
+
+      .basketcard__count(data-title="Количество")
+        //- .basketcard__title Количество
+        if min
+          strong 1
+        else
+          .basketcard__count-wrp
+            span.basketcard__count-dec -
+            span.basketcard__count-num 
+              input(type="text" value="1")
+            span.basketcard__count-inc +
+
+
+      .basketcard__cost(data-title="Сумма")
+        //- .basketcard__title Стоимость
+        .basketcard__price-current
+          span= item.price
+          |  ₽
+
+
+      .basketcard__remove
+        +icons('#ic_close', 22)
+        | Удалить

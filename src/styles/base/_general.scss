@@ -1,0 +1,94 @@
+html {
+    font-family: Montserrat, arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 140%;
+    background: #f4f4f4;
+    color: #000;
+
+    @media screen and (max-width: $w1440) {
+        font-size: 14px;
+    }
+
+    @media screen and (max-width: $w1280) {
+        font-size: 13px;
+    }
+}
+
+button:active,
+button:hover,
+input:active,
+input:focus,
+input:hover {
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+    margin: 0;
+    padding: 0;
+    line-height: 130%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.hidden {
+    overflow: hidden;
+
+    @media screen and (min-width: $w1024) {
+        margin-right: 17px;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 rem(55);
+
+    @media screen and (max-width: $w1280) {
+        padding: 0 rem(35);
+    }
+
+    @media screen and (max-width: $w1024) {
+        padding: 0 rem(25);
+    }
+
+    @media screen and (max-width: $w580) {
+        padding: 0 rem(15);
+    }
+}
+
+.pull-right {
+    justify-content: flex-end !important;
+}
+
+.pull-left {
+    justify-content: flex-start !important;
+}

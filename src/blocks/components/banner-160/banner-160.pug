@@ -1,0 +1,12 @@
+mixin banner-160(title, subtitle, img, button, modify)
+  div(class="banner-main "+(modify ? 'banner-main'+modify : '')+"")
+    if img
+      .banner-main__image(style="top: -20px; bottom: -40px;")
+        +bgimage("/img/banners/"+img+"")
+    if title
+      .banner-main__title= title
+    if subtitle
+      .banner-main__subtitle= subtitle
+    if button
+      .banner-main__button
+        a(href=""): button.btn.btn-blue= button

@@ -1,0 +1,16 @@
+include ../../catalog/minicard/minicard
+
+mixin similar-product(product, title, classInit)
+  .similar-product
+    #similar.similar-product__title
+      +h2(title)
+      .swiper-nav
+        .swiper-nav__prev(class=""+(classInit?classInit:'')+""): +icons('#ic_arrow-left')
+        .swiper-nav__next(class=""+(classInit?classInit:'')+""): +icons('#ic_arrow-right')
+    .similar-product__slider
+      .swiper-container(class=""+(classInit?classInit:'')+"")
+        .swiper-wrapper
+          each item in product
+            .swiper-slide
+              +minicard(item, 'small')
+

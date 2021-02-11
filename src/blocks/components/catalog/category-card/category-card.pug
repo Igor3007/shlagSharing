@@ -1,0 +1,6 @@
+mixin category-card(data)
+  .category-card
+    .category-card__img
+      span.img-contain: a(href="/catalog.html")
+        img(src=data.img alt="")
+    .category-card__title: a(href="/catalog.html")= data.title

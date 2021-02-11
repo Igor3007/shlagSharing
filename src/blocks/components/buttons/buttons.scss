@@ -1,0 +1,104 @@
+.btn {
+
+    color: #fff;
+    border: none;
+    padding: 1em 2.6em;
+    color: #fff;
+    background: $blue;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: none;
+    text-transform: uppercase;
+    border-radius: 3px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: rem(13);
+
+    @include w1280-block() {}
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &:active,
+    &:focus {
+        border: none;
+        outline: none;
+    }
+
+
+
+    &.btn-red {
+        color: #fff;
+        background-color: $red;
+
+        &:hover {
+            background-color: #d31417;
+        }
+    }
+
+    &.btn-gblue {
+        color: #000;
+        background-color: $grayBlue;
+
+        &:hover {
+            background-color: $grayBlue;
+            opacity: 0.9;
+        }
+    }
+
+    &.btn-dark {
+        color: #fff;
+        background-color: $dark;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    &.btn-black {
+        color: #fff;
+        background-color: #000;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    &.btn-line {
+        border: 1px solid $grayBlue;
+        background: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $grayBlue;
+
+        &:hover {
+            background-color: $grayBlue;
+            color: #fff !important;
+            border-color: $grayBlue
+        }
+    }
+
+    &.btn-line-radius {
+        background: transparent;
+        border: 1px solid $mgray;
+        border-radius: rem(40);
+
+        &:hover {
+            border-color: $red;
+        }
+    }
+
+    &.btn-full {
+        width: 100%;
+    }
+
+    &.btn-bold {
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: rem(1)
+    }
+}

@@ -1,0 +1,87 @@
+mixin mobile-menu(cat)
+  .mobile
+    .mobile__overlay
+    .mobile__left
+      .mobile-menu
+        .mobile-menu__main
+          .mobile-main
+            .mobile-main__top-link
+              ul 
+                li: a(href="catalog.html")
+                  +icons('#ic_discont', 25)
+                  span Распродажа
+                li(data-rol="open-catalog"): a(href="#")
+                  +icons('#ic_catalog', 25)
+                  span Каталог
+            .mobile-main__nav
+              nav 
+                ul 
+                  li: a(href="page-delivery.html") Доставка и сборка
+                  li: a(href="page-design.html") Дизайн спортзала
+                  li: a(href="page-about.html") О компании
+                  li: a(href="page-collaboration.html") Сотрудничество
+                  li: a(href="page-news.html") Статьи
+                  li: a(href="page-contacts.html") Контакты
+
+            .mobile-main__footer
+              .footer__payment
+                .footer__contacts
+                  .footer__phone
+                    a(href='tel:8 (800) 505-49-83') 8 (800) 505-49-83
+                  .footer__email
+                    a(href='mailto:doc@wellgallery.ru') doc@wellgallery.ru
+
+                .footer__boxtitle Принимаем к оплате
+                ul
+                  li
+                    a(href='#')
+                      span.bgimage(style='background-image: url(/img/svg/ic_payment-visa.svg)')
+                  li
+                    a(href='#')
+                      span.bgimage(style='background-image: url(/img/svg/ic_payment-mc.svg)')
+                  li.alfa
+                    a(href='#')
+                      span.bgimage(style='background-image: url(/img/svg/ic_payment-alfa.svg)')
+
+              .footer__social
+                .footer__boxtitle Присоединяйтесь
+                ul
+                  li
+                    a(href='#')
+                      svg(width='30', height='30')
+                        use(xlink:href='/img/sprites/sprite.svg#ic_vk-footer')
+                  li
+                    a(href='#')
+                      svg(width='30', height='30')
+                        use(xlink:href='/img/sprites/sprite.svg#ic_fb-footer')
+                  li
+                    a(href='#')
+                      svg(width='30', height='30')
+                        use(xlink:href='/img/sprites/sprite.svg#ic_ig-footer')
+                  li
+                    a(href='#')
+                      svg(width='30', height='30')
+                        use(xlink:href='/img/sprites/sprite.svg#ic_yt-footer')
+              .footer__politic: a(href="#") Политика конфиденциальности
+              .footer__copyright © 2005-2020 wellgallery.ru
+        .mobile-menu__pane(data-rol="catalog" style="display: none;")
+          .mobile-menu__back Назад
+          .mobile-menu__list
+            ul
+              each item in cat
+                li
+                  +bgimage(item.icon)
+                  a(href=""+item.link+"")= item.text
+                  if(item.sub)
+                    ul.sub-cat
+                      each subcat in item.sub
+                        li: a(href="/catalog.html")= subcat
+              li
+                +bgimage('/img/categories/Vector-12.svg')
+                a(href="#") Бренды
+                ul.sub-cat
+                  each item in brandsMenu
+                    li.sub-image
+                      a(href="catalog.html")
+                        +bgimage(item.img)
+                        span= item.name

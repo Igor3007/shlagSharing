@@ -1,0 +1,40 @@
+.category-card {
+
+    margin-bottom: rem(45);
+
+    &:hover {
+        & .category-card__title a {
+            color: $grayBlue;
+        }
+    }
+
+    @media screen and (max-width: $w760) {
+        margin-bottom: rem(25);
+    }
+
+    &__img {
+
+        border-radius: 5px 5px;
+        overflow: hidden;
+        position: relative;
+
+
+        & span.img-contain {
+            @include box-square;
+            padding-top: 67%;
+            background: #fff;
+
+
+            & img {
+                @include img-contain;
+            }
+        }
+    }
+
+    &__title {
+        margin-top: 5px;
+        font-size: rem(15);
+        font-weight: 500;
+
+    }
+}

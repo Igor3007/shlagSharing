@@ -1,0 +1,83 @@
+.pagination {
+
+    margin-bottom: rem(25);
+
+    &__show-more {
+        & a {
+            display: block;
+            background-color: #0d0d0d;
+            padding: 1.3em;
+            text-align: center;
+
+            font-weight: bold;
+            font-size: 15px;
+            color: $grayBlue;
+            text-align: center;
+            text-transform: uppercase;
+
+            @media screen and (max-width: $w1376) {
+                font-size: 14px;
+            }
+
+            @media screen and (max-width: $w1024) {
+                font-size: 13px;
+            }
+
+            & span {
+                border-bottom: 1px dashed $grayBlue;
+            }
+        }
+    }
+
+    &__page {
+
+        & ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: rem(30);
+        }
+
+        & li {
+            padding: 0 3px;
+
+            &.active {
+                & a {
+                    align-items: center;
+                    justify-content: center;
+                    background: transparent;
+                    border: 1px solid $dark;
+
+                }
+            }
+
+            & a {
+                display: flex;
+                width: rem(30);
+                height: rem(30);
+                align-items: center;
+                justify-content: center;
+                background: $dark;
+                border: 1px solid transparent;
+                border-radius: 3px;
+                font-size: rem(15);
+                font-weight: 500;
+
+                @media screen and (max-width: $w1376) {
+                    font-size: 14px;
+                }
+
+                @media screen and (max-width: $w1024) {
+                    font-size: 13px;
+                }
+
+                &:hover {
+                    border-color: $grayBlue;
+                }
+            }
+
+        }
+
+    }
+}

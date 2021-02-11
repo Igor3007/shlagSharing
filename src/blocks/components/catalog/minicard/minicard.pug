@@ -1,0 +1,25 @@
+mixin minicard(data, small, slider)
+  .minicard(class=""+(small ? 'minicard--small' : '')+"")
+    .minicard__image(class=""+(slider ? 'swiper-container' : '')+"")
+      if data.stick
+        .minicard__stick(style="background-color: "+data.stick[0]+" ")= data.stick[1]
+      .swiper-wrapper
+        if slider
+          each img in data.image
+            .swiper-slide
+              a(href="catalog-card.html"): span.img-contain: img(src=""+img+"" alt="")
+        else
+          .swiper-slide
+            a(href="catalog-card.html"): span.img-contain: img(src=""+data.image[0]+"" alt="")
+      .swiper-pagination
+    .minicard__props
+      .minicard__price
+        span.minicard__price-act= data.price
+        span.minicard__price-old= data.oldprice 
+      .minicard__title: a(href="/catalog-card.html")= data.title
+      .minicard__action
+        .minicard__to-basket
+          button.btn в корзину
+        .minicard__one-click
+          span Купить
+          span в один клик

@@ -1,0 +1,17 @@
+mixin menu-categories(data)
+  .menu-categories
+    ul
+      each item in data
+        li
+          +bgimage(item.icon)
+          a(href="/catalog-category.html")= item.text
+
+          if item.sub
+            ul.sub-menu
+              each subitem in item.sub
+                li
+                  a(href="/catalog-category.html")= subitem
+                  ul.sub-menu
+                    li: a(href="#") menu 3 level
+                    li: a(href="#") menu 3 level
+                    li: a(href="#") menu 3 level

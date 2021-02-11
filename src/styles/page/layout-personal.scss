@@ -1,0 +1,15 @@
+.personal-layout {
+    background: #fff;
+    min-height: 100vh;
+    @include row-flex();
+
+    &__aside {
+        @include col();
+        @include size-w1280(3)
+    }
+
+    &__content {
+        @include col();
+        @include size-w1280(9)
+    }
+}

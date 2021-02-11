@@ -1,0 +1,320 @@
+.basketcard {
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+
+    @media screen and (max-width: $w580) {
+        border-bottom: 1px solid #2c2c2c;
+    }
+
+    &:hover {
+        position: relative;
+        z-index: 1;
+    }
+
+
+
+    &__left,
+    &__right {
+        width: 100%;
+        display: flex;
+
+        @media screen and (max-width: $w940) {
+            flex-direction: column;
+
+            &>div {
+                flex-grow: 0;
+            }
+        }
+    }
+
+    &__left {
+        @media screen and (max-width: $w940) {
+            width: auto;
+        }
+    }
+
+    &__right {
+        @media screen and (max-width: $w940) {
+            padding-left: rem(25);
+            width: auto;
+        }
+    }
+
+    &__main,
+    &__price,
+    &__remove,
+    &__count,
+    &__cost {
+        flex-grow: 1;
+        padding: rem(25) rem(12);
+
+        @media screen and (max-width: $w580) {
+            // padding: rem(0) rem(12) rem(25) rem(12);
+        }
+    }
+
+    &__count,
+    &__cost {
+        @media screen and (max-width: $w580) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__count {
+        @media screen and (max-width: $w940) {
+            order: 1;
+        }
+    }
+
+    &__cost {
+        @media screen and (max-width: $w940) {
+            order: 2;
+            text-align: center;
+            position: relative;
+        }
+    }
+
+
+    &__title {
+        color: #fff;
+        margin-bottom: rem(20);
+
+        @media screen and (max-width: $w580) {
+            margin-bottom: rem(0);
+            margin-right: rem(15);
+        }
+
+        & a {
+            color: inherit;
+            font-size: rem(15);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__code {
+        font-size: 13px;
+        color: $gray;
+    }
+
+    &__stick {
+
+        @media screen and (max-width: $w580) {
+            padding-top: rem(10);
+        }
+
+        & span {
+            z-index: 10;
+            left: 16px;
+            top: 14px;
+            padding: 0.7em 1.2em 0.6em 1.2em;
+            font-weight: bold;
+            font-size: 10px;
+            line-height: 10px;
+            text-align: center;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            border-radius: 30px;
+
+            @media screen and (max-width: $w580) {
+                font-size: 8px;
+                font-weight: normal;
+
+            }
+        }
+    }
+
+    &__remove {
+        display: flex;
+        align-items: flex-start;
+        font-size: rem(13);
+
+        & svg {
+            cursor: pointer;
+            stroke: #6a6a6a;
+            fill: #6a6a6a;
+        }
+
+        @media screen and (max-width: $w940) {
+            order: 0;
+            border-bottom: 1px solid #353535;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        @media screen and (max-width: $w580) {
+            // position: absolute;
+            // right: 0;
+            // top: 0;
+        }
+    }
+
+    &__price {
+        @media screen and (max-width: $w1100) {
+            display: none;
+        }
+
+        @media screen and (max-width: $w580) {
+            margin-top: rem(20)
+        }
+
+        & .basketcard__price-current {
+            color: #fff;
+            font-weight: normal;
+            font-weight: 500;
+        }
+
+    }
+
+    &__price-current {
+        font-weight: bold;
+        font-size: 15px;
+        white-space: nowrap;
+        min-width: rem(92);
+        color: $blue;
+
+        @media screen and (max-width: $w940) {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 10px;
+        }
+
+    }
+
+    &__price-old {
+        color: $gray;
+        text-decoration: line-through;
+        color: $grayBlue;
+        font-size: rem(13);
+        font-weight: 500;
+    }
+
+    &__state {
+
+        margin-top: rem(10);
+
+        & span {
+            display: flex;
+            align-items: center;
+
+            & svg {
+                margin-right: rem(5);
+            }
+        }
+    }
+
+    &__image {
+
+        @media screen and (max-width: $w940) {
+            width: 100%;
+            min-width: 100%;
+            flex-basis: 100%;
+            margin-right: 10px;
+        }
+
+        @media screen and (min-width: $w580) {
+            width: 48%;
+            min-width: 48%;
+            flex-basis: 48%;
+            margin-right: 10px;
+        }
+
+        & a {
+            background-color: #fff;
+            border-radius: 5px;
+            display: block;
+        }
+
+        & span {
+            @include box-square;
+            border-radius: 5px;
+
+            padding-top: 64%;
+
+
+            @media screen and (max-width: $w580) {
+                padding-top: 70%;
+            }
+
+        }
+
+        & img {
+            @include img-contain;
+        }
+    }
+
+    &__main {
+        flex-grow: 1;
+        max-width: 250px;
+        font-size: 15px;
+        box-sizing: content-box;
+    }
+
+    &__count {
+        & strong {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    &__count-wrp {
+
+        display: flex;
+        align-items: stretch;
+
+        @media screen and (min-width: $w580) {
+            justify-content: flex-start;
+        }
+
+
+        & .basketcard__count-dec,
+        & .basketcard__count-inc {
+            width: rem(30);
+            height: rem(30);
+            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            color: $gray;
+
+            -ms-user-select: none;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+
+            &:hover {
+                border-color: $grayBlue;
+                color: $grayBlue;
+            }
+        }
+
+        & .basketcard__count-num {
+            width: rem(30);
+            height: rem(30);
+            display: block;
+
+            & input {
+                border: 1px solid transparent;
+                width: 100%;
+                height: 100%;
+                display: block;
+                text-align: center;
+                border-left: none;
+                border-right: none;
+                background: transparent;
+                color: #fff;
+            }
+        }
+    }
+
+
+
+
+}

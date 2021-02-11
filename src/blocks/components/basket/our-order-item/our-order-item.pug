@@ -1,0 +1,14 @@
+mixin our-order-item(data)
+  .our-order-item
+    .our-order-item__name
+      .our-order-item__title= data.title
+      .our-order-item__subtitle Код товара: 0008448
+    .our-order-item__cost
+      .our-order-item__title= data.price+' ₽'
+      .our-order-item__subtitle За штуку
+    .our-order-item__count
+      .our-order-item__title 1 шт.
+      .our-order-item__subtitle Кол-во
+    .our-order-item__total
+      .our-order-item__title= data.price+' ₽'
+      .our-order-item__subtitle Всего

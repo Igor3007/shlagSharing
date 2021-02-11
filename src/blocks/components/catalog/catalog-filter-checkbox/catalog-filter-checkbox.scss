@@ -1,0 +1,68 @@
+.catalog-filter-checkbox {
+
+    &__card {
+        & .radio {
+            margin-top: 10px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        & .radio__text {
+            font-weight: 500;
+        }
+    }
+
+    &__title {
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-bottom: rem(10);
+
+        & .tooltip {
+            margin-left: rem(5);
+        }
+    }
+
+    &__list {
+        & ul {
+
+            & li {
+                list-style-type: none;
+                padding: rem(5) 0;
+            }
+
+        }
+
+        & .checkbox,
+        & .radio {
+            margin-top: 10px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        & .radio__text {
+            font-weight: 500;
+        }
+
+        & ul.open li {
+            display: list-item !important;
+        }
+    }
+
+    &__all {
+        border-bottom: 1px dashed $grayBlue;
+        color: $grayBlue;
+        display: inline-block;
+        margin-top: rem(5);
+        cursor: pointer;
+        font-size: 13px;
+    }
+
+    & .checkbox__text:hover {
+        text-decoration: underline;
+    }
+
+}

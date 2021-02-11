@@ -1,0 +1,16 @@
+mixin catalog-filter-checkbox(data)
+  .catalog-filter-checkbox
+
+    .catalog-filter-checkbox__list
+      ul
+        each item, index in data.list
+          if index < 7
+            li
+              +checkbox(item, 'fff')
+          else
+            li(style="display: none")
+              +checkbox(item)
+      if data.title == 'Производители'
+        .catalog-filter-checkbox__all Показать все
+
+

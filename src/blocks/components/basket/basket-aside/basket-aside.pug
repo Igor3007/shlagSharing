@@ -1,0 +1,45 @@
+mixin basket-aside()
+  .basket-aside
+    .basket-aside__item
+      .basket-aside__count
+        span.total-count-aside 3 
+        | товара на сумму
+      .basket-aside__cost 
+        span.total-price-aside 0.000
+        | ₽
+    .basket-aside__button 
+      a(href="/basket-ordering.html")
+        button.btn.btn-blue.btn-full Оформить заказ
+
+mixin basket-aside-ordering(data)
+  .basket-aside
+    .basket-aside__title
+      +h2('Ваш заказ')
+    .basket-aside__subtitle 
+      div
+        | 12   <span> товаров на </span> 1 230.30 ₽
+      div.basket-aside__delivery
+        |<span> Доставка курьерской службой: </span> 10 ₽
+      div.basket-aside__total
+        |<span> Итого: </span> 1 230.30 ₽
+
+    .basket-aside__button
+      a(href="#"): button.btn.btn-red.btn-full Оформить заказ
+
+    .basket-aside__edit-order
+      a(href="basket.html") Редактировать заказ
+    .basket-aside__goods
+      .basket-aside__goods-list
+        each item, index in data
+          if index < 5
+            .basket-aside__goods-item
+              .basket-minicard
+                .basket-minicard__image
+                  a(href="catalog-card.html"): span: img(src=""+item.image+"", alt="")
+                .basket-minicard__desc
+                  .basket-minicard__title
+                    a(href="catalog-card.html")!= item.title
+                  .basket-minicard__count Кол-во: 
+                    span 1
+                  .basket-minicard__cost Стоимость: 
+                    span!= item.price

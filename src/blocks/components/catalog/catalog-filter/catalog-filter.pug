@@ -1,0 +1,87 @@
+include ../catalog-filter-checkbox/catalog-filter-checkbox
+
+mixin catalog-filter(data)
+  .catalog-filter
+
+    .catalog-filter__wrp
+      .catalog-filter__head
+        +h1('Фильтры')
+        span.icClose(data-filter-close="")
+          +icons('#ic_close')
+      .catalog-filter__aside.open
+        .catalog-filter__title 
+          span Цена
+          span.icon-cross
+        .catalog-filter__main
+          .catalog-filter-slider
+            .catalog-filter-slider__val
+              span#min-price
+              span#max-price
+              input(type="hidden" id="price-start" value="")
+              input(type="hidden" id="price-end" value="")
+            div#slider-price(data-nouislider-start="1000, 8000" data-nouislider-range="0, 8000")
+      each item in data
+        .catalog-filter__aside.open
+          .catalog-filter__title
+            span= item.title
+            span.icon-cross 
+          .catalog-filter__main
+            +catalog-filter-checkbox(item)
+      .catalog-filter__aside.open
+        .catalog-filter__title
+          span Тип тренажера
+          span.icon-cross 
+        .catalog-filter__main
+          .catalog-filter-checkbox__card
+            +checkbox-card(['Механический', '2'])
+            +checkbox-card(['Степпер', '2'])
+            +checkbox-card(['Эллиптический', '2'])
+            +checkbox-card(['Электромагнитный', '2'])
+
+      .catalog-filter__aside.open
+        .catalog-filter__title
+          span Наличие в магазинах
+          span.icon-cross 
+        .catalog-filter__main
+          .catalog-filter-checkbox__list
+            +radio('В наличии', 'shop-filter')
+            +radio('В наличии и под заказ', 'shop-filter')
+            +radio('Все товары, включая отсутствующие в продаже', 'shop-filter')
+
+      .catalog-filter__aside
+        .catalog-filter__title
+          span Товар по акции
+          span.icon-toggle: +toggle
+
+      .catalog-filter__aside
+        .catalog-filter__title
+          span Регулировка нагрузки
+          span.icon-cross 
+        .catalog-filter__main
+          .catalog-filter-checkbox__list
+            +radio('Плавная', 'shop-load')
+            +radio('Ступенчатая', 'shop-load')
+
+      .catalog-filter__aside
+        .catalog-filter__title
+          span Количество программ
+          span.icon-cross 
+        .catalog-filter__main
+          .catalog-filter-checkbox__list
+            +checkbox('до 5', 'count-program', 'count-program', true)
+            +checkbox('5-10', 'count-program')
+            +checkbox('15-20', 'count-program')
+            +checkbox('более 20', 'count-program')
+
+      .catalog-filter__aside
+        button.btn.btn-gblue.btn-full.btn-bold(style="margin-bottom: 10px") Показать (86)
+        button.btn.btn-line.btn-full.btn-bold Очистить 
+
+      .catalog-filter__aside
+        .banner-320
+          a(href="#"): img(src="/img/banners/250x360Banner.jpg")
+
+  .float-send-filter
+    .float-send-filter__text Найдено 1449
+    .float-send-filter__btn
+      button.btn.btn-blue Показать

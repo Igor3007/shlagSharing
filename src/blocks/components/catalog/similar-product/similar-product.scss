@@ -1,0 +1,91 @@
+.similar-product {
+
+    padding-top: rem(25);
+
+    &__title {
+        display: flex;
+        align-items: center;
+
+        & .section-h2 {
+            order: 1;
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            order: 2;
+            flex-grow: 1;
+            height: 1px;
+            background-color: #2c2c2c;
+            margin: 0 rem(20);
+        }
+    }
+
+    & .swiper-slide {
+        // min-width: 250px;
+    }
+
+
+
+    & .swiper-nav {
+
+        display: flex;
+        order: 3;
+
+        &__prev,
+        &__next {
+
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            & svg {
+                fill: $gray
+            }
+
+            &:hover {
+                & svg {
+                    fill: $blue;
+                }
+            }
+        }
+
+        &__next {
+            margin-left: 20px;
+        }
+    }
+
+    @media screen and (min-width: $w580) and (max-width: $w1376) {
+        // & .minicard .minicard__to-basket {
+        //     & .btn {
+        //         width: 100%;
+        //     }
+        // }
+
+        // & .minicard .minicard__action {
+        //     &>div {
+        //         width: 50%;
+        //     }
+        // }
+
+
+    }
+
+    @media screen and (max-width: $w580) {
+
+        & .swiper-nav {
+            display: none;
+        }
+
+        & .minicard .minicard__price,
+        & .minicard .minicard__action {
+            flex-direction: row;
+        }
+
+        & .minicard .minicard__one-click {
+            & span {
+                padding: 0;
+            }
+        }
+    }
+}

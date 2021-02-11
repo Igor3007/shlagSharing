@@ -1,0 +1,117 @@
+.menu-categories {
+    border-radius: 5px;
+    // overflow: hidden;
+
+    @media screen and (max-width: $w1100) {
+        margin-right: rem(-35);
+    }
+
+    @media screen and (max-width: $w1024) {
+        margin-right: rem(-25);
+    }
+
+    @media screen and (max-width: $w580) {
+        margin-right: rem(-15);
+    }
+
+    & ul {
+        list-style-type: none;
+
+        @media screen and (max-width: $w1100) {
+            display: flex;
+            margin-bottom: rem(35);
+            overflow-y: scroll;
+        }
+
+    }
+
+    & li {
+
+        padding: 0 rem(16);
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #2d2d2d;
+        border-left: 1px solid transparent;
+        background: $dark;
+        position: relative;
+
+
+        @media screen and (max-width: $w1100) {
+            width: 25%;
+            flex-basis: 25%;
+            margin-right: rem(20);
+            border-radius: 5px;
+            min-width: rem(240);
+        }
+
+        @media screen and (max-width: $w580) {
+            flex-direction: column;
+            align-items: center;
+            width: 40%;
+            min-width: rem(220);
+            margin-right: rem(6);
+
+            & span {
+                margin-top: rem(20);
+                margin-right: 0;
+            }
+
+            & a {
+                text-align: center;
+                min-height: 33px;
+                font-size: 12px;
+                padding-top: 5px;
+                padding-bottom: 10px;
+                display: inline-flex;
+                box-sizing: content-box;
+                align-items: center;
+            }
+        }
+
+        &:hover {
+            border-left-color: $blue;
+
+            &>.sub-menu {
+                @media screen and (min-width: $w1100) {
+                    display: block;
+                }
+            }
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        & a {
+            display: block;
+            min-height: rem(67);
+            display: flex;
+            align-items: center;
+        }
+
+        & span {
+            width: rem(25);
+            min-width: rem(25);
+            height: rem(25);
+            display: inline-block;
+            margin-right: rem(13);
+
+            @include bgimage_contain
+        }
+    }
+
+    & .sub-menu {
+        position: absolute;
+        display: none;
+        left: 100%;
+        z-index: 5;
+        max-width: rem(300);
+        top: 0;
+        width: rem(270);
+
+
+        & li {
+            background-color: #363636;
+        }
+    }
+}
