@@ -1,15 +1,26 @@
 .personal-layout {
     background: #fff;
     min-height: 100vh;
-    @include row-flex();
+    display: flex;
 
     &__aside {
-        @include col();
-        @include size-w1280(3)
+        width: 25%;
     }
 
     &__content {
-        @include col();
-        @include size-w1280(9)
+        width: 75%;
+    }
+
+    &__aside {
+        border-right: 1px solid #ddd;
+    }
+}
+
+.personal-area {
+    &__header {
+        height: 90px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
     }
 }

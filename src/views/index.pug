@@ -1,5 +1,5 @@
 extends layouts/noheader
-//- include ../blocks/modules/menu-categories/menu-categories
+include ../blocks/modules/menu-left/menu-left
 
 
 block variables
@@ -7,7 +7,7 @@ block variables
 
 
 block aside
-  div aside
+  +menu-left()
 
 block pa-header
   div pa-header

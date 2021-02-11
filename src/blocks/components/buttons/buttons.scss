@@ -11,7 +11,7 @@
     justify-content: center;
     border-radius: none;
     text-transform: uppercase;
-    border-radius: 3px;
+    border-radius: 60px;
 
     font-style: normal;
     font-weight: bold;
@@ -48,6 +48,12 @@
             background-color: $grayBlue;
             opacity: 0.9;
         }
+    }
+
+    &.btn-big {
+        padding: 1.1em 2.6em;
+        font-size: 15px;
+        font-weight: 600;
     }
 
     &.btn-dark {

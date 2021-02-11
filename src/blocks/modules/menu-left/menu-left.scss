@@ -1,0 +1,50 @@
+.menu-left {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
+    &__logo {
+        & img {
+            max-width: rem(140);
+            margin-right: auto;
+        }
+    }
+
+    &__nav {
+
+        margin-top: rem(40);
+
+        & li {
+
+            & a {
+                display: flex;
+                align-items: center;
+                padding: rem(10) 0;
+
+                &:hover {
+                    color: #000;
+
+                    & svg {
+                        fill: $red;
+                    }
+                }
+            }
+
+            & svg {
+                fill: #929292;
+                margin-right: rem(16);
+            }
+        }
+    }
+
+    &__btn {
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+
+}

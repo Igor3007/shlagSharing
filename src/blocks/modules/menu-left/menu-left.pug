@@ -1,0 +1,32 @@
+mixin menu-left()
+  .menu-left
+    .menu-left__logo: img(src="/img/common/logo.jpg")
+    .menu-left__nav
+      ul
+        li
+          a(href="/map.html")
+            +icons('#ic_pin') 
+            |Карта
+        li
+          a(href="/my-parking.html")
+            +icons('#ic_parking') 
+            |Мои парковки
+        li
+          a(href="/orders.html")
+            +icons('#ic_order') 
+            |Заявки
+        li
+          a(href="/replace-parking.html")
+            +icons('#ic_replace') 
+            |Подменные парковки
+        li
+          a(href="/my-cash.html")
+            +icons('#ic_cash') 
+            |Мои счет
+        li
+          a(href="/support.html")
+            +icons('#ic_gear') 
+            |Техподдержка
+    .menu-left__btn
+      button.btn.btn-red.btn-big Добавить парковку
+
