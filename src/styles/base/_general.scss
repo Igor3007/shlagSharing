@@ -71,10 +71,10 @@ img {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 rem(55);
+    padding: 0 0;
 
     @media screen and (max-width: $w1280) {
-        padding: 0 rem(35);
+        padding: 0 rem(30);
     }
 
     @media screen and (max-width: $w1024) {

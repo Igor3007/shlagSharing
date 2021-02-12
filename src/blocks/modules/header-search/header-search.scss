@@ -1,0 +1,48 @@
+.header-search {
+
+    width: 100%;
+    max-width: rem(620);
+    margin-right: auto;
+    padding: 0 rem(0);
+
+    &__form {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: rem(40);
+    }
+
+    &__input {
+
+        width: 100%;
+        display: block;
+        padding: rem(10) rem(20);
+
+        & input {
+            border: none;
+            width: 100%;
+            display: block;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        width: rem(40);
+        margin-right: rem(7);
+
+        & button {
+            border: none;
+            background: none;
+            cursor: pointer;
+
+            & svg {
+                width: rem(18);
+                height: rem(18);
+                margin-top: 3px;
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+mixin header-search()
+  .header-search
+    .header-search__wrp
+      form(acton="#")
+        .header-search__form
+          .header-search__input: input(type="text" placeholder="Поиск парковки по адресу")
+          .header-search__btn
+            button(type="submit"): +icons('#ic_loupe')

@@ -1,0 +1,21 @@
+.map-filter {
+    &__wrp {
+        display: flex;
+        align-items: center;
+        height: 120px;
+        padding: 0 rem(30);
+    }
+
+    &__title {
+        padding-right: rem(30);
+    }
+
+    &__check {
+        display: flex;
+        flex-grow: 1;
+    }
+
+    &__input {
+        margin-right: rem(30);
+    }
+}

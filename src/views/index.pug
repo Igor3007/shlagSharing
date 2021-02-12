@@ -1,5 +1,9 @@
 extends layouts/noheader
 include ../blocks/modules/menu-left/menu-left
+include ../blocks/modules/header-search/header-search
+include ../blocks/modules/header-profile/header-profile
+include ../blocks/modules/header-wallet/header-wallet
+include ../blocks/modules/maps-container/maps-container 
 
 
 block variables
@@ -10,10 +14,15 @@ block aside
   +menu-left()
 
 block pa-header
-  div pa-header
+  +header-search()
+  +header-profile()
+  +header-wallet()
+
+block pa-action
+
 
 block pa-main
-  div pa-main
+  +maps-container()
 
 block scripts
   script(src="js/main.js?v=1.52")

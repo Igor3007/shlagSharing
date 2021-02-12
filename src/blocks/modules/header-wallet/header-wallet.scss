@@ -1,0 +1,30 @@
+.header-wallet {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: rem(7);
+    border-radius: rem(40);
+
+    &__current {
+
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+
+        & svg {
+            width: rem(16);
+            height: rem(16);
+            margin-right: rem(10);
+        }
+
+        & span {
+            font-size: 16px;
+        }
+    }
+
+    &__add a {
+        display: flex;
+        align-items: center;
+        margin-left: rem(15);
+    }
+}

@@ -10,6 +10,20 @@ import Swiper, {
 
 svgPolyfill();
 Swiper.use([Pagination, Navigation, Thumbs, Autoplay]);
+     
+    ymaps.ready(init);
+
+    function init(){
+        var myMap = new ymaps.Map("maps-container", {
+            center: [55.76, 37.64],
+            zoom: 7,
+            controls: []
+        },
+        {
+            suppressMapOpenBlock: true
+        });
+    }
+ 
 
 
 // import $ from 'jquery';
