@@ -31,8 +31,20 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #ddd;
     display: block;
     transition: 0.3s ease;
+
+}
+
+@mixin bgimage_cover-scale {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    transition: 0.3s ease;
+    background-color: #ddd;
 
     &:hover {
         transform: scale(1.05);
@@ -44,6 +56,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #ddd;
     display: block;
 }
 

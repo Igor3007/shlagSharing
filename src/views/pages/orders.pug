@@ -3,13 +3,13 @@ include ../../blocks/modules/menu-left/menu-left
 include ../../blocks/modules/header-search/header-search
 include ../../blocks/modules/header-profile/header-profile
 include ../../blocks/modules/header-wallet/header-wallet
-include ../../blocks/modules/profile/profile-action/profile-action
-include ../../blocks/modules/profile/profile-page/profile-page 
+include ../../blocks/modules/order/order-action/order-action 
+include ../../blocks/modules/order/order-item/order-item 
 
 
 
 block variables
-//- include ../data/categories
+  include ../../data/orders 
 
 
 block aside
@@ -21,10 +21,14 @@ block pa-header
   +header-wallet()
 
 block pa-action
-  +profile-action()
+  +order-action()
 
 block pa-main
-  +profile-page()
+  .box-orders
+    .box-orders__list
+      each item in orders
+        .box-orders__item
+          +order-item(item)
 
 block scripts
   script(src="js/main.js?v=1.52")

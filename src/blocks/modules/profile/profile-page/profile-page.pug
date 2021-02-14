@@ -3,6 +3,8 @@ mixin profile-page()
     .profile-page__balance
       .profile-page__current
         +icons('#ic_cash')
+        span Баланс: 
+        span 1920 руб.
       .profile-page__topup
       button.btn.btn-red Пополнить
     .profile-page__personal
@@ -13,7 +15,12 @@ mixin profile-page()
         .profile-page__item
           .profile-page__item-label Имя:
           .profile-page__item-text ivanstepanov
+          .profile-page__item-link
+            a(href="#edit") Изменить
+
         .profile-page__item
           .profile-page__item-label Телефоны:
           .profile-page__item-text + 7 (952) 154-25-45
           .profile-page__item-text + 7 (987) 265-63-21
+          .profile-page__item-link
+            a(href="#edit") Добавить

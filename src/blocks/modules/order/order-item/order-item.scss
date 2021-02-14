@@ -1,0 +1,132 @@
+.order-item {
+
+    background: #FFFFFF;
+    border: 1px solid $mgray;
+    box-sizing: border-box;
+    border-radius: rem(20);
+    margin-bottom: rem(10);
+    font-size: rem(14);
+
+    & a {
+        font-size: rem(14);
+    }
+
+
+    &__head {
+        display: flex;
+        padding: rem(10) rem(20);
+        border-bottom: 1px solid $mgray;
+        align-items: center;
+    }
+
+    &__title {
+        flex-grow: 1;
+
+        & span {
+            color: $gray;
+            margin-left: rem(10);
+        }
+    }
+
+    &__main {
+        display: flex;
+        padding: rem(20) rem(20);
+
+        &>div {
+            flex-grow: 1;
+            width: 100%;
+        }
+    }
+
+    &__edit,
+    &__edit a {
+        display: flex;
+        align-items: center;
+    }
+
+
+
+    &__image {
+        max-width: rem(180);
+        min-width: rem(180);
+        margin-right: rem(15);
+
+        & span.bgimage {
+            @include bgimage-cover();
+            padding-top: 70%;
+        }
+    }
+
+    &__action {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__cnt {
+        flex-grow: 1;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 30px;
+
+        & a {
+            margin-left: rem(10);
+        }
+    }
+
+    &__count,
+    &__price {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__price span {
+        color: $gray;
+        margin-right: rem(5);
+    }
+
+    &__count {
+        a {
+            color: $red;
+            text-decoration: underline;
+        }
+    }
+
+
+}
+
+.order-props {
+    &__address {
+        font-size: rem(16);
+        margin-bottom: rem(20);
+        display: flex;
+        align-items: center;
+
+        & svg {
+            margin-right: rem(10);
+        }
+    }
+
+    &__all {
+
+        & li {
+            margin-bottom: rem(10);
+        }
+
+        & span {
+            color: $gray;
+            margin-right: rem(5);
+        }
+    }
+
+    &__link {
+        a {
+            color: $red;
+            text-decoration: underline;
+        }
+    }
+}

@@ -2,9 +2,9 @@
 
     color: #fff;
     border: none;
-    padding: 1em 2.6em;
+    padding: 0.9em 2.6em;
     color: #fff;
-    background: $blue;
+    background: $red;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -12,6 +12,7 @@
     border-radius: none;
     text-transform: uppercase;
     border-radius: 60px;
+    min-width: rem(130);
 
     font-style: normal;
     font-weight: bold;
@@ -75,16 +76,41 @@
     }
 
     &.btn-line {
-        border: 1px solid $grayBlue;
+        border: 1px solid #bcbcbc;
         background: none;
         text-transform: uppercase;
         font-weight: bold;
-        color: $grayBlue;
+        color: $gray;
 
         &:hover {
             background-color: $grayBlue;
             color: #fff !important;
             border-color: $grayBlue
+        }
+    }
+
+    &.btn-red-line {
+        border: 1px solid $red;
+        background: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $red;
+
+        & svg {
+            fill: $red;
+
+            position: relative;
+            left: rem(-12);
+        }
+
+        &:hover {
+            background-color: $red;
+            color: #fff !important;
+            border-color: $red;
+
+            & svg {
+                fill: #fff;
+            }
         }
     }
 

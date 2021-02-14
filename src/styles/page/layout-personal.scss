@@ -36,9 +36,16 @@
     &__main {
         flex-grow: 1;
         position: relative;
+        padding: 0 rem(30);
     }
 
     &__action {
         background-color: #f8f8f8;
+        padding: 0 rem(30);
     }
+}
+
+.box-orders {
+    max-width: 850px;
+    padding: rem(30) 0
 }

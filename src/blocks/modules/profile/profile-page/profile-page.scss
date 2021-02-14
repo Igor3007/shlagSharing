@@ -1,0 +1,64 @@
+.profile-page {
+
+    max-width: rem(630);
+    margin-right: auto;
+    padding: rem(30) 0;
+
+    &__balance {
+        display: flex;
+        align-items: center;
+
+        border: 1px solid $mgray;
+        padding: rem(15);
+        border-radius: rem(50);
+
+    }
+
+    &__current {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+
+        & span {
+            font-size: rem(24);
+        }
+
+        & svg {
+            margin-right: rem(20);
+            margin-left: rem(10);
+        }
+    }
+
+    &__personal {
+        padding-top: rem(30)
+    }
+
+    &__list {
+        @include row-flex();
+    }
+
+    &__item {
+        @include col();
+        @include size-w580(6);
+        @include size(12);
+
+        margin-bottom: rem(30);
+    }
+
+    &__item-label {
+        color: $gray;
+        margin-bottom: rem(8);
+    }
+
+    &__item-text {
+        font-size: rem(16);
+        margin-bottom: rem(5);
+    }
+
+    &__item-link {
+        & a {
+            color: $red;
+            text-decoration: underline;
+        }
+    }
+}

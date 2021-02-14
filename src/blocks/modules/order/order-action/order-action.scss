@@ -1,0 +1,10 @@
+.order-action {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    max-width: rem(850);
+
+    &__title {
+        flex-grow: 1;
+    }
+}
