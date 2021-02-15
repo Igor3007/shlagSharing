@@ -1,0 +1,23 @@
+extends ../layouts/register
+
+block variables
+  include ../../data/orders
+
+
+block sh-modal-content
+  .user-login
+    .user-login__logo: img(src="/img/common/logo.jpg")
+    .user-login__form
+      form(action="#")
+        .form
+          .form__item: .form__subitem: +input('tel','Ваш номер телефона', 'phone')
+          .form__item: .form__subitem: +input('password','Пароль', 'email')
+          .form__item: button.btn.btn-full.btn-big(type="submit") Войти
+    .user-login__recovery
+      a(href="/recovery.html") Забыли пароль?
+    .user-login__register
+      a(href="/register.html") Зарегистрироваться
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js")

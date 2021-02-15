@@ -1,0 +1,48 @@
+.register-page {
+    height: 100vh;
+    position: relative;
+
+    &__bg {
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__content {
+        @include layer(1);
+        overflow-y: auto;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.sh-modal {
+    background: #fff;
+    max-width: rem(440);
+    width: 100%;
+    margin: auto;
+    padding: rem(50) rem(60);
+    border-radius: rem(20);
+}
+
+.user-login {
+    &__logo {
+
+        margin-top: rem(-30);
+
+        & img {
+            max-width: rem(135);
+            margin: 0 auto;
+        }
+    }
+
+    &__recovery,
+    &__register {
+        text-align: center;
+        margin-top: rem(20);
+
+        & a {
+            color: $red;
+        }
+    }
+}

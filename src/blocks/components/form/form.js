@@ -7,7 +7,7 @@ $(document).ready(function () {
         return re.test(String(email).toLowerCase());
     }
 
-    $(document).on('keyup', 'input[type=text], input[type=email], textarea', function(){
+    $(document).on('keyup', 'input[type=text], input[type=email], input[type=password], textarea', function(){
         
         let value = $(this).val();
         let elem = $(this);
@@ -20,10 +20,20 @@ $(document).ready(function () {
 
                 if(!validateEmail(value)){
                     elem.attr('area-valid', 'false')
-                    elem.parent().find('.tooltip').text('Не корректный Email')
+                    //elem.parent().find('.tooltip').text('Не корректный Email')
                 }else{
                     elem.attr('area-valid', 'true')
                 }
+
+            break;
+
+            case 'password': 
+
+            if(value.length < 6){
+                elem.attr('area-valid', 'false')
+            }else{
+                elem.attr('area-valid', 'true')
+            }
 
             break;
             

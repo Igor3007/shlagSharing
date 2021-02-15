@@ -96,6 +96,14 @@
         }
     }
 
+    &__state {
+        padding-left: rem(25);
+
+        & .gold {
+            color: #C59900
+        }
+    }
+
 
 }
 
