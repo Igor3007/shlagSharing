@@ -1,0 +1,29 @@
+.user-login {
+    &__logo {
+
+        margin-top: rem(-15);
+
+        & img {
+            max-width: rem(135);
+            margin: 0 auto;
+        }
+    }
+
+    &__recovery,
+    &__register {
+        text-align: center;
+        margin-top: rem(15);
+
+        & a {
+            color: $red;
+        }
+    }
+
+    &__recovery {
+        margin-top: rem(30);
+    }
+
+    &__form {
+        margin-top: rem(30);
+    }
+}

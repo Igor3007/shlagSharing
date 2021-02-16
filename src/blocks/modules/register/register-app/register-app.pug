@@ -1,0 +1,17 @@
+mixin register-app()
+  .register-app
+    .register-app__logo: img(src="/img/common/logo.jpg")
+    .register-app__title Регистрация
+    .register-app__subtitle Вы можете зарегестрироваться в сервисе через мобильное приложение ШлагSharing
+    .register-app__apps
+      .register-app__googlePlay
+        a(href="#")
+          +icons('#ic_google-play', 24)
+          span Доступно в Google Play
+      .register-app__appStore
+        a(href="#")
+          +icons('#ic_app-store', 24)
+          span Доступно в App Store
+    .register-app__register или продолжить регистрацию на сайте
+    .register-app__btn
+      a(href="/register.html"): button.btn.btn-full.btn-big Зарегистрироваться

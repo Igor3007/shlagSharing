@@ -1,0 +1,70 @@
+.register-app {
+    &__logo {
+
+        margin-top: rem(-15);
+
+        & img {
+            max-width: rem(135);
+            margin: 0 auto;
+        }
+    }
+
+    &__title {
+        font-size: rem(24);
+        line-height: 160%;
+        text-align: center;
+        margin-top: rem(25);
+    }
+
+    &__register,
+    &__subtitle {
+        font-size: rem(14);
+        line-height: 140%;
+        text-align: center;
+        color: #838383;
+        margin-top: rem(25);
+    }
+
+    &__apps {
+        margin-top: rem(25);
+
+        & div {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+    &__googlePlay a,
+    &__appStore a {
+        height: rem(58);
+        border: 1px solid $red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: rem(60);
+        margin-top: rem(10);
+        font-size: rem(16);
+
+        & svg {
+            margin-right: rem(16);
+            fill: $red
+        }
+
+        &:hover {
+            color: #fff;
+            background: $red;
+
+            & svg {
+                fill: #fff;
+            }
+        }
+    }
+
+    &__btn {
+        margin-top: rem(25);
+    }
+
+
+}

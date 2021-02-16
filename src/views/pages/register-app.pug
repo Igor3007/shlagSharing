@@ -1,12 +1,12 @@
 extends ../layouts/register
-include ../../blocks/modules/register/user-login/user-login
+include ../../blocks/modules/register/register-app/register-app
 
 block variables
   include ../../data/orders
 
 
 block sh-modal-content
-  +user-login()
+  +register-app()
 
 block scripts
   script(src="js/main.js?v=1.52")
