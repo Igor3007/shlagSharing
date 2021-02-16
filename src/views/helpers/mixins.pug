@@ -53,14 +53,17 @@ mixin input-material(type, placeholder, tooltip, valid)
   .input-material
     input(type=''+type+'', data-valid-type=''+(valid ? valid : '')+'' )
     span.bar
-    label= placeholder
+    label= placeholder 
     if tooltip
       span.tooltip= tooltip
 
 mixin input(type, placeholder, valid)
   .input-primary
     input(type=''+type+'', placeholder=placeholder data-valid-type=''+(valid ? valid : '')+'' )
-    span.tooltip
+    if type == 'password'
+      span.tooltip-showpass
+    else
+      span.tooltip
 
 mixin textarea(placeholder, tooltip, rows, cols)
   .input-material

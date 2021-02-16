@@ -10,6 +10,10 @@ import Swiper, {
 
 svgPolyfill();
 Swiper.use([Pagination, Navigation, Thumbs, Autoplay]);
+
+import $ from 'jquery';
+import 'jquery.inputmask/dist/jquery.inputmask.bundle';
+import './import/jquery.fancybox.min';
      
     // ymaps.ready(init);
 
@@ -26,9 +30,7 @@ Swiper.use([Pagination, Navigation, Thumbs, Autoplay]);
  
 
 
-// import $ from 'jquery';
-// import 'jquery.inputmask/dist/jquery.inputmask.bundle';
-// import './import/jquery.fancybox.min';
+
 
 // /* главная баннер */
 

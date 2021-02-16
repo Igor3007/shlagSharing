@@ -5,7 +5,7 @@ mixin register-recovery-new()
     .recovery-new__form 
       form(action="#")
         .form
-          .form__item: .form__subitem: +input('password', 'Введите номер телефона')
+          .form__item: .form__subitem: +input('password', 'Введите новый пароль')
           .form__item: .form__subitem: +input('password', 'Подтверждение пароля')
           .form__item
             ul.valid-rules
@@ -20,4 +20,4 @@ mixin register-recovery-new()
                 | должен содержать не менее одной заглавной буквы»
           .form__item
             .form__subitem
-              button(type="submit").btn.btn-full.btn-big Войти в личный кабинет
+              button(type="submit").btn.btn-full.btn-big Войти в личный кабинет 

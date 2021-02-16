@@ -31,30 +31,31 @@
             display: none;
         }
 
-        margin-bottom: rem(20);
+        margin-bottom: 1.33333rem;
         font-weight: 500;
         font-size: 13px;
         line-height: 116%;
         color: #86A5C1;
+        height: 100px;
+        border: 2px dashed #D8D8D8;
+        box-sizing: border-box;
+        border-radius: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & svg {
+            margin-right: rem(25);
+        }
 
         & span {
 
-            border-bottom: 1px dashed $grayBlue;
             cursor: pointer;
             position: relative;
+            color: $gray;
+            font-size: rem(14);
 
-            &:hover {
-                color: $blue;
-            }
-
-            &::after {
-                content: '+';
-                font-family: arial;
-                position: absolute;
-                right: -12px;
-                font-size: 15px;
-                top: 2px;
-            }
         }
     }
 
@@ -62,9 +63,17 @@
 
     & textarea {
         min-height: rem(40);
-        height: rem(40);
         max-width: 100%;
         resize: vertical;
+        width: 100%;
+        border: 1px solid $mgray;
+        padding: rem(15) rem(25);
+        border-radius: rem(20);
+
+        &:focus {
+            outline: none !important;
+        }
+
     }
 
     &__item {
@@ -401,6 +410,7 @@
             padding: 0 rem(25);
         }
 
+        & .tooltip-showpass,
         & .tooltip {
             width: rem(20);
             height: rem(20);
@@ -421,6 +431,12 @@
             &::before {
                 display: none;
             }
+        }
+
+        & .tooltip-showpass {
+            opacity: 1;
+            background-image: url(/img/svg/ic_eye.svg);
+            cursor: pointer;
         }
 
         & textarea[area-valid=false]~.tooltip,

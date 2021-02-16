@@ -16,6 +16,20 @@
     }
 }
 
+.valid-rules {
+    font-size: 12px;
+    line-height: 180%;
+    color: #838383;
+    margin-bottom: rem(10);
+    margin-left: rem(5);
+
+    & li {
+        &.active {
+            color: #00a711;
+        }
+    }
+}
+
 .sh-modal {
     background: #fff;
     max-width: rem(440);

@@ -1,0 +1,36 @@
+mixin support()
+  .support-page
+    .support-page__info Если у вас  возникли вопросы, можете заполнить обращение в этом разделе  или перейти в чат техподдержки в мессенджерах
+    .support-page__msg
+      .support-page__wa
+        a(href="#")
+          +icons('#ic_whatsapp', 24)
+          span WhatsApp
+
+      .support-page__tg
+        a(href="#")
+          +icons('#ic_tgram', 24)
+          span Telegram
+
+    .support-page__form
+      form
+        .form(action="#")
+          .form__item
+            .form__subitem: +input('text', 'Имя')
+            .form__subitem: +input('tel', 'Телефон')
+          .form__item
+            .form__subitem: +input('email', 'Email')
+            .form__subitem
+          .form__item
+            .form__subitem
+              textarea(placeholder="Ваше сообщение")
+          .form__item
+            label(for='attach-file')
+              input(id='attach-file' type="file" name="file")
+              +icons('#ic_attach-icon', 35)
+              span Прикрепить файл
+          .form__item
+            .form__subitem
+              span.recaptcha
+            .form__subitem
+              button.btn.btn-full.btn-big Отправить
