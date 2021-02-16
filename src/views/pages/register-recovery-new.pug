@@ -1,12 +1,12 @@
 extends ../layouts/register
-include ../../blocks/modules/register/register-confirm-email/register-confirm-email
+include ../../blocks/modules/register/register-recovery-new/register-recovery-new
 
 block variables
   include ../../data/orders
 
 
 block sh-modal-content
-  +register-confirm-email()
+  +register-recovery-new()
 
 block scripts
   script(src="js/main.js?v=1.52")

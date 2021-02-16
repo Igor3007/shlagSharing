@@ -1,0 +1,34 @@
+.recovery-new {
+
+    .valid-rules {
+        font-size: 12px;
+        line-height: 180%;
+        color: #838383;
+        margin-bottom: rem(10);
+        margin-left: rem(5);
+        padding: rem(10) 0;
+    }
+
+    &__logo {
+
+        margin-top: rem(-15);
+
+        & img {
+            max-width: rem(135);
+            margin: 0 auto;
+        }
+    }
+
+    &__title {
+        font-size: rem(24);
+        line-height: 160%;
+        text-align: center;
+    }
+
+
+    &__form {
+        margin-top: rem(20);
+    }
+
+
+}

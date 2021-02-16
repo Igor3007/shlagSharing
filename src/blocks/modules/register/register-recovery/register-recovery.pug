@@ -1,0 +1,11 @@
+mixin register-recovery()
+  .register-recovery
+    .register-recovery__logo: img(src="/img/common/logo.jpg")
+    .register-recovery__title Забыли пароль
+    .register-recovery__form 
+      form(action="#")
+        .form
+          .form__item: .form__subitem: +input('tel', 'Введите номер телефона')
+          .form__item
+            .form__subitem
+              button(type="submit").btn.btn-full.btn-big Отравить

@@ -1,4 +1,4 @@
-.confirm-email {
+.recovery-form {
     &__logo {
 
         margin-top: rem(-15);
@@ -23,14 +23,46 @@
     }
 
     &__title,
-    &__button,
     &__subtitle,
     &__form {
-        margin-top: rem(20);
+        margin-top: rem(25);
 
     }
 
+    .form__item--confirm-type {
 
+        justify-content: center;
+
+        & .form__subitem {
+            width: auto;
+            max-width: none;
+            flex-basis: auto;
+            flex-grow: 0;
+        }
+
+        margin-bottom: rem(15);
+
+        & .radio {
+
+            padding: 0 rem(10);
+
+            & input~.radio__text {
+                border-bottom: 1px dashed transparent;
+                color: $gray;
+            }
+        }
+
+        & .radio {
+            & input:checked~.radio__text {
+                border-bottom: 1px dashed #333;
+                color: #000;
+            }
+        }
+
+        & .radio__elem {
+            display: none;
+        }
+    }
 
 
 }

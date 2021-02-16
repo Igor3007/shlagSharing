@@ -1,0 +1,11 @@
+mixin register-confirm-email()
+  .confirm-email
+    .confirm-email__logo: img(src="/img/common/logo.jpg")
+    .confirm-email__title Подтверждение email
+    .confirm-email__subtitle Для верификации email на ваш адрес <a href="mailto:user@shlag.com">user@shlag.com</a>  направлено письмо c ссылкой для авторизации аккаунта
+    .confirm-email__button
+      a(href="#"): button.btn.btn-big.btn-full завершить регистрацию
+    .confirm-email__resend
+      .resend-code
+        .resend-code__timer Повторная отправка кода будет возможна через 59 сек
+        .resend-code__button: a(href="#") Выслать ссылку повторно  

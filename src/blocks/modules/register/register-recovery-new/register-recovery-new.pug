@@ -1,0 +1,23 @@
+mixin register-recovery-new()
+  .recovery-new
+    .recovery-new__logo: img(src="/img/common/logo.jpg")
+    .recovery-new__title Новый пароль
+    .recovery-new__form 
+      form(action="#")
+        .form
+          .form__item: .form__subitem: +input('password', 'Введите номер телефона')
+          .form__item: .form__subitem: +input('password', 'Подтверждение пароля')
+          .form__item
+            ul.valid-rules
+              li
+                span ✓ 
+                | не менее 8 символов (латинские буквы и цифры)
+              li
+                span ✓ 
+                | должен содержать не менее одной цифры
+              li
+                span ✓ 
+                | должен содержать не менее одной заглавной буквы»
+          .form__item
+            .form__subitem
+              button(type="submit").btn.btn-full.btn-big Войти в личный кабинет
