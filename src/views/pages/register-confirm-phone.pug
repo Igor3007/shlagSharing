@@ -1,13 +1,12 @@
 extends ../layouts/register
-include ../../blocks/modules/register/register-default/register-default
+include ../../blocks/modules/register/register-confirm-phone/register-confirm-phone
 
 block variables
-  include ../../data/orders 
+  include ../../data/orders
 
 
 block sh-modal-content
-  +register-default()
-
+  +register-confirm-phone()
 
 block scripts
   script(src="js/main.js?v=1.52")

@@ -1,0 +1,94 @@
+.confirm-phone {
+    &__logo {
+
+        margin-top: rem(-15);
+
+        & img {
+            max-width: rem(135);
+            margin: 0 auto;
+        }
+    }
+
+    &__title {
+        font-size: rem(24);
+        line-height: 160%;
+        text-align: center;
+    }
+
+    &__subtitle {
+        font-size: rem(14);
+        line-height: 140%;
+        text-align: center;
+        color: #838383;
+    }
+
+    &__title,
+    &__subtitle,
+    &__form {
+        margin-top: rem(25);
+
+    }
+
+    .form__item--confirm-type {
+
+        justify-content: center;
+
+        & .form__subitem {
+            width: auto;
+            max-width: none;
+            flex-basis: auto;
+            flex-grow: 0;
+        }
+
+        margin-bottom: rem(15);
+
+        & .radio {
+
+            padding: 0 rem(10);
+
+            & input~.radio__text {
+                border-bottom: 1px dashed transparent;
+                color: $gray;
+            }
+        }
+
+        & .radio {
+            & input:checked~.radio__text {
+                border-bottom: 1px dashed #333;
+                color: #000;
+            }
+        }
+
+        & .radio__elem {
+            display: none;
+        }
+    }
+
+
+}
+
+.resend-code {
+    margin-top: rem(15);
+    margin-bottom: rem(25);
+    width: 100%;
+
+    &__timer,
+    &__button {
+        font-size: 12px;
+        line-height: 140%;
+        color: #838383;
+        text-align: center;
+        width: 100%;
+
+        & a {
+            font-size: 12px;
+            line-height: 140%;
+            color: $red;
+            text-decoration: underline;
+        }
+    }
+
+    &__button {
+        display: none;
+    }
+}

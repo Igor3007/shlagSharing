@@ -1,0 +1,47 @@
+.register-default {
+
+    .valid-rules {
+        font-size: 12px;
+        line-height: 180%;
+        color: #838383;
+        margin-bottom: rem(10);
+        margin-left: rem(5);
+    }
+
+    &__logo {
+
+        margin-top: rem(-15);
+
+        & img {
+            max-width: rem(135);
+            margin: 0 auto;
+        }
+    }
+
+    &__title {
+        font-size: rem(24);
+        line-height: 160%;
+        text-align: center;
+        margin-top: rem(25);
+    }
+
+    &__form {
+        margin-top: rem(25);
+    }
+
+    .form__item--politic {
+
+        margin-top: rem(25);
+
+        & label {
+            color: #838383;
+            font-size: rem(12);
+
+            & a {
+                color: #000;
+                text-decoration: underline;
+            }
+        }
+    }
+
+}

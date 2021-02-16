@@ -1,0 +1,26 @@
+mixin register-default()
+  .register-default
+    .register-default__logo: img(src="/img/common/logo.jpg")
+    .register-default__title Регистрация
+    .register-default__form
+      form(action="#")
+        .form
+          .form__item: .form__subitem: +input('tel', 'Телефон')
+          .form__item: .form__subitem: +input('Email', 'Email')
+          .form__item: .form__subitem: +input('password', 'Придумайте свой пароль')
+          .form__item: .form__subitem: +input('password', 'Подтверждение пароля')
+          .form__item
+            ul.valid-rules
+              li
+                span ✓ 
+                | не менее 8 символов (латинские буквы и цифры)
+              li
+                span ✓ 
+                | должен содержать не менее одной цифры
+              li
+                span ✓ 
+                | должен содержать не менее одной заглавной буквы»
+          .form__item: .form__subitem: +input('text', 'Промо-код')
+          .form__item: button.btn.btn-full.btn-big Зарегестрироваться
+          .form__item.form__item--politic: .form__subitem: +checkbox('Я принимаю условия <a href="#reles" >пользовательского соглащения</a>')
+
