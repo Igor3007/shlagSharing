@@ -5,7 +5,7 @@ mixin order-item(data)
         a(href='#')= data.title
         span= data.date
       .order-item__edit
-        a(href="#edit/?id="+data.id+""): +icons('#ic_edit', 17)
+        a(href="#" data-fancybox="" data-src="/_modal-edit-order.html" data-type="ajax"): +icons('#ic_edit', 17)
 
     .order-item__main
       if data.state != 'gold'

@@ -6,6 +6,8 @@
     width: auto;
     border-radius: 5px;
     background: none;
+    display: flex;
+    align-items: center;
 
     &.select-fill {
         & select {
@@ -14,6 +16,11 @@
             font-size: 13px;
             width: 230px;
         }
+    }
+
+    & svg {
+        min-width: rem(17);
+        margin-left: rem(15);
     }
 
 
@@ -25,12 +32,11 @@
         border-width: 0;
         height: 28px;
         padding-left: 12px;
-        min-width: 100%;
         cursor: pointer;
         outline: none;
         background: transparent;
         border-radius: 5px;
-        width: 100%;
+        width: auto;
         color: #939393;
         font-size: rem(14);
         max-width: 230px;

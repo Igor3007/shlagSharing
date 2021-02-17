@@ -1,0 +1,12 @@
+.order-add {
+    &__title {
+        @include modal-title;
+    }
+
+    & a {
+        color: $red;
+        border-bottom: 1px dashed $red;
+        margin: rem(5) 0;
+        display: block;
+    }
+}

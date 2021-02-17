@@ -30,6 +30,7 @@
     }
 }
 
+.sh-modal-tooltip,
 .sh-modal {
     background: #fff;
     max-width: rem(440);
@@ -45,4 +46,8 @@
         width: calc(100% - 20px)
     }
 
+}
+
+.sh-modal-tooltip {
+    max-width: rem(580);
 }

@@ -1,0 +1,25 @@
+.parking-add {
+    & .form .input-primary input {
+        height: rem(40);
+    }
+
+    &__title {
+        @include modal-title
+    }
+
+    &__subtitle {
+        @include modal-gray
+    }
+
+    &__form,
+    &__subtitle {
+        margin-top: rem(25);
+    }
+
+    & a {
+        color: $red;
+        border-bottom: 1px dashed $red;
+        margin: rem(5) 0;
+        display: block;
+    }
+}

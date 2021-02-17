@@ -65,6 +65,16 @@ mixin input(type, placeholder, valid)
     else
       span.tooltip
 
+mixin input-icon(type, placeholder, valid, icon)
+  .input-primary.input-icon
+    if icon
+      +icons(''+icon+'', 16)
+    input(type=''+type+'', placeholder=placeholder data-valid-type=''+(valid ? valid : '')+'' )
+    if type == 'password'
+      span.tooltip-showpass
+    else
+      span.tooltip
+
 mixin textarea(placeholder, tooltip, rows, cols)
   .input-material
     textarea(rows=''+rows+'', cols=''+cols+'')
@@ -80,6 +90,14 @@ mixin toggle(textOn, textOff)
       span.toggle-slide
       span.toggle-active= textOn
       span.toggle-deactive= (textOff ? textOff : textOn)
+
+mixin attach(id, text)
+  .input-attach
+    label(for=""+id+"")
+      input(type='file',  name=''+id+'',  id=''+id+'' )
+      if text
+        span.file-name
+        span.file-btn= text
 
 
 

@@ -1,0 +1,21 @@
+.tooltip-status {
+    &__title {
+        @include modal-title;
+    }
+
+    &__subtitle {
+        font-size: rem(16)
+    }
+
+    &__text {
+        @include modal-gray;
+    }
+
+    &__title,
+    &__subtitle,
+    &__text {
+        margin-bottom: rem(20);
+    }
+
+
+}

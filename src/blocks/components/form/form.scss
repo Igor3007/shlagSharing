@@ -59,8 +59,6 @@
         }
     }
 
-
-
     & textarea {
         min-height: rem(40);
         max-width: 100%;
@@ -98,7 +96,6 @@
             justify-content: flex-end;
         }
     }
-
 
     &__subitem {
         flex-grow: 1;
@@ -153,16 +150,31 @@
         }
     }
 
+    & .btn {
+        height: rem(40)
+    }
+
+    &__label {
+        @include modal-gray;
+        margin-bottom: rem(10);
+        margin-top: rem(10);
+    }
+
     &__select {
 
         position: relative;
         display: block;
         cursor: pointer;
         outline: none;
-        width: auto;
+        width: 100%;
         background: #fff;
-        border: 1px solid $lgray;
+        border: 1px solid $mgray;
+        border-radius: rem(40);
 
+
+        & .select {
+            width: 100%;
+        }
 
         & select {
             padding-right: 25px;
@@ -172,14 +184,14 @@
             border-width: 0;
             height: rem(40);
             padding-left: 12px;
-            min-width: 100%;
+            min-width: calc(100% - 50px);
             cursor: pointer;
             outline: none;
             background: #fff;
             border-radius: 5px;
             width: 100%;
             color: $gray;
-            font-style: italic;
+            border-radius: rem(40);
 
             & option {
                 font-family: 'arial';
@@ -449,6 +461,17 @@
                 display: none;
             }
         }
+
+        &.input-icon svg {
+            margin-left: rem(15);
+            min-width: rem(16);
+            width: rem(16);
+        }
+
+        &.input-icon input {
+            padding-left: rem(15);
+            width: calc(100% - 30px);
+        }
     }
 
 
@@ -479,4 +502,54 @@
             background-position: center;
         }
     }
+}
+
+.input-attach {
+    width: 100%;
+
+    & span.file-btn {
+        border: 1px solid #d8d8d8;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: rem(14);
+        text-transform: uppercase;
+        color: #818181;
+        border-radius: rem(50);
+        margin-left: auto;
+        display: inline-block;
+        padding: rem(7) rem(17);
+        cursor: pointer;
+        text-align: center;
+
+        &:hover {
+            border: 1px solid $red;
+            background: $red;
+            color: #fff;
+        }
+    }
+
+    & span.file-name {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 12px;
+        line-height: rem(30);
+        padding-left: rem(15);
+        color: $gray;
+    }
+
+    & label {
+        border: 1px solid #d8d8d8;
+        width: 100%;
+        border-radius: rem(50);
+        display: block;
+        text-align: right;
+        padding: rem(4);
+        display: flex;
+    }
+
+    & input {
+        display: none
+    }
+
 }

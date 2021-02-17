@@ -12,24 +12,50 @@ svgPolyfill();
 Swiper.use([Pagination, Navigation, Thumbs, Autoplay]);
 
 import $ from 'jquery';
-import 'jquery.inputmask/dist/jquery.inputmask.bundle';
 import './import/jquery.fancybox.min';
      
-    // ymaps.ready(init);
+    
 
-    // function init(){
-    //     var myMap = new ymaps.Map("maps-container", {
-    //         center: [55.76, 37.64],
-    //         zoom: 7,
-    //         controls: []
-    //     },
-    //     {
-    //         suppressMapOpenBlock: true
-    //     });
-    // }
+    function init(){
+        var myMap = new ymaps.Map("maps-container", {
+            center: [55.76, 37.64],
+            zoom: 7,
+            controls: []
+        },
+        {
+            suppressMapOpenBlock: true
+        });
+    }
+
+    if($('div').is('.maps-container')){
+        ymaps.ready(init);
+    }
  
+$(document).ready(function () {
 
+    /* init inputmask */
+    
+    function initInputMask(){
+        $("input[type=tel]").inputmask({
+            mask: '+7(999) 999-99-99',
+            showMaskOnHover: false,
+            oncomplete: function(elem){
+                elem.target.setAttribute('area-valid', 'true')
+            },
+            onincomplete: function(elem){
+                elem.target.setAttribute('area-valid', 'false')
+            },
+            oncleared: function(elem){
+                elem.target.removeAttribute('area-valid')
+            },
+            onKeyValidation: function(elem){
+                console.log(elem)
+            }
+        });
+    }
 
+    initInputMask();
+})
 
 
 // /* главная баннер */

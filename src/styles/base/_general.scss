@@ -93,3 +93,19 @@ img {
 .pull-left {
     justify-content: flex-start !important;
 }
+
+.fancybox-button {
+    width: rem(50);
+}
+
+.fancybox-button svg {
+    height: 30px;
+}
+
+.fancybox-button.fancybox-close-small svg path {
+    fill: #b2b2b2;
+}
+
+.fancybox-button.fancybox-close-small:hover svg path {
+    fill: $red;
+}

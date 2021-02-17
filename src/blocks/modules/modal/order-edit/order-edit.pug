@@ -1,0 +1,27 @@
+include ../../../../views/helpers/mixins
+
+mixin order-edit()
+  .order-edit
+    .order-edit__title Редактивание заявки
+    .order-edit__form
+      form(action='#' method='POST')
+        .form
+          .form__item: .form__label Выберите тип заявки
+          .form__item: .form__subitem: .form__select: +select(['Получение подменной парковки по бонуcам'])
+
+          .form__item: .form__label Выбор локации удобные для парковки по обмену через бонусные баллы:
+          .form__item: .form__subitem: +input-icon('text', 'ул. Череповецкая, д. 6', 'min8', '#ic_gps')
+
+          .form__item: a(href='#')
+            span(data-fancybox="2" data-src="https://yandex.com/map-widget/v1/-/CCUMvPu6tD" data-type="iframe") Добавить локацию
+
+          .form__item: .form__subitem: +checkbox('Ограниченная парковка (2 проезда в сутки)', 'limit-park')
+          .form__item: .form__subitem: +checkbox('Безлимитная парковка', 'limit-park', true)
+
+          .form__item: .form__label Статус заявки: 
+            span.state-tooltip( data-fancybox="1" data-src="_modal-tooltip-status-order.html" data-type="ajax")
+          .form__item: .form__subitem: .form__select: +select(['Золотой - 300 руб. за 7 дней', 'Простой - 100 руб. за 7 дней'])
+          .form__item: button(type="submit").btn.btn-full Добавить
+    .order-edit__insuff Недостаточно денежных средств на счете, необходимо
+      a(href='#') пополнить баланс
+

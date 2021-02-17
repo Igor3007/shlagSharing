@@ -11,6 +11,19 @@
     margin: auto;
 }
 
+@mixin modal-title {
+    font-size: rem(24);
+    line-height: 160%;
+    text-align: left;
+}
+
+@mixin modal-gray {
+    font-size: rem(14);
+    line-height: 140%;
+    color: #838383;
+}
+
+
 @mixin layer($z) {
     position: absolute;
     top: 0;

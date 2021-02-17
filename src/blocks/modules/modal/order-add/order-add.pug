@@ -1,0 +1,20 @@
+include ../../../../views/helpers/mixins
+
+mixin order-add()
+  .order-add
+    .order-add__title Добавление заявки
+    .order-add__form
+      form(action='#' method='POST')
+        .form
+          .form__item: .form__label Выберите тип заявки
+          .form__item: .form__subitem: .form__select: +select-icons(['Заявка на обмен парковками', 'Заявка на обмен парковками'])
+          .form__item: .form__label Выбор своей парковки, предлагаемой на обмен:
+          .form__item: .form__subitem: .form__select: +select-icons(['ул. Череповецкая, д. 6', 'ул. Череповецкая, д. 658'])
+          .form__item: .form__label Искомые локации парковки по обмену:
+          .form__item: .form__subitem: +input-icon('text', 'ул. Череповецкая, д. 6', 'min8', '#ic_gps')
+          .form__item: a(href='#')
+            span(data-fancybox="2" data-src="https://yandex.com/map-widget/v1/-/CCUMvPu6tD" data-type="iframe") Добавить локацию
+          .form__item: .form__label Статус заявки: 
+            span.state-tooltip( data-fancybox="1" data-src="_modal-tooltip-status-order.html" data-type="ajax")
+          .form__item: .form__subitem: .form__select: +select(['Золотой - 300 руб. за 7 дней', 'Простой - 100 руб. за 7 дней'])
+          .form__item: button(type="submit").btn.btn-full Добавить

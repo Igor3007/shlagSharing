@@ -157,6 +157,20 @@ $(document).ready(function () {
 
     });
 
+    /* input-attach */
+    $(document).on('change', '.input-attach input', function () {
+        let files = this.files;
+        let elem = $(this);
+
+        sendFiles(files, function (data) {
+            elem.parent()
+                .find('.file-name')
+                .text(data.name);
+        
+        });
+
+    });
+
     //showpass
     $(document).on('mousedown', '.tooltip-showpass', function(event){
         $(this).parent().children('input').attr('type', 'text')

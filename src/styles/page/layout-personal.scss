@@ -61,3 +61,16 @@
         line-height: 160%;
     }
 }
+
+.state-tooltip {
+    width: rem(16);
+    height: rem(16);
+    display: inline-block;
+    background-image: url('../img/svg/ic_help.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: relative;
+    top: rem(3);
+}

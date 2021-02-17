@@ -4,6 +4,13 @@ mixin select(data)
       each item in data
         option= item
 
+mixin select-icons(data)
+  .select
+    +icons('#ic_gps', 16)
+    select
+      each item in data
+        option= item
+
 mixin select-fill(data)
   .select.select-fill
     select

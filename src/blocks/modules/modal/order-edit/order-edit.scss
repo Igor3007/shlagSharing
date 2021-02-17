@@ -1,0 +1,30 @@
+.order-edit {
+
+    & .form input {
+        height: rem(40)
+    }
+
+    &__title {
+        @include modal-title;
+        margin-bottom: rem(5);
+    }
+
+    & a {
+        color: $red;
+        border-bottom: 1px dashed $red;
+        margin: rem(5) 0 rem(20) 0;
+        display: block;
+    }
+
+    &__insuff {
+
+        text-align: center;
+        @include modal-gray;
+        margin-top: rem(25);
+
+        & a {
+            display: inline;
+            margin-left: 5px;
+        }
+    }
+}
