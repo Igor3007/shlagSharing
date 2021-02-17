@@ -1,0 +1,32 @@
+.cash-payment {
+    &__title {
+        @include modal-title();
+    }
+}
+
+.select-digit {
+
+    padding-top: rem(10);
+    padding-bottom: rem(30);
+
+    & ul {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & li {
+            color: $red;
+            margin-right: rem(15);
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            & span {
+                border-bottom: 1px dashed $red;
+                cursor: pointer;
+            }
+        }
+    }
+}

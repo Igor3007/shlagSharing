@@ -1,10 +1,12 @@
 include ../box-bill/box-bill
+include ../history-item/history-item
 
-mixin my-cash()
+mixin my-cash(data)
   .my-cash
-    .my-cash__balance: +box-bill()
-    .my-cash__bonus: +box-bill()
+    .my-cash__balance: +box-bill('#ic_cash', 'Баланс: 1920 руб.' )
+    .my-cash__bonus: +box-bill('#ic_star', 'Бонусы: 550 руб.' )
     .my-cash__history
-      .my-cash__history-title
+      .my-cash__history-title История транзакций
       .my-cash__history-list
-        item
+        each item in data
+          +history-item(item)

@@ -1,0 +1,9 @@
+mixin history-item(data)
+  .history-item
+    .history-item__name= data.name
+    .history-item__date= data.date
+    .history-item__val
+      if data.type
+        span.green= data.val
+      else
+        span.red= data.val 

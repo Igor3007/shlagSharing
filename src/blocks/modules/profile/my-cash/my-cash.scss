@@ -1,0 +1,21 @@
+.my-cash {
+
+    max-width: rem(620);
+    margin-right: auto;
+    padding: rem(40) 0;
+
+    &__balance {
+
+        margin-bottom: rem(10);
+
+        & .box-bill__balance {
+            border-color: $red;
+        }
+    }
+
+    &__history-title {
+        font-size: rem(16);
+        color: #9B9B9B;
+        @include padd-x(40);
+    }
+}

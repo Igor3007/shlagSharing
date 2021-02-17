@@ -13,6 +13,7 @@ Swiper.use([Pagination, Navigation, Thumbs, Autoplay]);
 
 import $ from 'jquery';
 import './import/jquery.fancybox.min';
+import 'inputmask/dist/jquery.inputmask';
      
     
 
@@ -55,6 +56,15 @@ $(document).ready(function () {
     }
 
     initInputMask();
+
+    $(document).on('click', '.select-digit span', function(){
+
+        const summ = $(this).text()
+        $(this)
+            .parents('form')
+            .find('input')
+            .val(summ)
+    })
 })
 
 
