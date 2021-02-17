@@ -1,12 +1,9 @@
+include ../box-bill/box-bill
+
 mixin profile-page()
   .profile-page
     .profile-page__balance
-      .profile-page__current
-        +icons('#ic_cash')
-        span Баланс: 
-        span 1920 руб.
-      .profile-page__topup
-      button.btn.btn-red Пополнить
+      +box-bill('#ic_cash', 'Баланс: 1920 руб.')
     .profile-page__personal
       .profile-page__list
         .profile-page__item

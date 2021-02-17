@@ -1,0 +1,29 @@
+extends ../layouts/noheader
+include ../../blocks/modules/menu-left/menu-left
+include ../../blocks/modules/header-search/header-search
+include ../../blocks/modules/header-profile/header-profile
+include ../../blocks/modules/header-wallet/header-wallet
+include ../../blocks/modules/profile/my-cash/my-cash
+
+
+block variables
+//- include ../data/categories
+
+
+block aside
+  +menu-left()
+
+block pa-header
+  +header-search()
+  +header-profile()
+  +header-wallet()
+
+block pa-action
+  .page-title: h1 Мой счет
+
+block pa-main
+  +my-cash()
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js")

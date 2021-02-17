@@ -1,0 +1,10 @@
+include ../box-bill/box-bill
+
+mixin my-cash()
+  .my-cash
+    .my-cash__balance: +box-bill()
+    .my-cash__bonus: +box-bill()
+    .my-cash__history
+      .my-cash__history-title
+      .my-cash__history-list
+        item

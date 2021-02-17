@@ -4,30 +4,7 @@
     margin-right: auto;
     padding: rem(30) 0;
 
-    &__balance {
-        display: flex;
-        align-items: center;
 
-        border: 1px solid $mgray;
-        padding: rem(15);
-        border-radius: rem(50);
-
-    }
-
-    &__current {
-        display: flex;
-        align-items: center;
-        flex-grow: 1;
-
-        & span {
-            font-size: rem(24);
-        }
-
-        & svg {
-            margin-right: rem(20);
-            margin-left: rem(10);
-        }
-    }
 
     &__personal {
         padding-top: rem(30)
