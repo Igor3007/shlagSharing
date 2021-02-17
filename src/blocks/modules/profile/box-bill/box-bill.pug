@@ -1,8 +1,8 @@
-mixin box-bill(icon, text)
+mixin box-bill(icon, text, modal)
   .box-bill
     .box-bill__balance
       .box-bill__current
         +icons(''+icon+'')
         span= text
       .box-bill__topup
-        button.btn.btn-red(data-fancybox="" data-src="/_modal-payment.html" data-type="ajax") Пополнить
+        button.btn.btn-red(data-fancybox="" data-src=""+(modal ? modal : '/_modal-payment.html')+"" data-type="ajax") Пополнить

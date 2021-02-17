@@ -1,0 +1,24 @@
+include ../../../../views/helpers/mixins
+
+mixin cash-bonus()
+  .cash-bonus
+    .cash-bonus__title Пополнение бонусов
+    .cash-bonus__desc Каждому пользователю, который рекомендует своим друзьям, знакомым и коллегам сервис ШлагSharing мы начисляем 300 бонусных баллов на счет за каждого зарегистрировавшегося в сервисе пользователя, подавшего заявку на обмен. При этом бонусные баллы начисляются как пользователю-рекомендателю, так и новому пользователю, зарегистрировавшемуся по рекомендации.
+    .cash-bonus__form
+      form(action='#' method='POST')
+        .form
+          .form__item
+            .promocode
+              span Ваш промокод:
+              +input('text', 'Промокод')
+    .cash-bonus__text Распространить рекомендации в своих соцсетях Вы можете с любой страницы сервиса. Для этого необходимо кликнуть по иконке соответствующей соцсети или мессенджера и опубликовать (отправить) подготовленный промо-текст, содержащий Ваш личный промо-код.
+    .cash-bonus__share
+      .cash-bonus__share-title Получить бонусуные баллы
+      .social-share
+        ul
+          li.share-fb: a(href="#" target="_blank"): +icons('#ic_fb')
+          li.share-vk: a(href="#" target="_blank"): +icons('#ic_vk')
+          li.share-tw: a(href="#" target="_blank"): +icons('#ic_tw')
+          li.share-ig: a(href="#" target="_blank"): +icons('#ic_ig')
+          li.share-tg: a(href="#" target="_blank"): +icons('#ic_tg')
+          li.share-wa: a(href="#" target="_blank"): +icons('#ic_wa')
