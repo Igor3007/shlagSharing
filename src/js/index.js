@@ -17,20 +17,7 @@ import 'inputmask/dist/jquery.inputmask';
      
     
 
-    function init(){
-        var myMap = new ymaps.Map("maps-container", {
-            center: [55.76, 37.64],
-            zoom: 7,
-            controls: []
-        },
-        {
-            suppressMapOpenBlock: true
-        });
-    }
-
-    if($('div').is('.maps-container')){
-        ymaps.ready(init);
-    }
+    
  
 $(document).ready(function () {
 

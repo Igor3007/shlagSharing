@@ -1,0 +1,30 @@
+mixin footer()
+  .container
+    .footer
+      .footer__share
+        .footer__share-title Получить бонусные баллы на счет
+        .footer__share-list
+          ul
+            li.share-fb: a(href="#" target="_blank"): +icons('#ic_fb')
+            li.share-vk: a(href="#" target="_blank"): +icons('#ic_vk')
+            li.share-tw: a(href="#" target="_blank"): +icons('#ic_tw')
+            li.share-ig: a(href="#" target="_blank"): +icons('#ic_ig')
+            li.share-tg: a(href="#" target="_blank"): +icons('#ic_tg')
+            li.share-wa: a(href="#" target="_blank"): +icons('#ic_wa')
+
+
+      .footer__app
+        .footer__apple-store
+          a(href='#')
+            .link-store
+              .link-store__icon: +icons('#ic_google-play')
+              .link-store__text
+                .link-store__desc Доступно в 
+                .link-store__name Google play
+        .footer__google-store
+          a(href='#')
+            .link-store
+              .link-store__icon: +icons('#ic_app-store')
+              .link-store__text
+                .link-store__desc Доступно в 
+                .link-store__name App store

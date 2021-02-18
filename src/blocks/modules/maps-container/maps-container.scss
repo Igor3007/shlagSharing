@@ -10,3 +10,33 @@
 .ymaps-2-1-78-copyright__layout {
     display: none;
 }
+
+.sh-balloon {
+    background: #fff;
+    min-width: rem(150);
+    position: absolute;
+    border-radius: rem(20);
+    padding: rem(30) rem(25);
+
+    &__close {
+        background-image: url('/img/svg/ic_close.svg');
+        opacity: 0.2;
+        width: rem(15);
+        height: rem(15);
+        background-size: contain;
+        background-repeat: no-repeat;
+        font-size: 0;
+        position: absolute;
+        right: rem(12);
+        top: rem(12);
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    &__arrow {
+        display: none;
+    }
+}

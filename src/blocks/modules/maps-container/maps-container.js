@@ -1,2 +1,250 @@
-import "https://api-maps.yandex.ru/2.1-dev/?lang=ru_RU"
-import "../../../js/import/map.js"
+
+
+ymaps.ready(function () {
+    // Создание экземпляра карты и его привязка к созданному контейнеру.
+    var myMap = new ymaps.Map('maps-container', {
+            center: [55.751574, 37.573856],
+            zoom: 9,
+            controls: []
+        }, {
+            suppressMapOpenBlock: true
+        }),
+
+        // Создание макета балуна на основе Twitter Bootstrap.
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+
+            '<div class="sh-balloon" >'+
+                '<div class="sh-balloon__close" >+</div>'+
+                '<div class="sh-balloon__content" >$[[options.contentLayout observeSize minWidth=235 maxWidth=500 maxHeight=400]]</div>'+
+                '<div class="sh-balloon__arrow" >!</div>'+
+            '</div>',
+                 {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.sh-balloon', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.sh-balloon__close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.sh-balloon__close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.sh-balloon__arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.sh-balloon__arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.sh-balloon__arrow')[0];
+                }
+            }),
+
+        // Создание вложенного макета содержимого балуна.
+        MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div>$[properties.balloonContent]</div>'
+        ),
+
+        // Создание метки с пользовательским макетом балуна.
+        myPlacemark = window.myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+            balloonContent: ''
+        }, {
+            balloonShadow: false,
+            balloonLayout: MyBalloonLayout,
+            balloonContentLayout: MyBalloonContentLayout,
+            balloonPanelMaxMapArea: 0,
+            // Не скрываем иконку при открытом балуне.
+            hideIconOnBalloonOpen: false,
+            // И дополнительно смещаем балун, для открытия над иконкой.
+            balloonOffset: [3, -18],
+
+            // balloonContentLayout: LayoutActivatePoint,
+            iconLayout: 'default#image',
+            iconImageHref: '/img/svg/ic_pin-parking.svg',
+            iconImageSize: [53, 55],
+            pane: 'balloon'
+        });
+
+
+        myPlacemark.events.add('balloonopen', function (e) {
+            myPlacemark.properties.set('balloonContent', "Идет загрузка данных...");
+    
+            // Имитация задержки при загрузке данных (для демонстрации примера).
+            
+
+            $.ajax({
+                method: 'GET',
+                url: '/_modal-add-order.html',
+                dataType: 'html', 
+                success: function(response){
+                    myPlacemark.properties.set('balloonContent', response);
+                },
+                error: function(){
+                    myPlacemark.properties.set('balloonContent', 'что-то пошло не так');
+                }
+            })
+
+        });
+
+        
+
+    myMap.geoObjects.add(myPlacemark);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ymaps.ready(init);
+
+// function init () {
+//     var myMap = new ymaps.Map("map", {
+//             center: [54.83, 37.11],
+//             zoom: 5
+//         }, {
+//             searchControlProvider: 'yandex#search'
+//         }),
+//         // Метка, содержимое балуна которой загружается с помощью AJAX.
+//         placemark = new ymaps.Placemark([55.8, 37.72], {
+//             iconContent: "Узнать адрес",
+//             hintContent: "Перетащите метку и кликните, чтобы узнать адрес"
+//         }, {
+//             // Запретим замену обычного балуна на балун-панель.
+//             balloonPanelMaxMapArea: 0,
+//             draggable: "true",
+//             preset: "islands#blueStretchyIcon",
+//             // Заставляем балун открываться даже если в нем нет содержимого.
+//             openEmptyBalloon: true
+//         });
+
+//     // Обрабатываем событие открытия балуна на геообъекте:
+//     // начинаем загрузку данных, затем обновляем его содержимое.
+//     placemark.events.add('balloonopen', function (e) {
+//         placemark.properties.set('balloonContent', "Идет загрузка данных...");
+
+//         // Имитация задержки при загрузке данных (для демонстрации примера).
+//         setTimeout(function () {
+//             ymaps.geocode(placemark.geometry.getCoordinates(), {
+//                 results: 1
+//             }).then(function (res) {
+//                 var newContent = res.geoObjects.get(0) ?
+//                         res.geoObjects.get(0).properties.get('name') :
+//                         'Не удалось определить адрес.';
+
+//                 // Задаем новое содержимое балуна в соответствующее свойство метки.
+//                 placemark.properties.set('balloonContent', newContent);
+//             });
+//         }, 1500);
+//     });
+
+//     myMap.geoObjects.add(placemark);
+// }
+
