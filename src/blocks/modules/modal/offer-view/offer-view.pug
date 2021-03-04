@@ -1,0 +1,13 @@
+include ../../offer/offer-item/offer-item
+
+mixin offer-view()
+  .offer-view
+    .offer-view__head
+      .offer-view__title Предложения
+      .offer-view__inmap: a(href='#') Смотерть на карте
+    .offer-view__subtitle Количеством участников цепочки обмена: 
+      span 47/8
+    .offer-view__list
+      .offer-view__item
+        each item in [1,2,3]
+          +offer-item()

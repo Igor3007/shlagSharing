@@ -1,0 +1,60 @@
+.offer-item {
+
+    margin-bottom: rem(15);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__main {
+        display: flex;
+    }
+
+    &__image {
+        width: 20%;
+        margin-right: rem(15);
+
+        & .bgimage {
+            padding-top: 70%;
+            @include bgimage-cover;
+        }
+    }
+
+    &__props {
+        flex-grow: 1;
+    }
+
+    &__action {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__address {
+        display: flex;
+        align-items: center;
+
+        & span {
+            font-size: 16px;
+        }
+
+        & svg {
+            fill: $red;
+            width: rem(11);
+            height: rem(15);
+            margin-right: rem(8);
+        }
+    }
+
+    &__props-list {
+        & li {
+            font-size: 14px;
+            line-height: 140%;
+            color: #9B9B9B;
+
+            & span {
+                color: #000;
+            }
+        }
+    }
+}

@@ -36,7 +36,7 @@ mixin order-item(data)
         .order-item__cnt
 
           if data.count != 0 
-            .order-item__count: a(href="#")= data.count + ' предложение'
+            .order-item__count: a(href="#" data-fancybox="" data-src="/_modal-view-offers.html" data-type="ajax")= data.count + ' предложение'
 
           if data.price != 0 
             .order-item__price: a(href="#")

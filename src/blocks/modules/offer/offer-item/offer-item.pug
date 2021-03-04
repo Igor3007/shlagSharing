@@ -1,0 +1,22 @@
+include ../../../../views/helpers/mixins 
+
+mixin offer-item(data)
+  .offer-item
+    .offer-item__wrp
+      .offer-item__head
+      .offer-item__main
+        .offer-item__image
+          +bgimage('/src/img/orders/img1.jpg')
+        .offer-item__props
+          .offer-item__address
+            +icons('#ic_pin') 
+            span ул. Ейская д 8/29
+          .offer-item__props-list 
+            ul
+              li Тип шлагбаума: <span>ворота</span>
+              li Локация: <span>55.784058, 37.621779</span>
+              li Статус: <span>Успешное тестовое открытие</span>
+        .offer-item__action
+          .offer-item__cost Стоимость: <span>700 руб.<span>
+          .offer-item__btn
+            button.btn просмотр

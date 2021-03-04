@@ -9,4 +9,16 @@
         margin: rem(5) 0;
         display: block;
     }
+
+    &__insuff {
+
+        text-align: center;
+        @include modal-gray;
+        margin-top: rem(25);
+
+        & a {
+            display: inline;
+            margin-left: 5px;
+        }
+    }
 }

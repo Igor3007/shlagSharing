@@ -1,0 +1,36 @@
+.offer-view {
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-size: 24px;
+        line-height: 288.19%;
+        color: #000000;
+    }
+
+    &__inmap {
+        & a {
+            font-size: 14px;
+            line-height: 140%;
+            text-decoration-line: underline;
+            color: #E2243C;
+        }
+    }
+
+    &__subtitle {
+        font-size: 14px;
+        line-height: 140%;
+        color: #9B9B9B;
+
+        & span {
+            color: #000;
+        }
+    }
+
+    &__list {
+        margin-top: rem(30);
+    }
+}
