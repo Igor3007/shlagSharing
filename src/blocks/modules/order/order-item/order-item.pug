@@ -1,3 +1,5 @@
+include ../../common/point-props/point-props
+
 mixin order-item(data)
   .order-item
     .order-item__head
@@ -8,41 +10,39 @@ mixin order-item(data)
         a(href="#" data-fancybox="" data-src="/_modal-edit-order.html" data-type="ajax"): +icons('#ic_edit', 17)
 
     .order-item__main
-      if data.state != 'gold'
-        .order-item__image: +bgimage(data.image)
+      .order-item__image: +bgimage(data.image)
+
+      .order-item__location
+        .order-location
+          .order-location__title Парковка, предлагаемая на обмен:
+          .order-location__list
+            .order-location__address
+              +icons('#ic_pen')
+              span ул. Череповецкая д. 5/14
+          .order-location__inmap: a(href='#') Смотреть на карте
+
+      .order-item__location
+        .order-location
+          .order-location__title Искомые локации для обмена:
+          .order-location__list
+            .order-location__address
+              +icons('#ic_pen')
+              span ул. Ленина д. 9 корп. 4
+            .order-location__address
+              +icons('#ic_pen')
+              span пр-т Мира д. 1
+        .order-location__inmap: a(href='#') Смотреть на карте
+      .order-item__count
+        a(href='#') 1 предложение
+
+
+
+    .order-item__action
       .order-item__props
-        if data.state == 0
-          .order-props
-            .order-props__address
-              +icons('#ic_pen', 16)
-              span= data.address
-            .order-props__all
-              ul
-                each prop in data.params
-                  li
-                    span= prop.label
-                    a(href="#")= prop.text
-            .order-props__link
-              a(href=""+data.maplink+"") Смотреть на карте
-        if data.state === 'gold'
-          .order-props
-            .order-props__address
-              +icons('#ic_pen', 16)
-              span 55.8559055, 37.5208601
-            .order-props__state
-              span.gold Статус: золотой
-
-      .order-item__action
-        .order-item__cnt
-
-          if data.count != 0 
-            .order-item__count: a(href="#" data-fancybox="" data-src="/_modal-view-offers.html" data-type="ajax")= data.count + ' предложение'
-
-          if data.price != 0 
-            .order-item__price: a(href="#")
-              span Стоимость:
-              =data.price
-
-        .order-item__btn
-          a(href="#delete"): button.btn.btn-line Удалить
-          a(href="#activate"): button.btn.btn-red Активировать
+        +point-props([
+          'Статус заявки: Золотой',
+          'Со счета будет списано: 200 рублей и 100 бонусов',
+        ])
+      .order-item__btn
+        a(href="#delete"): button.btn.btn-line Удалить
+        a(href="#activate"): button.btn.btn-red Подтвердить

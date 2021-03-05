@@ -38,6 +38,15 @@
         }
     }
 
+    &__action {
+        display: flex;
+        padding: rem(20) rem(20);
+    }
+
+    &__props {
+        flex-grow: 1;
+    }
+
     &__edit,
     &__edit a {
         display: flex;
@@ -47,93 +56,79 @@
 
 
     &__image {
-        max-width: rem(180);
-        min-width: rem(180);
+        max-width: rem(115);
+        min-width: rem(115);
         margin-right: rem(15);
 
         & span.bgimage {
             @include bgimage-cover();
-            padding-top: 70%;
+            padding-top: 65%;
         }
     }
 
-    &__action {
-        display: flex;
-        flex-direction: column;
-    }
 
-    &__cnt {
+    &__location {
         flex-grow: 1;
     }
+
 
     &__btn {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        margin-top: 30px;
 
         & a {
             margin-left: rem(10);
         }
     }
 
-    &__count,
-    &__price {
+    &__count {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-    }
 
-    &__price span {
-        color: $gray;
-        margin-right: rem(5);
-    }
-
-    &__count {
-        a {
+        & a {
             color: $red;
             text-decoration: underline;
         }
     }
 
-    &__state {
-        padding-left: rem(25);
 
-        & .gold {
-            color: #C59900
-        }
-    }
 
 
 }
 
-.order-props {
+.order-location {
+
+    width: 100%;
+
     &__address {
-        font-size: rem(16);
-        margin-bottom: rem(20);
         display: flex;
         align-items: center;
 
-        & svg {
-            margin-right: rem(10);
-        }
-    }
-
-    &__all {
-
-        & li {
-            margin-bottom: rem(10);
-        }
-
         & span {
-            color: $gray;
-            margin-right: rem(5);
+            font-size: rem(14);
+        }
+
+        & svg {
+            fill: $red;
+            width: rem(11);
+            height: rem(15);
+            margin-right: rem(8);
         }
     }
 
-    &__link {
-        a {
+    &__title {
+        @include text-style-gray;
+        font-size: rem(14);
+    }
+
+    &__inmap {
+        padding-top: rem(10);
+
+        & a {
             color: $red;
+            font-size: rem(13);
             text-decoration: underline;
         }
     }
