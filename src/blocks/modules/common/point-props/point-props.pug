@@ -1,0 +1,10 @@
+mixin point-props(data)
+  .point-props
+    ul
+      each item in data
+        -
+          var i = item.split(':')
+
+        li= i[0]+': '
+          span= i[1]
+

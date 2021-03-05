@@ -1,0 +1,16 @@
+.point-props {
+    & li {
+        font-size: rem(14);
+        line-height: 140%;
+        color: #9B9B9B;
+        padding-top: rem(2);
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        & span {
+            color: #000;
+        }
+    }
+}

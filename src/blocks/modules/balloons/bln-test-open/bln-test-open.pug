@@ -1,0 +1,45 @@
+include ../../../../views//helpers/mixins
+include ../../common/point-props/point-props
+
+mixin bln-test-open()
+  .bln-test-open
+    .bln-test-open__wrp
+    .bln-test-open__info
+      .bln-test-open__image: +bgimage('/img/orders/img1.jpg')
+      .bln-test-open__desc
+        .bln-test-open__address
+          +icons('#ic_pin')
+          span ул. Череповецкая д. 5/14
+        .bln-test-open__props
+          +point-props([
+            'Тип шлагбаума: шлаг',
+            'Телефон шлагбаума: +7(123)123-45-67',
+            'Локация: 55.784058, 37.621779',
+            'Стоимость: 700 руб.',
+          ])
+    .bln-test-open__btn
+      a(href='offer-confirm.html'): button.btn Тестовое открытие
+    .bln-test-open__footer Для тестового открытия шлагбаума Вы должны находиться в зоне его визуального обзора, не более 150 метров.
+
+mixin bln-offer-confirm()
+  .bln-test-open
+    .bln-test-open__wrp
+    .bln-test-open__info
+      .bln-test-open__image: +bgimage('/img/orders/img1.jpg')
+      .bln-test-open__desc
+        .bln-test-open__address
+          +icons('#ic_pin')
+          span ул. Череповецкая д. 5/14
+        .bln-test-open__props
+          +point-props([
+            'Тип шлагбаума: шлаг',
+            'Телефон шлагбаума: +7(123)123-45-67',
+            'Локация: 55.784058, 37.621779',
+            'Стоимость: 700 руб.',
+          ])
+    .bln-test-open__btn
+      a(href='#'): button.btn Принять
+      a(href='#'): button.btn.btn-red-line Отклонить
+      a(href='#'): button.btn.btn-red-line Подумать
+    .bln-test-open__footer Для тестового открытия шлагбаума Вы должны находиться в зоне его визуального обзора, не более 150 метров.
+

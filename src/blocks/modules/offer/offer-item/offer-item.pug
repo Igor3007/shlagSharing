@@ -3,10 +3,11 @@ include ../../../../views/helpers/mixins
 mixin offer-item(data)
   .offer-item
     .offer-item__wrp
-      .offer-item__head
+      .offer-item__head Заявка на продажу № 384  
+        span 2020-10-20 14:40:50
       .offer-item__main
         .offer-item__image
-          +bgimage('/src/img/orders/img1.jpg')
+          +bgimage('/img/orders/img'+data+'.jpg')
         .offer-item__props
           .offer-item__address
             +icons('#ic_pin') 
@@ -19,4 +20,4 @@ mixin offer-item(data)
         .offer-item__action
           .offer-item__cost Стоимость: <span>700 руб.<span>
           .offer-item__btn
-            button.btn просмотр
+            a(href='/offer-test-open.html' ): button.btn просмотр 

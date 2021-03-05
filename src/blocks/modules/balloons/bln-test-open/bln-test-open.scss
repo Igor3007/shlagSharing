@@ -1,0 +1,63 @@
+.bln-test-open {
+
+    &__info {
+        display: flex;
+        align-items: stretch;
+    }
+
+    &__image {
+        width: 45%;
+
+        & .bgimage {
+            padding-top: 65%;
+            @include bgimage-cover;
+        }
+    }
+
+    &__desc {
+        width: 65%;
+        padding-left: rem(15);
+    }
+
+    &__btn {
+        text-align: center;
+        margin-top: rem(20);
+        display: flex;
+        justify-content: center;
+
+        & a {
+            margin: 0 rem(5);
+        }
+
+        & .btn {
+            height: rem(40)
+        }
+    }
+
+    &__address {
+        display: flex;
+        align-items: center;
+
+        & span {
+            font-size: rem(16);
+        }
+
+        & svg {
+            fill: $red;
+            width: rem(11);
+            height: rem(15);
+            margin-right: rem(8);
+        }
+    }
+
+    &__props {
+        padding-left: 18px;
+        padding-top: 15px;
+    }
+
+    &__footer {
+        @include text-style-gray;
+        text-align: center;
+        margin-top: rem(20);
+    }
+}

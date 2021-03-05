@@ -1,6 +1,9 @@
 
 
 ymaps.ready(function () {
+
+    var  icon = $('#maps-container').data('icon');
+
     // Создание экземпляра карты и его привязка к созданному контейнеру.
     var myMap = new ymaps.Map('maps-container', {
             center: [55.751574, 37.573856],
@@ -147,7 +150,7 @@ ymaps.ready(function () {
 
             // balloonContentLayout: LayoutActivatePoint,
             iconLayout: 'default#image',
-            iconImageHref: '/img/svg/ic_pin-parking.svg',
+            iconImageHref: icon, 
             iconImageSize: [53, 55],
             pane: 'balloon'
         });
