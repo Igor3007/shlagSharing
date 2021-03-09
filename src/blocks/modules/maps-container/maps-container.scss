@@ -1,4 +1,4 @@
-#maps-container {
+.maps-container {
     height: 100%;
     position: absolute;
     top: 0;
@@ -38,5 +38,23 @@
 
     &__arrow {
         display: none;
+    }
+}
+
+.baloon-loading {
+    display: flex;
+    padding: 10px 0px 10px 0;
+    text-align: center;
+    justify-content: center;
+
+    &::before {
+        content: '';
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        border: 1px solid #f00;
+        border-radius: 50%;
+        border-left-color: transparent;
+        animation: rotate 0.5s linear infinite;
     }
 }

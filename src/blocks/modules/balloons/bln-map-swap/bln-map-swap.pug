@@ -1,0 +1,19 @@
+include ../../common/point-props/point-props.pug
+include ../../../../views/helpers/mixins
+
+mixin bln-map-swap()
+  .bln-map-swap
+    .bln-map-swap__title
+      .bln-map-swap__address
+        +icons('#ic_pen')
+        span ул. Череповецкая д. 5/14
+      .bln-map-swap__status Ожидает ответа
+    .bln-map-swap__subtitle Заменяемая парковка
+    .bln-map-swap__props
+      +point-props([
+        'Тип шлагбаума: шлаг',
+        'Режим использования: Ограниченный (10 проездов в сутки)',
+      ])
+    .bln-map-swap__action
+      button.btn Открыть
+

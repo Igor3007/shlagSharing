@@ -1,0 +1,42 @@
+.bln-map-parking {
+
+    max-width: 375px;
+
+    &__address,
+    &__phone {
+        display: flex;
+        align-items: center;
+        font-size: rem(16);
+
+        & span {
+            font-size: rem(16);
+        }
+
+        & svg {
+            fill: $red;
+            width: rem(11);
+            height: rem(15);
+            margin-right: rem(8);
+        }
+    }
+
+    &__desc {
+        @include text-style-gray;
+        font-size: 13px;
+        line-height: 140%;
+        padding: 10px 0;
+        max-width: rem(327);
+    }
+
+    &__action {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+
+        & .btn {
+            max-width: rem(160);
+        }
+    }
+
+
+}

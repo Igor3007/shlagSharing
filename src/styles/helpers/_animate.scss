@@ -47,3 +47,13 @@
         transform: translateX(0);
     }
 }
+
+@keyframes rotate {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0);
+    }
+}

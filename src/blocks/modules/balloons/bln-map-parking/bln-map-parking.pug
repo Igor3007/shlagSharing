@@ -1,0 +1,15 @@
+include ../../../../views/helpers/mixins
+
+mixin bln-map-parking()
+  .bln-map-parking
+    .bln-map-parking__address
+      +icons('#ic_pen')
+      span ул. Выборгская д.18
+    .bln-map-parking__desc 125212, г Москва, Войковский р-н, ул Выборгская, д 18 стр 1
+    .bln-map-parking__phone
+      +icons('#ic_phone')
+      a(href='#') +7(557)434-56-47
+    .bln-map-parking__action
+      button.btn Активировать
+      button.btn.btn-red-line Редактировать
+

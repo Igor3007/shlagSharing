@@ -1,0 +1,33 @@
+include ../../../../views/helpers/mixins
+mixin bln-map-offer()
+  .bln-map-offer
+    .bln-map-offer__head
+      .bln-map-offer__title Заявка на обмен парковками № 384 <span>2020-10-20 14:40:50</span>
+      .bln-map-offer__edit: +icons('#ic_edit')
+    .bln-map-offer__offer
+      .bln-map-offer__cost Стоимость: <span>300 рублей</span>
+      .bln-map-offer__count 2 предложения
+    .bln-map-offer__main
+      .bln-map-offer__image: +bgimage('/img/orders/img2.jpg')
+      .bln-map-offer__location
+        .order-location
+          .order-location__title Парковка, предлагаемая на обмен:
+          .order-location__list
+            .order-location__address
+              +icons('#ic_pen')
+              span ул. Череповецкая д. 5/14
+        .order-location
+          .order-location__title Искомые локации для обмена:
+          .order-location__list
+            .order-location__address
+              +icons('#ic_pen')
+              span ул. Ленина д. 9 корп. 4
+            .order-location__address
+              +icons('#ic_pen')
+              span пр-т Мира д. 1
+        .bln-map-offer__mode  
+          .bln-map-offer__mode-title Режим использования: 
+          .bln-map-offer__mode-value Ограниченный 10 проездов сегодня
+    .bln-map-offer__action
+      button.btn.btn-line Удалить
+      button.btn Подтвердить
