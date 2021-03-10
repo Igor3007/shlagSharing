@@ -11,4 +11,10 @@ mixin bln-add-parking()
         'Локация: 55.784058, 37.621779'
       ])
     .bln-add-parking__btn
-      a(href='#'): button.btn Добавить
+      a(href='add-parking-map-2.html'): button.btn Добавить
+
+mixin bln-add-parking-2()
+  .bln-add-parking
+    .bln-add-parking__address
+      +icons('#ic_pen')
+      span ул. Выборгская д.18
