@@ -24,6 +24,10 @@
 
 .form {
 
+    & input:invalid {
+        box-shadow: none;
+    }
+
 
 
     & label[for="attach-file"] {

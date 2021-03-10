@@ -1,0 +1,7 @@
+mixin replace-action(data)
+  .replace-action
+    .replace-action__title: +h2(data[0])
+    if (data[1])
+      .replace-action__inmap
+        +icons('#ic_gps', 20)
+        a(href=''+data[1]+'') Смотреть на карте

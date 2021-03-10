@@ -1,0 +1,28 @@
+.bln-add-parking {
+    &__address {
+        display: flex;
+        align-items: center;
+
+        & span {
+            font-size: rem(14);
+        }
+
+        & svg {
+            fill: $red;
+            width: rem(11);
+            height: rem(15);
+            margin-right: rem(8);
+        }
+    }
+
+    &__props {
+        padding-top: rem(15);
+        padding-left: rem(18);
+        padding-bottom: rem(15);
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+    }
+}

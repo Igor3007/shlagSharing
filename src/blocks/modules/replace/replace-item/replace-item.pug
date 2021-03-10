@@ -1,0 +1,17 @@
+include ../../common/point-props/point-props.pug
+include ../../../../views/helpers/mixins
+
+mixin replace-item(data)
+  .replace-item
+    .replace-item__title
+      .replace-item__address
+        +icons('#ic_pen')
+        span= data.address
+      .replace-item__status Ожидает ответа
+    .replace-item__subtitle Заменяемая парковка
+    .replace-item__bottom
+      .replace-item__props
+        +point-props(data.props)
+      .replace-item__action
+        button.btn Открыть
+

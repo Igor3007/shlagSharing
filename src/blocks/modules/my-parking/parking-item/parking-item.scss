@@ -1,0 +1,124 @@
+.parking-item {
+
+    max-width: rem(850);
+    background: #FFFFFF;
+    border: 1px solid $mgray;
+    box-sizing: border-box;
+    border-radius: rem(20);
+    margin-bottom: rem(10);
+    font-size: rem(14);
+
+    &__head {
+        display: flex;
+        padding: rem(10) rem(20);
+        border-bottom: 1px solid $mgray;
+        align-items: center;
+    }
+
+    &__title {
+        flex-grow: 1;
+
+        & span {
+            color: $gray;
+            margin-left: rem(10);
+        }
+    }
+
+    &__props {
+        flex-grow: 1;
+    }
+
+    &__edit,
+    &__edit a {
+        display: flex;
+        align-items: center;
+    }
+
+    &__image {
+        max-width: rem(177);
+        min-width: rem(177);
+        margin-right: rem(15);
+
+        & span.bgimage {
+            @include bgimage-cover();
+            padding-top: 65%;
+        }
+
+        & a {
+            @include text-style-gray;
+            text-decoration: underline;
+            display: block;
+            text-align: center;
+            margin-top: rem(15);
+        }
+    }
+
+    &__inmap {
+        padding-top: rem(10);
+
+        & a {
+            color: $red;
+            font-size: rem(13);
+            text-decoration: underline;
+        }
+    }
+
+    &__address {
+        display: flex;
+        align-items: center;
+
+        & span {
+            font-size: rem(14);
+        }
+
+        & svg {
+            fill: $red;
+            width: rem(11);
+            height: rem(15);
+            margin-right: rem(8);
+        }
+    }
+
+    &__btn {
+        display: flex;
+
+        & a {
+            & .btn {
+                margin-left: 10px;
+            }
+
+            &:first-child {
+                & .btn {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    &__main {
+        display: flex;
+        padding: rem(25);
+    }
+
+    &__action {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    &__phone {
+        display: flex;
+        align-items: center;
+
+        & svg {
+            width: rem(20);
+            height: rem(20);
+            margin-right: rem(7);
+        }
+    }
+}
+
+.my-parking {
+    padding-top: 30px;
+}

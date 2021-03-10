@@ -1,0 +1,41 @@
+extends ../layouts/noheader
+include ../../blocks/modules/menu-left/menu-left
+include ../../blocks/modules/header-search/header-search
+include ../../blocks/modules/header-profile/header-profile
+include ../../blocks/modules/header-wallet/header-wallet
+include ../../blocks/modules/maps-container/maps-container 
+include ../../blocks/modules/replace/replace-action/replace-action.pug
+include ../../blocks/modules/my-parking/parking-item/parking-item
+
+
+block variables
+//- include ../data/categories
+
+
+
+block aside
+  +menu-left()
+
+block pa-header
+  +header-search()
+  +header-profile()
+  +header-wallet()
+
+block pa-action
+  +replace-action([
+    'Мои парковки',
+    '/my-parking-inmap.html',
+  ])
+
+block pa-main
+  .my-parking
+    .my-parking__list
+      each item in [1,2]
+        .my-parking__item
+          +parking-item(item)
+
+block scripts
+
+
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js")

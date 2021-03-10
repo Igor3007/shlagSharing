@@ -1,0 +1,23 @@
+.replace-action {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    max-width: rem(850);
+
+    &__title {
+        flex-grow: 1;
+    }
+
+    &__inmap {
+        display: flex;
+
+        & a {
+            color: $red;
+            border-bottom: 1px dashed $red;
+        }
+
+        & svg {
+            margin-right: rem(8);
+        }
+    }
+}

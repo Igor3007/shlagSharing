@@ -1,0 +1,29 @@
+include ../../common/point-props/point-props.pug
+
+mixin parking-item(data)
+  .parking-item
+    .parking-item__head
+      .parking-item__title Парковка № 384  2020-10-20 14:40:50
+      .parking-item__edit
+        a(href='#'): +icons('#ic_edit', 20)
+    .parking-item__main
+      .parking-item__image
+        +bgimage('/img/orders/img'+data+'.jpg')
+        a(href='#') История открытий
+      .parking-item__props
+        .parking-item__address
+          +icons('#ic_pen')
+          span ул. Череповецкая д. 5/14
+        +point-props([
+          'Тип шлагбаума: шлаг',
+          'Телефон шлагбаума: +7(123)123-45-67',
+          'Локация: 55.784058, 37.621779',
+        ])
+        .parking-item__inmap: a(href='#') Смотерть на карте
+      .parking-item__action
+        .parking-item__phone
+          +icons('#ic_phone')
+          a(href='#') +7(557)434-56-47
+        .parking-item__btn
+          a(href='#'): button.btn.btn-line Удалить
+          a(href='#'): button.btn.btn-red Активировать

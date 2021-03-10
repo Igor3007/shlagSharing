@@ -3,7 +3,8 @@ include ../blocks/modules/menu-left/menu-left
 include ../blocks/modules/header-search/header-search
 include ../blocks/modules/header-profile/header-profile
 include ../blocks/modules/header-wallet/header-wallet
-include ../blocks/modules/maps-home/maps-home 
+include ../blocks/modules/maps-home/maps-home
+include ../blocks/modules/map-filter/map-filter
 
 
 block variables
@@ -21,6 +22,7 @@ block pa-header
 
 block pa-action
 
+  +map-filter()
 
 block pa-main
   +maps-home()

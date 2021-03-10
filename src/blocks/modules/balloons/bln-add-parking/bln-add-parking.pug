@@ -1,0 +1,14 @@
+include ../../common/point-props/point-props.pug
+include ../../../../views/helpers/mixins.pug
+
+mixin bln-add-parking()
+  .bln-add-parking
+    .bln-add-parking__address
+      +icons('#ic_pen')
+      span ул. Выборгская д.18
+    .bln-add-parking__props
+      +point-props([
+        'Локация: 55.784058, 37.621779'
+      ])
+    .bln-add-parking__btn
+      a(href='#'): button.btn Добавить

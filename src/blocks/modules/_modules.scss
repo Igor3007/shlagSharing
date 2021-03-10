@@ -1,11 +1,15 @@
 @import "header/header";
 @import "footer/footer";
 @import "./menu-left/menu-left.scss";
+
 @import "./header-search/header-search.scss";
 @import "./header-profile/header-profile.scss";
 @import "./header-wallet/header-wallet.scss";
+
 @import "./maps-container/maps-container.scss";
 @import "./maps-home/maps-home.scss";
+@import "./maps-add-parking/maps-add-parking.scss";
+
 @import "./map-filter/map-filter.scss";
 @import "./support/support.scss";
 
@@ -40,7 +44,13 @@
 
 @import "./common/point-props/point-props.scss";
 
+@import "./my-parking/parking-item/parking-item.scss";
+
+@import "./replace/replace-action/replace-action.scss";
+@import "./replace/replace-item/replace-item.scss";
+
 @import "./balloons/bln-test-open/bln-test-open.scss";
 @import "./balloons/bln-map-swap/bln-map-swap.scss";
 @import "./balloons/bln-map-parking/bln-map-parking.scss";
 @import "./balloons/bln-map-offer/bln-map-offer.scss";
+@import "./balloons/bln-add-parking/bln-add-parking.scss";
