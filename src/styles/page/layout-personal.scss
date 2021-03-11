@@ -21,6 +21,11 @@
             background: #fff;
             top: 0;
             bottom: 0;
+            transition: 0.3s ease;
+
+            &.open {
+                transform: translateX(0%);
+            }
         }
     }
 

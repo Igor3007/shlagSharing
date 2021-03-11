@@ -1,6 +1,7 @@
 extends ../layouts/noheader
 include ../../blocks/modules/menu-left/menu-left
 include ../../blocks/modules/header-search/header-search
+include ../../blocks/modules/header-menu/header-menu
 include ../../blocks/modules/header-profile/header-profile
 include ../../blocks/modules/header-wallet/header-wallet
 include ../../blocks/modules/maps-add-parking/maps-add-parking 
@@ -16,6 +17,7 @@ block aside
   +menu-left()
 
 block pa-header
+  +header-menu()
   +header-search()
   +header-profile()
   +header-wallet()

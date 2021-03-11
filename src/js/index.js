@@ -55,5 +55,23 @@ $(document).ready(function () {
             .find('input')
             .val(summ)
     })
+
+    $(document).on('click', '.burger', function(){
+
+        $(this).toggleClass('open')
+        $('.personal-layout__aside').toggleClass('open')
+    })
+
+    //закрыть при клике вне
+    $(document).on('click', function (e) {
+        var div = $(".burger, .personal-layout__aside"); //класс элемента вне которого клик
+        if (!div.is(e.target) && div.has(e.target).length === 0) {
+          //закрыть popup
+          if ($('.burger').hasClass('open')) {
+            $('.burger').trigger('click')
+          }
+  
+        }
+      });
 })
 

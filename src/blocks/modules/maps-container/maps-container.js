@@ -10,7 +10,8 @@ ymaps.ready(function () {
                 zoom: 9,
                 controls: []
             }, {
-                suppressMapOpenBlock: true
+                suppressMapOpenBlock: true,
+                balloonPanelMaxMapArea: Infinity
             }),
 
             // Создание макета балуна на основе Twitter Bootstrap.
