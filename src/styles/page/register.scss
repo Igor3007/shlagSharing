@@ -2,6 +2,7 @@
     height: 100vh;
     position: relative;
 
+
     &__bg {
         height: 100vh;
         background-size: cover;
@@ -23,11 +24,20 @@
     margin-bottom: rem(10);
     margin-left: rem(5);
 
+    @media screen and (max-width: $w480) {
+        font-size: 11px;
+    }
+
     & li {
         &.active {
             color: #00a711;
         }
     }
+}
+
+.page-loaded .sh-modal {
+    animation: .3s slide-up;
+    opacity: 1;
 }
 
 .sh-modal-800,
@@ -39,12 +49,25 @@
     margin: auto;
     padding: rem(40) rem(55);
     border-radius: rem(20);
+    opacity: 0;
 
 
 
-    @media screen and (max-width: $w580) {
+    @media screen and (max-width: $w480) {
         padding: rem(30) rem(25);
-        width: calc(100% - 20px)
+        width: 100%;
+        max-width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-bottom: 0;
+
+    }
+
+    @media screen and (max-width: $w480) and (min-height: 620px) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 
 }

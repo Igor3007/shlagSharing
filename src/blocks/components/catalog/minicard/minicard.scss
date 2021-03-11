@@ -93,7 +93,7 @@
 
     &__title {
         padding: rem(4) 0 rem(15) 0;
-        font-size: 15px;
+        font-size: rem(15);
         line-height: 120%;
         font-weight: 500;
         min-height: rem(55);
@@ -153,7 +153,7 @@
 
     &__price-old {
         font-weight: 500;
-        font-size: 15px;
+        font-size: rem(15);
         text-decoration-line: line-through;
         color: $grayBlue;
     }

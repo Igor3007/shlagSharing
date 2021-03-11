@@ -2,10 +2,14 @@ html {
     font-family: Montserrat, arial;
     font-style: normal;
     font-weight: normal;
-    font-size: 15px;
+    font-size: rem(15);
     line-height: 140%;
     background: #f4f4f4;
     color: #000;
+
+    @media screen and (max-height: 760px) {
+        font-size: 13px;
+    }
 
     @media screen and (max-width: $w1440) {
         font-size: 14px;
@@ -13,6 +17,37 @@ html {
 
     @media screen and (max-width: $w1280) {
         font-size: 13px;
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: block;
+    height: calc(100vh - 129px);
+    overflow: hidden;
+
+    @media screen and (max-width: $w940) {
+        height: 100vh;
+    }
+}
+
+main.main-full-height {
+    display: block;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+
+
+main .container {
+    height: 100%;
+
+    @media screen and (max-width: $w940) {
+        padding: 0;
     }
 }
 
@@ -37,6 +72,11 @@ ul {
     list-style-type: none;
 }
 
+h2 {
+    font-size: rem(24);
+    font-weight: normal;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -50,6 +90,8 @@ img {
     display: block;
     max-width: 100%;
 }
+
+
 
 .hidden {
     overflow: hidden;

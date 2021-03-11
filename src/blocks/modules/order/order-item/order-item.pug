@@ -42,10 +42,44 @@ mixin order-item(data)
 
     .order-item__action
       .order-item__props
-        +point-props([
-          'Статус заявки: Золотой',
-          'Со счета будет списано: 200 рублей и 100 бонусов',
-        ])
+        +point-props(data.params)
       .order-item__btn
         a(href="#delete"): button.btn.btn-line Удалить
         a(href="#activate"): button.btn.btn-red Подтвердить
+
+mixin order-item-noimage(data)
+  .order-item(class="order-item--"+data.state+"")
+    .order-item__head
+      .order-item__title
+        a(href='#')= data.title
+        span= data.date
+      .order-item__edit
+        a(href="#" data-fancybox="" data-src="/_modal-edit-order.html" data-type="ajax"): +icons('#ic_edit', 17)
+
+    .order-item__main
+
+
+      .order-item__location
+        .order-location
+          .order-location__list
+            .order-location__address
+              +icons('#ic_pen')
+              span ул. Череповецкая д. 5/14
+          .order-location__inmap: a(href='#') Смотреть на карте
+
+
+      .order-item__count
+        if data.count > 0
+          a(href='#' data-fancybox="" data-src="/_modal-view-offers.html" data-type="ajax")= data.count+' предложение'
+        else
+          span Ожидает предложений
+
+
+
+    .order-item__action
+      .order-item__props
+        +point-props(data.params)
+      .order-item__btn
+        a(href="#delete"): button.btn.btn-line Удалить
+        a(href="#activate"): button.btn.btn-red Подтвердить
+

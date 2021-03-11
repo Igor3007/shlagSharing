@@ -2,11 +2,13 @@ include ../../../../views/helpers/mixins
 mixin bln-map-offer()
   .bln-map-offer
     .bln-map-offer__head
+      .bln-map-offer__status
+        span.offer-status-gold
       .bln-map-offer__title Заявка на обмен парковками № 384 <span>2020-10-20 14:40:50</span>
       .bln-map-offer__edit: +icons('#ic_edit')
     .bln-map-offer__offer
       .bln-map-offer__cost Стоимость: <span>300 рублей</span>
-      .bln-map-offer__count 2 предложения
+      .bln-map-offer__count: a(href='#' data-fancybox="" data-src="/_modal-view-offers.html" data-type="ajax") 2 предложения
     .bln-map-offer__main
       .bln-map-offer__image: +bgimage('/img/orders/img2.jpg')
       .bln-map-offer__location

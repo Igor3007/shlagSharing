@@ -36,6 +36,10 @@
         min-height: rem(53);
         border-top: 1px solid $lgray;
         border-bottom: 1px solid $lgray;
+
+        & a {
+            color: $red;
+        }
     }
 
     &__cost {

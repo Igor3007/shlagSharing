@@ -172,7 +172,7 @@
 
     &__price-current {
         font-weight: bold;
-        font-size: 15px;
+        font-size: rem(15);
         white-space: nowrap;
         min-width: rem(92);
         color: $blue;
@@ -251,7 +251,7 @@
     &__main {
         flex-grow: 1;
         max-width: 250px;
-        font-size: 15px;
+        font-size: rem(15);
         box-sizing: content-box;
     }
 

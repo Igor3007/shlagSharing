@@ -428,6 +428,7 @@
 
         & .tooltip-showpass,
         & .tooltip {
+            min-width: rem(20);
             width: rem(20);
             height: rem(20);
             display: inline-block;
@@ -436,6 +437,12 @@
             background-repeat: no-repeat;
             background-position: center;
             opacity: 0;
+
+            @media screen and (max-width: $w580) {
+                min-width: rem(17);
+                width: rem(17);
+                height: rem(17);
+            }
         }
 
         & textarea[area-valid=true]~.tooltip,

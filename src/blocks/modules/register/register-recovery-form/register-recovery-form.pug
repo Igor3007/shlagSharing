@@ -1,15 +1,15 @@
 mixin register-recovery-form()
   .recovery-form
-    .recovery-form__logo: img(src="/img/common/logo.jpg")
+    .recovery-form__logo: img(src="/img/common/logo.svg")
     .recovery-form__title Забыли пароль
     .recovery-form__subtitle Для обновления пароля к личному кабинету выберите метод доставки кода
     .recovery-form__form
-      form(action="#")
+      form(action="register-recovery-new.html")
         .form
           .form__item.form__item--confirm-type
             .form__subitem: +radio('СМС-код', 'phone-confirm-type', '1', true)
             .form__subitem: +radio('Телефонный звонок', 'phone-confirm-type', '2', false)
-          .form__item: .form__subitem: +input('text', 'Телефон')
+          .form__item: .form__subitem: +input('tel', 'Телефон')
           .form__item: .form__subitem: +input('text', 'Код из SMS')
           .form__item
             .resend-code

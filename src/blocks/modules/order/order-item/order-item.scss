@@ -115,7 +115,7 @@
 
     &__btn {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: flex-end;
 
         & a {
@@ -126,11 +126,27 @@
     &__count {
         display: flex;
         justify-content: flex-end;
-        align-items: center;
+        align-items: flex-start;
 
         & a {
             color: $red;
             text-decoration: underline;
+            display: flex;
+            align-items: center;
+
+            &::before {
+                content: '';
+                width: rem(10);
+                height: rem(10);
+                border-radius: 50%;
+                display: inline-block;
+                background-color: $red;
+                margin-right: rem(10);
+            }
+        }
+
+        & span {
+            color: $gray;
         }
     }
 
@@ -165,7 +181,7 @@
     }
 
     &__inmap {
-        padding-top: rem(10);
+        padding-top: rem(7);
 
         & a {
             color: $red;

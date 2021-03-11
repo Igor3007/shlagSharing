@@ -28,7 +28,11 @@ block pa-main
     .box-orders__list
       each item in orders
         .box-orders__item
-          +order-item(item)
+          if item.id < 3
+            +order-item(item)
+          else
+            +order-item-noimage(item)
+
 
 block scripts
   script(src="js/main.js?v=1.52")
