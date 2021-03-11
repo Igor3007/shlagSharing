@@ -26,3 +26,182 @@
         justify-content: center;
     }
 }
+
+.bln-confirm-parking {
+    &__main {
+        display: flex;
+    }
+
+    &__image {
+
+        width: 36%;
+        min-width: rem(170);
+
+        & label {
+
+            cursor: pointer;
+
+            & input {
+                display: none;
+            }
+
+            & span {
+
+                @include bgimage-cover;
+                padding-top: 65%;
+                background-color: #F8F8F8;
+            }
+        }
+
+        & .bgimage {
+            @include bgimage-cover;
+            padding-top: 65%;
+        }
+    }
+
+    &__history {
+        @include text-style-gray;
+        text-align: center;
+        padding-top: rem(7);
+        width: 100%;
+        display: block;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    &__data {
+        margin-left: rem(20);
+    }
+
+    &__address {
+        display: flex;
+        align-items: center;
+
+        & span {
+            font-size: rem(14);
+        }
+
+        & svg {
+            fill: $red;
+            width: rem(11);
+            height: rem(15);
+            margin-right: rem(8);
+        }
+    }
+
+    &__props {
+        padding-top: rem(15);
+        padding-left: rem(18);
+        padding-bottom: rem(15);
+    }
+
+    &__phone {
+        display: flex;
+        align-items: center;
+
+        & svg {
+            width: rem(20);
+            height: rem(20);
+            margin-right: rem(7);
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: rem(25);
+
+        &>* {
+            margin: 0 7px;
+        }
+    }
+
+    &__yn {
+        display: flex;
+        align-items: center;
+        padding-top: rem(25);
+
+    }
+
+    &__yn-txt {
+        margin-right: auto;
+        font-size: rem(16);
+    }
+
+    &__yn-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &>* {
+            margin: 0 7px;
+        }
+
+        & .btn {
+            max-width: rem(85);
+            min-width: rem(50);
+            max-height: rem(34);
+        }
+    }
+
+    &__info {
+        @include text-style-gray;
+        padding-top: rem(15);
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+.bln-activate-parking {
+
+    max-width: rem(420);
+
+    &__title {
+        font-size: rem(18);
+        color: #000000;
+        text-align: center;
+    }
+
+    &__desc {
+        padding: rem(10) 0;
+        text-align: center;
+        max-width: rem(340);
+        margin: 0 auto;
+    }
+
+    &__form {
+        max-width: rem(340);
+        margin: 0 auto;
+    }
+
+    & .form-text {
+        @include text-style-gray;
+        padding-bottom: rem(10);
+        font-size: rem(14);
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: rem(10);
+
+        & .btn {
+            min-width: rem(160);
+        }
+
+        &>* {
+            margin: 0 6px;
+        }
+    }
+
+    &__info {
+        @include text-style-gray;
+        padding-top: rem(15);
+        font-size: 13px;
+        text-align: center;
+    }
+}

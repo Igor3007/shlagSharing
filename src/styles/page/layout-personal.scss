@@ -2,6 +2,9 @@
     background: #fff;
     min-height: 100vh;
     display: flex;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 
     &__aside {
         width: 100%;
@@ -40,7 +43,7 @@
     }
 
     &__action {
-        background-color: #f8f8f8;
+        background-color: #f4f4f4;
         padding: 0 rem(30);
     }
 }
@@ -52,7 +55,7 @@
 
 .page-title {
 
-    height: rem(120);
+    height: 70px;
     display: flex;
     align-items: center;
 

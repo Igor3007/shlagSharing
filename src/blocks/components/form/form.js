@@ -171,6 +171,26 @@ $(document).ready(function () {
 
     });
 
+    /* input-photo */
+    $(document).on('change', '#upload-photo', function () {
+        let files = this.files;
+        let elem = $(this);
+
+        sendFiles(files, function (data) {
+
+            var reader = new FileReader();
+            reader.readAsDataURL(data);
+            reader.onload = function (e) {
+                elem.parent()
+                .find('.upload-image')
+                .css({
+                    'background-image': 'url('+e.target.result+')'
+                });
+            }
+        });
+
+    });
+
     //showpass
     $(document).on('mousedown', '.tooltip-showpass', function(event){
         $(this).parent().children('input').attr('type', 'text')

@@ -18,7 +18,7 @@ ymaps.ready(function () {
 
             '<div class="sh-balloon" >'+
                 '<div class="sh-balloon__close" >+</div>'+
-                '<div class="sh-balloon__content" >$[[options.contentLayout observeSize minWidth=235 maxWidth=500 maxHeight=400]]</div>'+
+                '<div class="sh-balloon__content" >$[[options.contentLayout observeSize minWidth=235 maxWidth=530 maxHeight=400]]</div>'+
                 '<div class="sh-balloon__arrow" >!</div>'+
             '</div>',
                  {
@@ -146,7 +146,7 @@ ymaps.ready(function () {
             // Не скрываем иконку при открытом балуне.
             hideIconOnBalloonOpen: false,
             // И дополнительно смещаем балун, для открытия над иконкой.
-            balloonOffset: [3, -18],
+            balloonOffset: [15, -18],
 
             // balloonContentLayout: LayoutActivatePoint,
             iconLayout: 'default#image',
@@ -157,7 +157,7 @@ ymaps.ready(function () {
 
 
         myPlacemark.events.add('balloonopen', function (e) {
-            myPlacemark.properties.set('balloonContent', "Идет загрузка данных...");
+            myPlacemark.properties.set('balloonContent', "<span class='baloon-loading' ></span>");
     
             // Имитация задержки при загрузке данных (для демонстрации примера).
             

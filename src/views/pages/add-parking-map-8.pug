@@ -3,12 +3,12 @@ include ../../blocks/modules/menu-left/menu-left
 include ../../blocks/modules/header-search/header-search
 include ../../blocks/modules/header-profile/header-profile
 include ../../blocks/modules/header-wallet/header-wallet
-include ../../blocks/modules/replace/replace-item/replace-item
+include ../../blocks/modules/maps-container/maps-container 
 include ../../blocks/modules/replace/replace-action/replace-action.pug
 
 
 block variables
-  include ../../data/replace 
+//- include ../data/categories
 
 
 
@@ -21,19 +21,13 @@ block pa-header
   +header-wallet()
 
 block pa-action
-  +replace-action([
-    'Подменные парковки',
-    '/',
-  ])
+
 
 block pa-main
-  .replace-parking
-    .replace-parking__list
-      .replace-parking__item
-        each item in replace
-          +replace-item(item)
+  +maps-container("/_balloon-add-parking-8.html", "/img/svg/ic_pin-parking.svg")
 
 block scripts
+
 
   script(src="js/main.js?v=1.52")
   script(src="js/vendor.js")

@@ -1,0 +1,31 @@
+.history-open {
+    &__title {
+        font-size: rem(16);
+        color: #000000;
+        padding-bottom: rem(15);
+    }
+
+}
+
+.history-open-item {
+    display: flex;
+    justify-content: space-between;
+    padding: rem(13) 0;
+    border-top: 1px solid $lgray;
+    align-items: center;
+
+    &:last-child {
+        border-bottom: 1px solid $lgray;
+    }
+
+    &__date {
+        @include text-style-gray;
+        font-size: rem(14);
+        line-height: rem(14);
+    }
+
+    &__phone {
+        font-size: rem(14);
+        line-height: rem(14);
+    }
+}

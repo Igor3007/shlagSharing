@@ -14,7 +14,182 @@ mixin bln-add-parking()
       a(href='add-parking-map-2.html'): button.btn Добавить
 
 mixin bln-add-parking-2()
-  .bln-add-parking
-    .bln-add-parking__address
-      +icons('#ic_pen')
-      span ул. Выборгская д.18
+  .bln-confirm-parking
+    .bln-confirm-parking__main
+      .bln-confirm-parking__image
+        label
+          input(type="file" id="upload-photo")
+          span.upload-image(style="background-image: url('/img/common/add-file.svg')")
+      .bln-confirm-parking__data
+        .bln-confirm-parking__address
+          +icons('#ic_pen')
+          span ул. Выборгская д.18
+
+        .bln-confirm-parking__props
+          +point-props([
+            'Тип шлагбаума: шлаг',
+            'Телефон шлагбаума: +7(123)123-45-67',
+            'Локация: 55.784058, 37.621779',
+          ])
+        .bln-confirm-parking__phone
+          +icons('#ic_phone')
+          a(href='#') +7(557)434-56-47
+
+    .bln-confirm-parking__btn
+      a(href='/add-parking-map-3.html'): button.btn Подтвердить
+      a(href='#'): button.btn.btn-red-line Редактировать
+
+mixin bln-add-parking-3()
+  .bln-activate-parking
+    .bln-activate-parking__title Активация
+    .bln-activate-parking__desc Для активации шлагбаума Вам необходимо один раз открыть его из веб-сервиса или мобильного приложения ШлагSaring
+    .bln-activate-parking__form
+      form(action='#' method='POST')
+        .form
+          .form__item: .form-text Прикрепите фотографию шлагбаума/ворот:
+          .form__item: .form__subitem: +attach('screen', 'Выбрать')
+
+    .bln-activate-parking__btn
+      a(href='/add-parking-map-5.html'): button.btn Активировать
+      a(href='#'): button.btn.btn-red-line Позже 
+
+    .bln-activate-parking__info Для активации шлагбаума Вы должны находиться в зоне его визуального обзора, не более 150 метров.
+
+mixin bln-add-parking-4()
+  .bln-confirm-parking
+    .bln-confirm-parking__main
+      .bln-confirm-parking__image
+        label
+          input(type="file" id="upload-photo")
+          span.upload-image(style="background-image: url('/img/common/add-file.svg')")
+      .bln-confirm-parking__data
+        .bln-confirm-parking__address
+          +icons('#ic_pen')
+          span ул. Выборгская д.18
+
+        .bln-confirm-parking__props
+          +point-props([
+            'Тип шлагбаума: шлаг',
+            'Телефон шлагбаума: +7(123)123-45-67',
+            'Локация: 55.784058, 37.621779',
+          ])
+        .bln-confirm-parking__phone
+          +icons('#ic_phone')
+          a(href='#') +7(557)434-56-47
+
+    .bln-confirm-parking__btn
+      a(href='/add-parking-map-6.html'): button.btn(disabled) Открыть
+
+    .bln-confirm-parking__info Расстояние до шлагбаума более 150 метров, активация невозможна
+
+mixin bln-add-parking-5()
+  .bln-confirm-parking
+    .bln-confirm-parking__main
+      .bln-confirm-parking__image
+        label
+          input(type="file" id="upload-photo")
+          span.upload-image(style="background-image: url('/img/common/add-file.svg')")
+      .bln-confirm-parking__data
+        .bln-confirm-parking__address
+          +icons('#ic_pen')
+          span ул. Выборгская д.18
+
+        .bln-confirm-parking__props
+          +point-props([
+            'Тип шлагбаума: шлаг',
+            'Телефон шлагбаума: +7(123)123-45-67',
+            'Локация: 55.784058, 37.621779',
+          ])
+        .bln-confirm-parking__phone
+          +icons('#ic_phone')
+          a(href='#') +7(557)434-56-47
+
+    .bln-confirm-parking__btn
+      a(href='/add-parking-map-6.html'): button.btn Открыть
+
+    .bln-confirm-parking__info До конца активации осталось 13 мин 34 сек . Осталось 3 попытки.
+
+mixin bln-add-parking-6()
+  .bln-confirm-parking
+    .bln-confirm-parking__main
+      .bln-confirm-parking__image
+        label
+          input(type="file" id="upload-photo")
+          span.upload-image(style="background-image: url('/img/common/add-file.svg')")
+      .bln-confirm-parking__data
+        .bln-confirm-parking__address
+          +icons('#ic_pen')
+          span ул. Выборгская д.18
+
+        .bln-confirm-parking__props
+          +point-props([
+            'Тип шлагбаума: шлаг',
+            'Телефон шлагбаума: +7(123)123-45-67',
+            'Локация: 55.784058, 37.621779',
+          ])
+        .bln-confirm-parking__phone
+          +icons('#ic_phone')
+          a(href='#') +7(557)434-56-47
+
+    .bln-confirm-parking__yn
+      .bln-confirm-parking__yn-txt Шлагбаум открылся?
+      .bln-confirm-parking__yn-btn
+        a(href='#'): button.btn Да
+        a(href='/add-parking-map-7.html'): button.btn.btn-line Нет
+
+    .bln-confirm-parking__info До конца активации осталось 13 мин 34 сек . Осталось 3 попытки.
+
+mixin bln-add-parking-7()
+  .bln-confirm-parking
+    .bln-confirm-parking__main
+      .bln-confirm-parking__image
+        label
+          input(type="file" id="upload-photo")
+          span.upload-image(style="background-image: url('/img/common/add-file.svg')")
+      .bln-confirm-parking__data
+        .bln-confirm-parking__address
+          +icons('#ic_pen')
+          span ул. Выборгская д.18
+
+        .bln-confirm-parking__props
+          +point-props([
+            'Тип шлагбаума: шлаг',
+            'Телефон шлагбаума: +7(123)123-45-67',
+            'Локация: 55.784058, 37.621779',
+          ])
+        .bln-confirm-parking__phone
+          +icons('#ic_phone')
+          a(href='#') +7(557)434-56-47
+
+    .bln-confirm-parking__yn
+      .bln-confirm-parking__yn-txt Сообщить о проблеме в техподдержку?
+      .bln-confirm-parking__yn-btn
+        a(href='#'): button.btn Да
+        a(href='/add-parking-map-7.html'): button.btn.btn-line Нет
+
+    .bln-confirm-parking__info Время активации истекло . Осталось 0 попыток.
+
+mixin bln-add-parking-8()
+  .bln-confirm-parking
+    .bln-confirm-parking__main
+      .bln-confirm-parking__image
+        +bgimage('/img/orders/img2.jpg')
+        span.bln-confirm-parking__history(data-fancybox="" data-type="ajax" data-src="/_modal-history-open.html") История открытий
+      .bln-confirm-parking__data
+        .bln-confirm-parking__address
+          +icons('#ic_pen')
+          span ул. Выборгская д.18
+
+        .bln-confirm-parking__props
+          +point-props([
+            'Тип шлагбаума: шлаг',
+            'Телефон шлагбаума: +7(123)123-45-67',
+            'Локация: 55.784058, 37.621779',
+          ])
+        .bln-confirm-parking__phone
+          +icons('#ic_phone')
+          a(href='#') +7(557)434-56-47
+
+    .bln-confirm-parking__btn
+      a(href='/add-parking-map-3.html'): button.btn Активировать
+      a(href='#'): button.btn.btn-red-line Редактировать

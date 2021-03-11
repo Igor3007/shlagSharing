@@ -42,12 +42,21 @@
         }
     }
 
-    &.btn-gblue {
-        color: #000;
-        background-color: $grayBlue;
+    &.btn-gray {
+        background-color: #9D9D9D;
+        color: #fff;
 
         &:hover {
-            background-color: $grayBlue;
+            opacity: 0.9;
+        }
+    }
+
+    &:disabled {
+        background-color: #9D9D9D;
+        color: #fff;
+        cursor: not-allowed;
+
+        &:hover {
             opacity: 0.9;
         }
     }

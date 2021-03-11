@@ -9,7 +9,7 @@ mixin parking-item(data)
     .parking-item__main
       .parking-item__image
         +bgimage('/img/orders/img'+data+'.jpg')
-        a(href='#') История открытий
+        a(href='#' data-fancybox="" data-type="ajax" data-src="/_modal-history-open.html" ) История открытий
       .parking-item__props
         .parking-item__address
           +icons('#ic_pen')

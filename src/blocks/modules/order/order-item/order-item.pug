@@ -1,7 +1,7 @@
 include ../../common/point-props/point-props
 
 mixin order-item(data)
-  .order-item
+  .order-item(class="order-item--"+data.state+"")
     .order-item__head
       .order-item__title
         a(href='#')= data.title
@@ -33,7 +33,10 @@ mixin order-item(data)
               span пр-т Мира д. 1
         .order-location__inmap: a(href='#') Смотреть на карте
       .order-item__count
-        a(href='#' data-fancybox="" data-src="/_modal-view-offers.html" data-type="ajax") 1 предложение
+        if data.count > 0
+          a(href='#' data-fancybox="" data-src="/_modal-view-offers.html" data-type="ajax")= data.count+' предложение'
+        else
+          span Ожидает предложений
 
 
 
