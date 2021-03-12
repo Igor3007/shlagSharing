@@ -9,12 +9,12 @@
 
     &.minicard--small {
 
-        font-size: 13px;
+        font-size: rem(13);
         min-width: auto;
 
         & .minicard__title {
             padding: rem(4) 0 rem(15) 0;
-            font-size: 13px;
+            font-size: rem(13);
             line-height: 120%;
 
             @include to($w580) {
@@ -26,12 +26,12 @@
             white-space: nowrap;
             max-width: 120px;
             padding: 0.8em 1.5em;
-            font-size: 13px;
+            font-size: rem(13);
         }
 
         & .minicard__one-click {
 
-            font-size: 13px;
+            font-size: rem(13);
             line-height: 15px;
             text-align: left;
             margin-top: rem(0) !important;
@@ -116,7 +116,7 @@
     }
 
     &__one-click {
-        font-size: 13px;
+        font-size: rem(13);
         color: $grayBlue;
         font-weight: 500;
         cursor: pointer;

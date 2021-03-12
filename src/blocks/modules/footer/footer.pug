@@ -1,4 +1,22 @@
 mixin footer()
+
+  .modile-bottom-nav
+    .modile-bottom-nav__wrp
+      nav 
+        ul
+          li: a(href='/my-parking.html')
+            +icons('#ic_parking')
+            span Мои парковки
+          li: a(href='/orders.html')
+            +icons('#ic_order') 
+            span Заявки
+          li: a(href='/my-cash.html')
+            +icons('#ic_cash') 
+            span Мои счет
+          li: a(href='/support.html')
+            +icons('#ic_gear')
+            span Техподдержка
+
   .container
     .footer
       .footer__share

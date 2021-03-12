@@ -2,13 +2,13 @@ html {
     font-family: Montserrat, arial;
     font-style: normal;
     font-weight: normal;
-    font-size: rem(15);
+    font-size: 15px;
     line-height: 140%;
     background: #f4f4f4;
     color: #000;
 
-    @media screen and (max-height: 760px) {
-        font-size: 13px;
+    @media screen and (max-height: $w760) {
+        font-size: rem(13);
     }
 
     @media screen and (max-width: $w1440) {
@@ -16,22 +16,27 @@ html {
     }
 
     @media screen and (max-width: $w1280) {
-        font-size: 13px;
+        font-size: rem(13);
     }
 }
 
 body {
     display: flex;
     flex-direction: column;
+    font-size: 14px;
 }
 
 main {
     display: block;
-    height: calc(100vh - 129px);
+    height: calc(100vh - 8.45rem);
     overflow: hidden;
 
     @media screen and (max-width: $w940) {
         height: 100vh;
+    }
+
+    @media screen and (max-width: $w580) {
+        height: calc(100vh - 5.35rem);
     }
 }
 

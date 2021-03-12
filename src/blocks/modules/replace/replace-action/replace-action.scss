@@ -10,14 +10,19 @@
 
     &__inmap {
         display: flex;
+        align-items: center;
 
         & a {
             color: $red;
             border-bottom: 1px dashed $red;
+            font-size: rem(14);
         }
 
         & svg {
             margin-right: rem(8);
+            width: rem(16);
+            min-width: rem(16);
+            height: rem(16);
         }
     }
 }

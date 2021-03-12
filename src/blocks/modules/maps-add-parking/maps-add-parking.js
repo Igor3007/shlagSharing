@@ -204,6 +204,7 @@ ymaps.ready(function () {
             });
 
             myMap.geoObjects.add(PlacemarkArr[i]);
+            myMap.setBounds(myMap.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 15 });
 
         }
 

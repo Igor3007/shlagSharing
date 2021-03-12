@@ -5,7 +5,7 @@ mixin parking-item(data)
     .parking-item__head
       .parking-item__title Парковка № 384  2020-10-20 14:40:50
       .parking-item__edit
-        a(href='#'): +icons('#ic_edit', 20)
+        a(href='#' data-fancybox="" data-src="/_modal-edit-order.html" data-type="ajax"): +icons('#ic_edit', 20)
     .parking-item__main
       .parking-item__image
         +bgimage('/img/orders/img'+data+'.jpg')

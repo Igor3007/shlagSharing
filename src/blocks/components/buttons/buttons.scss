@@ -18,8 +18,18 @@
     font-style: normal;
     font-weight: bold;
     font-size: rem(13);
+    white-space: nowrap;
 
-    @include w1280-block() {}
+    @media screen and (max-width: $w580) {
+        font-size: 13px;
+        height: 45px;
+    }
+
+    @media screen and (max-width: $w480) {
+        font-size: 13px;
+        height: 40px;
+    }
+
 
     &:hover {
         opacity: 0.9;

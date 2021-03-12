@@ -37,7 +37,7 @@
 
         margin-bottom: 1.33333rem;
         font-weight: 500;
-        font-size: 13px;
+        font-size: rem(13);
         line-height: 116%;
         color: #86A5C1;
         height: 100px;
@@ -199,7 +199,7 @@
 
             & option {
                 font-family: 'arial';
-                font-size: 13px;
+                font-size: rem(13);
             }
 
             &::-ms-expand {
@@ -302,7 +302,7 @@
             position: absolute;
             right: 0;
             top: 11px;
-            font-size: 13px;
+            font-size: rem(13);
             color: #6A6A6A;
 
             @media screen and (max-width: $w580) {
@@ -493,7 +493,7 @@
 
     & li {
         list-style-type: none;
-        font-size: 13px;
+        font-size: rem(13);
         padding-top: 15px;
         display: flex;
         line-height: 25px;
@@ -521,7 +521,7 @@
     & span.file-btn {
         border: 1px solid #d8d8d8;
         font-weight: 500;
-        font-size: 13px;
+        font-size: rem(13);
         line-height: rem(14);
         text-transform: uppercase;
         color: #818181;

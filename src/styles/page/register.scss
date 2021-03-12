@@ -35,7 +35,10 @@
     }
 }
 
+.page-loaded .sh-modal-800,
+.page-loaded .sh-modal-tooltip,
 .page-loaded .sh-modal {
+
     animation: .3s slide-up;
     opacity: 1;
 }

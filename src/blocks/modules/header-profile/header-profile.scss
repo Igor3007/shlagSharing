@@ -3,6 +3,10 @@
     margin-right: rem(30);
     margin-left: rem(30);
 
+    @media screen and (max-width: $w580) {
+        margin-right: rem(0);
+    }
+
     &__link a {
         font-size: rem(14);
         color: #9B9B9B;
@@ -11,7 +15,7 @@
     }
 
     &_nickname {
-        font-size: 16px;
+        font-size: rem(16);
         line-height: 100%;
         white-space: nowrap;
     }

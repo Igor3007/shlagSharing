@@ -3,5 +3,5 @@ mixin header-wallet()
     .header-wallet__current
       +icons('#ic_cash')
       span 1 920 руб. 
-    .header-wallet__add
+    .header-wallet__add(data-fancybox="" data-src="/_modal-payment.html" data-type="ajax")
       a(href="#"): +icons('#ic_cross')

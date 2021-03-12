@@ -108,6 +108,7 @@ ymaps.ready(function () {
 
                         var position = this._$element.position();
 
+
                         return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
                             [position.left, position.top],
                             [
@@ -198,6 +199,8 @@ ymaps.ready(function () {
             });
 
             myMap.geoObjects.add(PlacemarkArr[i]);
+            //autoscale
+            myMap.setBounds(myMap.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 15 });
 
         }
 

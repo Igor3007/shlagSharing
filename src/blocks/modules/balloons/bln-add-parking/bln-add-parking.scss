@@ -148,7 +148,7 @@
     &__info {
         @include text-style-gray;
         padding-top: rem(15);
-        font-size: 13px;
+        font-size: rem(13);
         text-align: center;
     }
 }
@@ -201,7 +201,7 @@
     &__info {
         @include text-style-gray;
         padding-top: rem(15);
-        font-size: 13px;
+        font-size: rem(13);
         text-align: center;
     }
 }

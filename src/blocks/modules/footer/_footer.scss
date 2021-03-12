@@ -152,3 +152,56 @@
         }
     }
 }
+
+.modile-bottom-nav {
+
+    @media screen and (min-width: $w580) {
+        display: none;
+    }
+
+    background-color: #fff;
+
+    & nav {}
+
+    & ul {
+        display: flex;
+
+        & li {
+
+            flex-grow: 1;
+
+            & a {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: $gray;
+                padding: rem(15) 0;
+                font-size: rem(14);
+            }
+
+            & svg {
+                fill: $gray;
+                height: rem(24);
+                width: rem(24);
+                min-width: rem(23);
+            }
+
+            & span {
+                padding-top: rem(5);
+            }
+
+            &.active,
+            &:hover {
+                & svg {
+                    fill: $red;
+                }
+
+                & a {
+                    color: #000;
+                    background-color: #f4f4f4;
+                }
+            }
+        }
+    }
+}

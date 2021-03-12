@@ -85,7 +85,7 @@ body.compensate-for-scrollbar {
 
 .fancybox-infobar {
     color: #ccc;
-    font-size: 13px;
+    font-size: rem(13);
     -webkit-font-smoothing: subpixel-antialiased;
     height: 44px;
     left: 0;
@@ -298,7 +298,7 @@ body.compensate-for-scrollbar {
 
 .fancybox-error p {
     color: #444;
-    font-size: 16px;
+    font-size: rem(16);
     line-height: 20px;
     margin: 0;
     padding: 0;

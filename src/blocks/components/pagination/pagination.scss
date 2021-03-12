@@ -20,7 +20,7 @@
             }
 
             @media screen and (max-width: $w1024) {
-                font-size: 13px;
+                font-size: rem(13);
             }
 
             & span {
@@ -69,7 +69,7 @@
                 }
 
                 @media screen and (max-width: $w1024) {
-                    font-size: 13px;
+                    font-size: rem(13);
                 }
 
                 &:hover {

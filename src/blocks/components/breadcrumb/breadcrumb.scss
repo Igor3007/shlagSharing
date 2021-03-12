@@ -14,7 +14,7 @@
 
         & a {
             color: $gray;
-            font-size: 13px;
+            font-size: rem(13);
             color: #fff;
             text-decoration: underline;
 
@@ -47,7 +47,7 @@
             & a {
                 font-style: normal;
                 font-weight: 500;
-                font-size: 13px;
+                font-size: rem(13);
                 line-height: 116%;
                 text-align: center;
                 padding: rem(7) rem(15) rem(8) rem(15);
@@ -91,7 +91,7 @@
 
             & a {
                 color: $gray;
-                font-size: 13px;
+                font-size: rem(13);
                 text-decoration: underline;
 
                 &:hover {

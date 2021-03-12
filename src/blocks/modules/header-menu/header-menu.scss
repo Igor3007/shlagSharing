@@ -1,3 +1,7 @@
 .header-menu {
     margin-right: rem(30);
+
+    @media screen and (min-width: $w940) {
+        display: none;
+    }
 }

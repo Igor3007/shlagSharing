@@ -5,6 +5,10 @@
     padding: rem(7);
     border-radius: rem(40);
 
+    @media screen and (max-width: $w580) {
+        display: none;
+    }
+
     &__current {
 
         display: flex;
@@ -19,7 +23,7 @@
         }
 
         & span {
-            font-size: 16px;
+            font-size: rem(16);
         }
     }
 
@@ -27,5 +31,6 @@
         display: flex;
         align-items: center;
         margin-left: rem(15);
+        cursor: pointer;
     }
 }

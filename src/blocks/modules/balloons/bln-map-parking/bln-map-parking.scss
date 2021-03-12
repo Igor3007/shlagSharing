@@ -22,7 +22,7 @@
 
     &__desc {
         @include text-style-gray;
-        font-size: 13px;
+        font-size: rem(13);
         line-height: 140%;
         padding: 10px 0;
         max-width: rem(327);

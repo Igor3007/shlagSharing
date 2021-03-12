@@ -52,6 +52,11 @@
         align-items: center;
         border-bottom: 1px solid #ddd;
         padding: 0 rem(30);
+
+        @media screen and (max-width: $w580) {
+            height: rem(70);
+            min-height: rem(70);
+        }
     }
 
     &__main {
@@ -60,6 +65,10 @@
         padding: 0 2rem;
         height: 100%;
         overflow-y: auto;
+
+        @media screen and (max-width: $w480) {
+            padding: 0 1rem;
+        }
     }
 
     &__action {

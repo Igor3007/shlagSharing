@@ -181,6 +181,9 @@ ymaps.ready(function () {
 
 
         myMap.geoObjects.add(myPlacemark);
+        
+        //autoscale
+        myMap.setBounds(myMap.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 15 });
 
     } catch {
         console.log('error: not maps-container')
