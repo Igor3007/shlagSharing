@@ -27,6 +27,10 @@ block pa-action
 
 block pa-main
   .box-orders
+    .box-orders__add-modile
+      button.btn.btn-red-line.btn-full( data-fancybox="" data-src="_modal-add-order.html" data-type="ajax")
+        +icons('#ic_crosshair', 20)
+        span Добавить заявку
     .box-orders__list
       each item in orders
         .box-orders__item

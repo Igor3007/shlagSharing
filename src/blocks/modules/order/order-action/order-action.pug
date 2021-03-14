@@ -1,7 +1,12 @@
 mixin order-action()
   .order-action
     .order-action__title: +h2('Заявки')
+    .order-action__inmap
+      +icons('#ic_gps', 20)
+      a(href='/') Смотреть на карте
     .order-action__add
       button.btn.btn-red-line( data-fancybox="" data-src="_modal-add-order.html" data-type="ajax")
         +icons('#ic_crosshair', 20)
         span Добавить заявку
+    .order-action__back
+      a(href='/'): +icons('#ic_back', 20)

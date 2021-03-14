@@ -8,7 +8,7 @@ mixin parking-add()
         .form
           .form__item: .form__label Адрес, по которому расположен шлагбаум:
           .form__item: .form__subitem: +input('text', 'Адрес')
-          .form__item: a(href='/add-parking-map.html') Выбрать геометку на карте
+          .form__item.form__item--select-inmap: a(href='/add-parking-map.html') Выбрать геометку на карте
           .form__item: span.form__label Номер телефона с которого вы открывате (шлагбаум/ворота):
           .form__item: .form__subitem: .form__select: +select(['+7 859 522 58 25', '+7 000 000 00 00', '+7 000 000 00 00'])
           .form__item: .form__label Номер телефона шлагбаума/ворот:

@@ -1,2 +1,13 @@
+include ../../modules/header-wallet/header-wallet.pug
+
 mixin maps-home(balloon, icon)
   .maps-container(id="maps-home")
+  .maps-home-button
+    .maps-home-button__menu
+      .burger
+        i
+        i
+        i
+    .maps-home-button__cash: +header-wallet()
+    .maps-home-button__find: +icons('#ic_loupe')
+    .maps-home-button__add(data-fancybox="" data-src="_modal-add-parking.html" data-type="ajax"): +icons('#ic_cross-one')

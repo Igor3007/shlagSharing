@@ -36,6 +36,7 @@
 }
 
 .page-loaded .sh-modal-800,
+.page-loaded .sh-balloon,
 .page-loaded .sh-modal-tooltip,
 .page-loaded .sh-modal {
 
@@ -54,6 +55,12 @@
     border-radius: rem(20);
     opacity: 0;
 
+    @media screen and (max-width: $w480) {
+        &.fancybox-content {
+            margin-bottom: 0;
+        }
+    }
+
 
 
     @media screen and (max-width: $w480) {
@@ -67,10 +74,12 @@
     }
 
     @media screen and (max-width: $w480) and (min-height: 620px) {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        &:not(.fancybox-content) {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
     }
 
 }

@@ -5,6 +5,8 @@ include ../../blocks/modules/header-menu/header-menu
 include ../../blocks/modules/header-profile/header-profile
 include ../../blocks/modules/header-wallet/header-wallet
 include ../../blocks/modules/profile/my-cash/my-cash
+include ../../blocks/modules/replace/replace-action/replace-action.pug
+
 
 
 block variables
@@ -21,7 +23,11 @@ block pa-header
   +header-wallet()
 
 block pa-action
-  .page-title: h1 Мой счет
+block pa-action
+  +replace-action([
+    'Мой счет',
+    '/my-parking-inmap.html',
+  ])
 
 block pa-main
   +my-cash(transaction)

@@ -23,6 +23,12 @@ import 'inputmask/dist/jquery.inputmask';
  
 $(document).ready(function () {
 
+    var ua = navigator.userAgent;
+
+    if(/Chrome/i.test(ua)){
+       $('html').addClass('chrome-navbar');
+    }
+
 
     /* init inputmask */
     
@@ -56,10 +62,47 @@ $(document).ready(function () {
             .val(summ)
     })
 
+    /*mobile menu*/
+    function mobileMenu() {
+        this.buttonElem = '.burger';
+        this.menuElem = '.personal-layout__aside';
+        this.iconMenu = 'ic_menu';
+        this.iconClose = 'ic_close';
+
+        this.onOpen = function () {
+
+            $('' + this.buttonElem + '').toggleClass('open')
+            $('' + this.buttonElem + '').parent().toggleClass('open-parent')
+            $('' + this.menuElem + '').toggleClass('open')
+
+            $('body').append('<div class="mobile-bg" ></div>')
+
+
+            return true;
+        };
+
+        this.onClose = function () {
+            $('' + this.buttonElem + '').removeClass('open');
+            $('' + this.menuElem + '').removeClass('open');
+            $('' + this.buttonElem + '').parent().removeClass('open-parent')
+            $('.mobile-bg').remove()
+        }
+    }
+
+    var mobileMenu = new mobileMenu();
+
     $(document).on('click', '.burger', function(){
 
-        $(this).toggleClass('open')
-        $('.personal-layout__aside').toggleClass('open')
+
+        if ($('.burger').hasClass('open')) {
+            mobileMenu.onClose()
+        }else{
+            mobileMenu.onOpen()
+        }
+
+        // $(this).toggleClass('open')
+        // $(this).parent().toggleClass('open-parent')
+        // $('.personal-layout__aside').toggleClass('open')
     })
 
     //закрыть при клике вне
@@ -67,9 +110,12 @@ $(document).ready(function () {
         var div = $(".burger, .personal-layout__aside"); //класс элемента вне которого клик
         if (!div.is(e.target) && div.has(e.target).length === 0) {
           //закрыть popup
-          if ($('.burger').hasClass('open')) {
-            $('.burger').trigger('click')
-          }
+        //   if ($('.burger').hasClass('open')) {
+        //     $('.personal-layout__aside').remove('open')
+        //     $('.burger').toggleClass('open')
+        //   }
+
+        mobileMenu.onClose()
   
         }
       });

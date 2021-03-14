@@ -192,12 +192,16 @@ $(document).ready(function () {
     });
 
     //showpass
-    $(document).on('mousedown', '.tooltip-showpass', function(event){
-        $(this).parent().children('input').attr('type', 'text')
+    $(document).on('click', '.tooltip-showpass', function(event){
+        if($(this).parent().children('input').attr('type') == 'text'){
+            $(this).parent().children('input').attr('type', 'password')
+        }else {
+            $(this).parent().children('input').attr('type', 'text')
+        }
     })
 
-    $(document).on('mouseup', function(event){
-        $('.tooltip-showpass').parent().children('input').attr('type', 'password')
+    // $(document).on('mouseup', function(event){
+    //     $('.tooltip-showpass').parent().children('input').attr('type', 'password')
         
-    })
+    // })
 });

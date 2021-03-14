@@ -3,7 +3,7 @@
     min-width: rem(500);
 
     @media screen and (max-width: $w580) {
-        min-width: none;
+        min-width: auto;
     }
 
     &__head {
@@ -19,6 +19,34 @@
         & span {
             color: $gray;
         }
+    }
+
+    &__status {
+
+        & .offer-status-gold {
+            content: '';
+            width: rem(40);
+            height: rem(40);
+            background-color: $gold;
+            position: absolute;
+            left: rem(-20);
+            top: rem(-20);
+            border-radius: 50%;
+
+        }
+
+        & .offer-status-silver {
+            content: '';
+            width: rem(40);
+            height: rem(40);
+            background-color: #a8a8a8;
+            position: absolute;
+            left: rem(-20);
+            top: rem(-20);
+            border-radius: 50%;
+
+        }
+
     }
 
     &__edit {
@@ -81,6 +109,7 @@
         @media screen and (max-width: $w580) {
             width: 100%;
             margin-bottom: rem(25);
+            padding-right: rem(0);
         }
 
         & .bgimage {

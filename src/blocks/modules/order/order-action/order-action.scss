@@ -7,4 +7,51 @@
     &__title {
         flex-grow: 1;
     }
+
+    &__add {
+        @media screen and (max-width: $w580) {
+            display: none;
+        }
+    }
+
+    &__inmap {
+        display: flex;
+        align-items: center;
+        margin-right: rem(25);
+
+
+        @media screen and (max-width: $w580) {
+            display: none;
+        }
+
+        & a {
+            color: $red;
+            border-bottom: 1px dashed $red;
+            font-size: rem(14);
+        }
+
+        & svg {
+            margin-right: rem(8);
+            width: rem(16);
+            min-width: rem(16);
+            height: rem(16);
+        }
+    }
+
+    &__back {
+        @media screen and (min-width: $w580) {
+            display: none;
+        }
+    }
+}
+
+.box-orders__add-modile {
+
+    margin-bottom: rem(25);
+
+    @media screen and (min-width: $w580) {
+        display: none;
+    }
+
+
 }

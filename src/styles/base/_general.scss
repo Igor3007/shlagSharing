@@ -40,18 +40,38 @@ main {
     }
 }
 
+.chrome-navbar main {
+
+    @media screen and (max-width: $w580) {
+        height: calc(100vh - 9.4rem);
+    }
+}
+
 main.main-full-height {
     display: block;
     height: 100vh;
     overflow-y: auto;
 }
 
+.ymaps-2-1-78-copyrights-pane {
+    display: none;
+}
 
 
 main .container {
     height: 100%;
 
     @media screen and (max-width: $w940) {
+        padding: 0;
+    }
+}
+
+.fancybox-slide {
+    @media screen and (max-width: $w580) {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        display: flex;
+        justify-content: flex-end;
         padding: 0;
     }
 }

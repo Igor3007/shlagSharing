@@ -440,8 +440,12 @@
 
             @media screen and (max-width: $w580) {
                 min-width: rem(17);
-                width: rem(17);
-                height: rem(17);
+                width: rem(40);
+                height: rem(40);
+
+                background-size: 17px auto;
+                background-position: center right;
+
             }
         }
 

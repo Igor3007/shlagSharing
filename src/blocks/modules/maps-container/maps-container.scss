@@ -17,6 +17,20 @@
     position: absolute;
     border-radius: rem(20);
     padding: rem(30) rem(25);
+    overflow: hidden;
+
+    @media screen and (max-width: $w580) {
+        position: fixed;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 111111;
+        bottom: 0;
+        top: auto !important;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        padding: rem(20) rem(15);
+    }
 
     &__close {
         background-image: url('/img/svg/ic_close.svg');
@@ -38,6 +52,12 @@
 
     &__arrow {
         display: none;
+    }
+}
+
+.sh-balloon__content>ymaps {
+    @media screen and (max-width: $w580) {
+        width: 100% !important;
     }
 }
 

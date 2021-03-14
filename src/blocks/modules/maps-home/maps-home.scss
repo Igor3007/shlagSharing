@@ -1,0 +1,76 @@
+.maps-home-button {
+
+    @media screen and (min-width: $w580) {
+        display: none;
+    }
+
+    &__find,
+    &__add,
+    &__menu {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 2;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #D8D8D8;
+
+        & svg {
+            width: 20px;
+            height: 20px;
+        }
+
+
+    }
+
+    &__cash {
+        position: absolute;
+        z-index: 2;
+        top: rem(15);
+        right: rem(20);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+        & .header-wallet {
+            display: flex;
+            background: #fff;
+            height: rem(50);
+        }
+    }
+
+    &__find {
+        bottom: rem(15);
+        left: rem(20);
+    }
+
+    &__add {
+        bottom: rem(15);
+        right: rem(20);
+        border: 1px solid $red;
+    }
+
+    &__menu {
+        top: rem(15);
+        left: rem(20);
+    }
+}
+
+
+.maps-home-button__menu.open-parent {
+    left: 300px;
+    z-index: 5;
+    top: 0;
+    border-radius: 0;
+    border: navajowhite;
+    filter: none;
+    background: none;
+    transition: left 0.3s ease 0.5s
+}
+
+.maps-home-button__menu.open-parent i {
+    background: #fff
+}

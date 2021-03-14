@@ -12,6 +12,10 @@
         display: flex;
         align-items: center;
 
+        @media screen and (max-width: $w580) {
+            display: none;
+        }
+
         & a {
             color: $red;
             border-bottom: 1px dashed $red;
@@ -23,6 +27,12 @@
             width: rem(16);
             min-width: rem(16);
             height: rem(16);
+        }
+    }
+
+    &__back {
+        @media screen and (min-width: $w580) {
+            display: none;
         }
     }
 }

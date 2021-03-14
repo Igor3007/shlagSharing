@@ -48,6 +48,8 @@ ymaps.ready(function () {
                         this._$element.find('.sh-balloon__close')
                             .off('click');
 
+                            
+
                         this.constructor.superclass.clear.call(this);
                     },
 
@@ -107,15 +109,23 @@ ymaps.ready(function () {
                         }
 
                         var position = this._$element.position();
+                        pos1 = [position.left, position.top]
+                        pos2 = [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.sh-balloon__arrow')[0].offsetHeight
+                        ]
+
+                        if($(window).width() <= 580 ){
+
+                            var heightElem = this._$element.height() + 55
+                            var widthElem = (this._$element.width() / 2) - 25
+
+                            pos1 = [0, 0]
+                            pos2 = [widthElem, heightElem]
+                        }
 
 
-                        return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                            [position.left, position.top],
-                            [
-                                position.left + this._$element[0].offsetWidth,
-                                position.top + this._$element[0].offsetHeight + this._$element.find('.sh-balloon__arrow')[0].offsetHeight
-                            ]
-                        ]));
+                        return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([ pos1, pos2 ]));
                     },
 
                     /**
@@ -156,6 +166,16 @@ ymaps.ready(function () {
 
         var PlacemarkArr = [];
 
+        if($(window).width() <= 580 ){
+
+            var showBaloonMode = false
+            var ballonPane = 'balloon'
+        }else{
+            var showBaloonMode = false
+            var ballonPane = 'placemark'
+
+        }
+
 
         for (let i = 0; i < coordinates.length; i++) {
 
@@ -168,7 +188,7 @@ ymaps.ready(function () {
                 balloonContentLayout: MyBalloonContentLayout,
                 balloonPanelMaxMapArea: 0,
                 // Не скрываем иконку при открытом балуне.
-                hideIconOnBalloonOpen: false,
+                hideIconOnBalloonOpen: showBaloonMode,
                 // И дополнительно смещаем балун, для открытия над иконкой.
                 balloonOffset: [15, -18],
 
@@ -181,6 +201,9 @@ ymaps.ready(function () {
 
             PlacemarkArr[i].events.add('balloonopen', function (e) {
                 PlacemarkArr[i].properties.set('balloonContent', "<span class='baloon-loading' ></span>");
+
+                $('.maps-home-button__find').fadeOut(300)
+                $('.maps-home-button__add').fadeOut(300)
 
                 const url = coordinates[i].url;
 
@@ -197,6 +220,11 @@ ymaps.ready(function () {
                 })
 
             });
+
+            PlacemarkArr[i].events.add('balloonclose', function (e) {
+                $('.maps-home-button__find').fadeIn(300)
+                $('.maps-home-button__add').fadeIn(300)
+            })
 
             myMap.geoObjects.add(PlacemarkArr[i]);
             //autoscale

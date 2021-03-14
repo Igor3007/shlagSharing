@@ -6,6 +6,7 @@
     border-bottom: 1px solid #ddd;
     height: 100%;
 
+
     @media screen and (max-width: $w940) {}
 
     &__aside {
@@ -13,6 +14,8 @@
         max-width: 300px;
         min-width: 260px;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
 
         @media screen and (max-width: $w940) {
             position: fixed;
@@ -22,6 +25,7 @@
             top: 0;
             bottom: 0;
             transition: 0.3s ease;
+            left: 0;
 
             &.open {
                 transform: translateX(0%);
@@ -56,6 +60,8 @@
         @media screen and (max-width: $w580) {
             height: rem(70);
             min-height: rem(70);
+
+            display: none;
         }
     }
 
