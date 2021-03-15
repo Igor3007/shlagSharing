@@ -30,12 +30,22 @@
 .bln-confirm-parking {
     &__main {
         display: flex;
+
+        @media screen and (max-width: $w480) {
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
 
     &__image {
 
         width: 36%;
         min-width: rem(170);
+
+        @media screen and (max-width: $w480) {
+            width: 100%;
+            margin-bottom: rem(25);
+        }
 
         & label {
 
@@ -49,7 +59,7 @@
 
                 @include bgimage-cover;
                 padding-top: 65%;
-                background-color: #F8F8F8;
+                background-color: #f8f8f8;
             }
         }
 
@@ -122,11 +132,22 @@
         align-items: center;
         padding-top: rem(25);
 
+        @media screen and (max-width: $w480) {
+            flex-direction: column;
+            justify-content: center;
+        }
+
     }
 
     &__yn-txt {
         margin-right: auto;
         font-size: rem(16);
+
+        @media screen and (max-width: $w480) {
+            text-align: center;
+            margin-left: auto;
+            margin-bottom: 10px;
+        }
     }
 
     &__yn-btn {
@@ -134,14 +155,30 @@
         align-items: center;
         justify-content: center;
 
+        @media screen and (max-width: $w480) {
+            width: 100%;
+        }
+
         &>* {
             margin: 0 7px;
+
+            @media screen and (max-width: $w480) {
+                width: 50%;
+            }
+
         }
 
         & .btn {
             max-width: rem(85);
             min-width: rem(50);
             max-height: rem(34);
+
+            @media screen and (max-width: $w480) {
+                max-width: 100%;
+                min-width: 100%;
+                max-height: rem(45);
+                width: 100%;
+            }
         }
     }
 

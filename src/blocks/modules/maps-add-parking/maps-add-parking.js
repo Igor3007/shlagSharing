@@ -1,4 +1,7 @@
+
+
 ymaps.ready(function () {
+
     try {
 
         var icon = '/img/svg/ic_pin-offer.svg';
@@ -9,7 +12,7 @@ ymaps.ready(function () {
                 zoom: 12,
                 controls: []
             }, {
-                suppressMapOpenBlock: true
+                suppressMapOpenBlock: true,
             }),
 
             // Создание макета балуна на основе Twitter Bootstrap.
@@ -17,7 +20,7 @@ ymaps.ready(function () {
 
                 '<div class="sh-balloon" >' +
                 '<div class="sh-balloon__close" >+</div>' +
-                '<div class="sh-balloon__content" >$[[options.contentLayout observeSize minWidth=235 maxWidth=550 maxHeight=400]]</div>' +
+                '<div class="sh-balloon__content" >$[[options.contentLayout observeSize class=sh-wrp minWidth=235 maxWidth=550 maxHeight=400]]</div>' +
                 '<div class="sh-balloon__arrow" >!</div>' +
                 '</div>', {
                     /**
@@ -47,6 +50,8 @@ ymaps.ready(function () {
                         this._$element.find('.sh-balloon__close')
                             .off('click');
 
+                            
+
                         this.constructor.superclass.clear.call(this);
                     },
 
@@ -75,10 +80,22 @@ ymaps.ready(function () {
                      * @name applyElementOffset
                      */
                     applyElementOffset: function () {
-                        this._$element.css({
+
+                        var positionDefault = {
                             left: -(this._$element[0].offsetWidth / 2),
                             top: -(this._$element[0].offsetHeight + this._$element.find('.sh-balloon__arrow')[0].offsetHeight)
-                        });
+                        }
+
+                        if($(window).width() <= 580 ){
+
+                           var positionDefault = {
+                               left: 0,
+                               right: 0,
+                               bottom: 0
+                           }
+                        }
+
+                        this._$element.css(positionDefault);
                     },
 
                     /**
@@ -106,14 +123,23 @@ ymaps.ready(function () {
                         }
 
                         var position = this._$element.position();
+                        pos1 = [position.left, position.top]
+                        pos2 = [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.sh-balloon__arrow')[0].offsetHeight
+                        ]
 
-                        return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                            [position.left, position.top],
-                            [
-                                position.left + this._$element[0].offsetWidth,
-                                position.top + this._$element[0].offsetHeight + this._$element.find('.sh-balloon__arrow')[0].offsetHeight
-                            ]
-                        ]));
+                        if($(window).width() <= 580 ){
+
+                            var heightElem = this._$element.height() + 55
+                            var widthElem = (this._$element.width() / 2) - 25
+
+                            pos1 = [0, 0]
+                            pos2 = [widthElem, heightElem]
+                        }
+
+
+                        return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([ pos1, pos2 ]));
                     },
 
                     /**
@@ -127,62 +153,68 @@ ymaps.ready(function () {
                     _isElement: function (element) {
                         return element && element[0] && element.find('.sh-balloon__arrow')[0];
                     }
-                }),
+                });
 
-            // Создание вложенного макета содержимого балуна.
-            MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
-                '<div>$[properties.balloonContent]</div>'
-            );
+            // // Создание вложенного макета содержимого балуна.
+            // MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            //     '<div>$[properties.balloonContent]</div>'
+            // );
 
-        var coordinates = [{
-                'pin': [55.74481370529173, 37.67514980332959],
-                'url': '/_balloon-add-parking.html',
-                'icon': '/img/svg/ic_pin-parking.svg'
-            }
-
-        ];
+            var coordinates = [{
+                                'pin': [55.74481370529173, 37.67514980332959],
+                                'url': '/_balloon-add-parking.html',
+                                'icon': '/img/svg/ic_pin-parking.svg'
+                            }
+                
+                        ];
 
         var PlacemarkArr = [];
+
+        if($(window).width() <= 580 ){
+
+            var showBaloonMode = false;
+            var ballonPane = 'balloon';
+            var ballonMapArea = 'Infinity';
+        }else{
+            var showBaloonMode = false;
+            var ballonPane = 'placemark';
+            var ballonMapArea = 0;
+
+        }
 
 
         for (let i = 0; i < coordinates.length; i++) {
 
             // Создание метки с пользовательским макетом балуна.
-            PlacemarkArr[i] = window.myPlacemark = new ymaps.Placemark(
-                coordinates[i].pin, {
-                    balloonContent: ''
-                }, {
-                    balloonShadow: false,
-                    balloonLayout: MyBalloonLayout,
-                    balloonContentLayout: MyBalloonContentLayout,
-                    balloonPanelMaxMapArea: 0,
-                    // Не скрываем иконку при открытом балуне.
-                    hideIconOnBalloonOpen: false,
-                    // И дополнительно смещаем балун, для открытия над иконкой.
-                    balloonOffset: [15, -18],
+            PlacemarkArr[i] = window.myPlacemark = new ymaps.Placemark(coordinates[i].pin, {
+                balloonContent: ''
+            }, {
+                balloonShadow: false,
+                balloonLayout: MyBalloonLayout,
+                //balloonContentLayout: MyBalloonContentLayout,
+                balloonPanelLayout: MyBalloonLayout,
+                //balloonPanelContentLayout: MyBalloonContentLayout,
+                balloonPanelMaxMapArea: ballonMapArea,
+                // Не скрываем иконку при открытом балуне.
+                hideIconOnBalloonOpen: showBaloonMode,
+                // И дополнительно смещаем балун, для открытия над иконкой.
+                balloonOffset: [15, -18],
 
-                    // balloonContentLayout: LayoutActivatePoint,
-                    iconLayout: 'default#image',
-                    iconImageHref: coordinates[i].icon,
-                    iconImageSize: [53, 55],
-                    pane: 'balloon',
-                    draggable: true
-                });
+                // balloonContentLayout: LayoutActivatePoint,
+                iconLayout: 'default#image',
+                iconImageHref: coordinates[i].icon,
+                iconImageSize: [53, 55],
+                pane: 'balloon',
+                draggable: true
+            });
 
             PlacemarkArr[i].events.add('balloonopen', function (e) {
                 PlacemarkArr[i].properties.set('balloonContent', "<span class='baloon-loading' ></span>");
 
-                var url = coordinates[i].url;
+                $('.maps-home-button__find').fadeOut(300)
+                $('.maps-home-button__add').fadeOut(300)
 
-
-                var cord = e.get('target').geometry.getCoordinates();
-                // ymaps.geocode(cord).then(function(res) {
-                // 	var data = res.geoObjects.get(0).properties.getAll();
-                //     console.log(data.text)
-                // });
-
-                console.log(cord)
-
+                const url = coordinates[i].url;
 
                 $.ajax({
                     method: 'GET',
@@ -198,20 +230,20 @@ ymaps.ready(function () {
 
             });
 
-            /* Событие dragend - получение нового адреса */
-            PlacemarkArr[i].events.add('dragend', function (e) {
-
-            });
+            PlacemarkArr[i].events.add('balloonclose', function (e) {
+                $('.maps-home-button__find').fadeIn(300)
+                $('.maps-home-button__add').fadeIn(300)
+            })
 
             myMap.geoObjects.add(PlacemarkArr[i]);
+            //autoscale
             myMap.setBounds(myMap.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 15 });
 
         }
 
     } catch {
-        console.log('error: maps-add-rarking')
+        console.log('error: maps-parking')
     }
-
 
 
 });

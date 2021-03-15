@@ -27,10 +27,21 @@
         }
     }
 
-    &__add a {
-        display: flex;
-        align-items: center;
-        margin-left: rem(15);
-        cursor: pointer;
+    &__add {
+        & a {
+            display: flex;
+            align-items: center;
+            margin-left: rem(15);
+            cursor: pointer;
+
+
+        }
+
+        & svg {
+            @media screen and (max-width: $w580) {
+                width: 30px;
+                height: 30px;
+            }
+        }
     }
 }
