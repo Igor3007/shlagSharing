@@ -117,11 +117,11 @@ ymaps.ready(function () {
 
                         if($(window).width() <= 580 ){
 
-                            var heightElem = this._$element.height() + 55
-                            var widthElem = (this._$element.width() / 2) - 25
+                            // var heightElem = this._$element.height() + 55
+                            // var widthElem = (this._$element.width() / 2) - 25
 
-                            pos1 = [0, 0]
-                            pos2 = [widthElem, heightElem]
+                            // pos1 = [widthElem, heightElem]
+                            // pos2 = [widthElem, heightElem]
                         }
 
 

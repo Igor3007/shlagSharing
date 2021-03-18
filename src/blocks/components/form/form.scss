@@ -1,27 +1,3 @@
-.card-review .form {
-
-    & input,
-    textarea {
-        width: 100%;
-        border: 1px solid $lgray;
-        padding: rem(10) rem(15);
-        outline: none !important;
-
-        &:focus {
-            border: 1px solid $blue;
-        }
-    }
-
-
-
-    & textarea {
-        min-height: rem(120);
-        max-width: 100%;
-        resize: vertical;
-    }
-
-}
-
 .form {
 
     & input:invalid {
@@ -416,6 +392,7 @@
         border-radius: rem(50);
         display: flex;
         align-items: center;
+        background-color: #fff;
 
         & input {
             border: none;
