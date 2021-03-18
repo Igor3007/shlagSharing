@@ -113,43 +113,51 @@
 
     &__profile {
 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+
 
         & a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             margin-right: rem(10);
-            font-size: rem(16);
-            white-space: nowrap;
-            width: 90%;
-            display: block;
-            text-overflow: ellipsis;
-            overflow: hidden;
+
+            & span {
+                font-size: rem(16);
+                white-space: nowrap;
+                width: 90%;
+                display: block;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            & svg {
+                min-width: rem(18);
+                width: rem(18);
+                height: rem(18);
+            }
         }
 
-        & svg {
-            min-width: rem(18);
-            width: rem(18);
-            height: rem(18);
-        }
+
     }
 
     &__cash {
 
-        display: flex;
-        align-items: center;
-        padding-top: rem(5);
+        & a {
+            display: flex;
+            align-items: center;
+            padding-top: rem(5);
 
-        & span {
-            margin-left: rem(10);
-            font-size: rem(16);
-            color: #9B9B9B;
-        }
+            & span {
+                margin-left: rem(10);
+                font-size: rem(16);
+                color: #9B9B9B;
+            }
 
-        & svg {
-            min-width: rem(18);
-            width: rem(18);
-            height: rem(18);
+            & svg {
+                min-width: rem(18);
+                width: rem(18);
+                height: rem(18);
+            }
         }
     }
 }

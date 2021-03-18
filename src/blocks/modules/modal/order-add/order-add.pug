@@ -7,7 +7,11 @@ mixin order-add()
       form(action='#' method='POST')
         .form
           .form__item: .form__label Выберите тип заявки
-          .form__item: .form__subitem: .form__select: +select-icons(['Заявка на обмен парковками', 'Заявка на обмен парковками'])
+          .form__item: .form__subitem: .form__select: +select-icons([
+            'Заявка на обмен парковками',
+            'Заявка на получение подменной парковки по бонусным баллам',
+            'Заявка на предоставление подменной парковки по бонусным баллам',
+            ])
           .form__item: .form__label Выбор своей парковки, предлагаемой на обмен:
           .form__item: .form__subitem: .form__select: +select-icons(['ул. Череповецкая, д. 6', 'ул. Череповецкая, д. 658'])
           .form__item: .form__label Искомые локации парковки по обмену:

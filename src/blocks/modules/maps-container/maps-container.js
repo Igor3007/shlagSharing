@@ -20,7 +20,7 @@ ymaps.ready(function () {
 
                 '<div class="sh-balloon" >' +
                 '<div class="sh-balloon__close" >+</div>' +
-                '<div class="sh-balloon__content" >$[[options.contentLayout observeSize class=sh-wrp minWidth=235 maxWidth=550 maxHeight=400]]</div>' +
+                '<div class="sh-balloon__content" >$[[options.contentLayout observeSize class=sh-wrp minWidth=235 maxWidth=480 maxHeight=400]]</div>' +
                 '<div class="sh-balloon__arrow" >!</div>' +
                 '</div>', {
                     /**
@@ -155,10 +155,10 @@ ymaps.ready(function () {
                     }
                 });
 
-            // // Создание вложенного макета содержимого балуна.
-            // MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
-            //     '<div>$[properties.balloonContent]</div>'
-            // );
+            // Создание вложенного макета содержимого балуна.
+            MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+                '<div class="bln-scroll-offset" >$[properties.balloonContent]</div>'
+            );
 
         var coordinates = [{
                 'pin': [55.74481370529173, 37.67514980332959],
@@ -190,7 +190,7 @@ ymaps.ready(function () {
             }, {
                 balloonShadow: false,
                 balloonLayout: MyBalloonLayout,
-                //balloonContentLayout: MyBalloonContentLayout,
+                balloonContentLayout: MyBalloonContentLayout,
                 balloonPanelLayout: MyBalloonLayout,
                 //balloonPanelContentLayout: MyBalloonContentLayout,
                 balloonPanelMaxMapArea: ballonMapArea,

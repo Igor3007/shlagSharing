@@ -2,11 +2,14 @@ mixin menu-left()
   .menu-left-user
     .menu-left-user__label Профиль
     .menu-left-user__profile 
-      a(href='#') ivanstepanov@gmail.com
-      +icons('#ic_pencil')
+      a(href='/profile.html') 
+        span ivanstepanov@gmail.com
+        +icons('#ic_pencil')
+
     .menu-left-user__cash
-      +icons('#ic_cash')
-      span 1 920 руб. 
+      a(href='/my-cash.html')
+        +icons('#ic_cash')
+        span 1 920 руб. 
 
   .menu-left
     .menu-left__logo: a(href="/"): img(src="/img/common/logo.svg")

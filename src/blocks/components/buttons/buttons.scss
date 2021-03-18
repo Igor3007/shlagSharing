@@ -1,6 +1,7 @@
 .btn {
 
     color: #fff;
+    background-color: #fff;
     border: none;
     padding: 0.9em 2.6em;
     color: #fff;
@@ -16,7 +17,7 @@
     height: rem(40);
 
     font-style: normal;
-    font-weight: bold;
+    font-weight: 500;
     font-size: rem(13);
     white-space: nowrap;
 
@@ -97,9 +98,8 @@
 
     &.btn-line {
         border: 1px solid #bcbcbc;
-        background: none;
+        background: #fff;
         text-transform: uppercase;
-        font-weight: bold;
         color: $gray;
 
         &:hover {
@@ -113,7 +113,6 @@
         border: 1px solid $red;
         background: none;
         text-transform: uppercase;
-        font-weight: bold;
         color: $red;
 
         & svg {

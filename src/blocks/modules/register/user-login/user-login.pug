@@ -6,6 +6,7 @@ mixin user-login()
       .form
         .form__item: .form__subitem: +input('tel','Ваш номер телефона', 'phone')
         .form__item: .form__subitem: +input('password','Пароль', 'email')
+        .form__item: .form__subitem: .form__err Пользователь не найден. Проверьте правильность введеных данных
         .form__item: button.btn.btn-full.btn-big(type="submit") Войти
     .user-login__recovery
       a(href="/register-recovery.html") Забыли пароль?

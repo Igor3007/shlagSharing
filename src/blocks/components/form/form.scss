@@ -1,5 +1,29 @@
 .form {
 
+    & .form__err {
+        font-size: 13px;
+        background: #f7f7f7;
+        padding: 7px 14px;
+        border-left: 2px solid $red;
+        line-height: 140%;
+    }
+
+    & .form__wrn {
+        font-size: 13px;
+        background: #f7f7f7;
+        padding: 7px 14px;
+        border-left: 2px solid rgb(233, 139, 16);
+        line-height: 140%;
+    }
+
+    & .form__scs {
+        font-size: 13px;
+        background: #f7f7f7;
+        padding: 7px 14px;
+        border-left: 2px solid #33ad0f;
+        line-height: 140%;
+    }
+
     & input:invalid {
         box-shadow: none;
     }

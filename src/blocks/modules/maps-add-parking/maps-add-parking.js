@@ -155,10 +155,10 @@ ymaps.ready(function () {
                     }
                 });
 
-            // // Создание вложенного макета содержимого балуна.
-            // MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
-            //     '<div>$[properties.balloonContent]</div>'
-            // );
+            // Создание вложенного макета содержимого балуна.
+            MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+                '<div class="bln-scroll-offset" >$[properties.balloonContent]</div>'
+            );
 
             var coordinates = [{
                                 'pin': [55.74481370529173, 37.67514980332959],
@@ -191,7 +191,7 @@ ymaps.ready(function () {
             }, {
                 balloonShadow: false,
                 balloonLayout: MyBalloonLayout,
-                //balloonContentLayout: MyBalloonContentLayout,
+                balloonContentLayout: MyBalloonContentLayout,
                 balloonPanelLayout: MyBalloonLayout,
                 //balloonPanelContentLayout: MyBalloonContentLayout,
                 balloonPanelMaxMapArea: ballonMapArea,

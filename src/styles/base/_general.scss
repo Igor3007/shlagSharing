@@ -28,7 +28,7 @@ body {
 
 main {
     display: block;
-    height: calc(100vh - 8.45rem);
+    height: calc(100vh);
     overflow: hidden;
 
     @media screen and (max-width: $w940) {
@@ -43,7 +43,7 @@ main {
 .chrome-navbar main {
 
     @media screen and (max-width: $w580) {
-        height: calc(100vh - 9.4rem);
+        height: calc(100vh - 8.6rem);
     }
 }
 
