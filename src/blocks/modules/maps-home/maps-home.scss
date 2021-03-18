@@ -74,3 +74,9 @@
 .maps-home-button__menu.open-parent i {
     background: #fff
 }
+
+.sh-balloon__content>ymaps {
+    @media screen and (max-width: $w580) {
+        width: 100% !important;
+    }
+}

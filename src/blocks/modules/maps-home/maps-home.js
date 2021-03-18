@@ -10,7 +10,7 @@ ymaps.ready(function () {
                 zoom: 12,
                 controls: []
             }, {
-                suppressMapOpenBlock: true
+                suppressMapOpenBlock: true,
             }),
 
             // Создание макета балуна на основе Twitter Bootstrap.
@@ -18,7 +18,7 @@ ymaps.ready(function () {
 
                 '<div class="sh-balloon" >' +
                 '<div class="sh-balloon__close" >+</div>' +
-                '<div class="sh-balloon__content" >$[[options.contentLayout observeSize minWidth=235 maxWidth=550 maxHeight=400]]</div>' +
+                '<div class="sh-balloon__content" >$[[options.contentLayout observeSize class=sh-wrp minWidth=235 maxWidth=550 maxHeight=400]]</div>' +
                 '<div class="sh-balloon__arrow" >!</div>' +
                 '</div>', {
                     /**
@@ -78,10 +78,22 @@ ymaps.ready(function () {
                      * @name applyElementOffset
                      */
                     applyElementOffset: function () {
-                        this._$element.css({
+
+                        var positionDefault = {
                             left: -(this._$element[0].offsetWidth / 2),
                             top: -(this._$element[0].offsetHeight + this._$element.find('.sh-balloon__arrow')[0].offsetHeight)
-                        });
+                        }
+
+                        if($(window).width() <= 580 ){
+
+                           var positionDefault = {
+                               left: 0,
+                               right: 0,
+                               bottom: 0
+                           }
+                        }
+
+                        this._$element.css(positionDefault);
                     },
 
                     /**
@@ -139,12 +151,12 @@ ymaps.ready(function () {
                     _isElement: function (element) {
                         return element && element[0] && element.find('.sh-balloon__arrow')[0];
                     }
-                }),
+                });
 
-            // Создание вложенного макета содержимого балуна.
-            MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
-                '<div>$[properties.balloonContent]</div>'
-            );
+            // // Создание вложенного макета содержимого балуна.
+            // MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            //     '<div>$[properties.balloonContent]</div>'
+            // );
 
         var coordinates = [{
                 'pin': [55.74481370529173, 37.67514980332959],
@@ -168,11 +180,13 @@ ymaps.ready(function () {
 
         if($(window).width() <= 580 ){
 
-            var showBaloonMode = false
-            var ballonPane = 'balloon'
+            var showBaloonMode = false;
+            var ballonPane = 'balloon';
+            var ballonMapArea = 'Infinity';
         }else{
-            var showBaloonMode = false
-            var ballonPane = 'placemark'
+            var showBaloonMode = false;
+            var ballonPane = 'placemark';
+            var ballonMapArea = 0;
 
         }
 
@@ -185,8 +199,10 @@ ymaps.ready(function () {
             }, {
                 balloonShadow: false,
                 balloonLayout: MyBalloonLayout,
-                balloonContentLayout: MyBalloonContentLayout,
-                balloonPanelMaxMapArea: 0,
+                //balloonContentLayout: MyBalloonContentLayout,
+                balloonPanelLayout: MyBalloonLayout,
+                //balloonPanelContentLayout: MyBalloonContentLayout,
+                balloonPanelMaxMapArea: ballonMapArea,
                 // Не скрываем иконку при открытом балуне.
                 hideIconOnBalloonOpen: showBaloonMode,
                 // И дополнительно смещаем балун, для открытия над иконкой.

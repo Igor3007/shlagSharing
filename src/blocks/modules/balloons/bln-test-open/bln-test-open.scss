@@ -3,10 +3,20 @@
     &__info {
         display: flex;
         align-items: stretch;
+
+        @media screen and (max-width: $w480) {
+            flex-wrap: wrap;
+        }
+
     }
 
     &__image {
         width: 45%;
+
+        @media screen and (max-width: $w480) {
+            width: 100%;
+            padding-bottom: rem(15);
+        }
 
         & .bgimage {
             padding-top: 65%;
@@ -17,6 +27,11 @@
     &__desc {
         width: 65%;
         padding-left: rem(15);
+
+        @media screen and (max-width: $w480) {
+            width: 100%;
+            padding-left: rem(0);
+        }
     }
 
     &__btn {
@@ -25,12 +40,28 @@
         display: flex;
         justify-content: center;
 
+        @media screen and (max-width: $w480) {
+            flex-wrap: wrap;
+        }
+
         & a {
             margin: 0 rem(5);
+
+            @media screen and (max-width: $w480) {
+                margin: rem(7) 0;
+                padding: 0 rem(5);
+                width: 50%;
+
+                &:first-child {
+                    width: 100%;
+                }
+            }
         }
 
         & .btn {
-            height: rem(40)
+            height: rem(40);
+
+            width: 100%;
         }
     }
 

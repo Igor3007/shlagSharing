@@ -1,0 +1,184 @@
+extends ../layouts/index
+include ../../blocks/components/video/video
+include ../../blocks/components/faq/faq.pug
+
+block variables
+  include ../../data/data.pug
+
+
+block header
+  .container-1760
+    .header
+      .header__logo
+        a(href="/"): +bgimage('/img/common/logo.svg')
+      .header__nav
+        nav
+          ul
+            li: a(href='#') Техподдержка
+            li: a(href='#') Регистрация
+            li: a(href='#'): button.btn.btn-big Личный кабинет
+      .header__menu
+        .burger
+          i
+          i
+          i
+
+block content
+  section.main-section
+    .container
+      .main-section__logo: +bgimage('/img/common/logo-text.svg')
+      .main-section__h1: h1 Меняйтесь парковками и паркуйтесь с комфортом!
+      .main-section__apps.revealator-slideup.revealator-once.revealator-delay3
+        .sh-app
+          .sh-app__apple-store
+            a(href='#')
+              .link-store
+                .link-store__icon: +icons('#ic_google-play')
+                .link-store__text
+                  .link-store__desc Доступно в 
+                  .link-store__name Google play
+          .sh-app__google-store
+            a(href='#')
+              .link-store
+                .link-store__icon: +icons('#ic_app-store')
+                .link-store__text
+                  .link-store__desc Доступно в 
+                  .link-store__name App store
+      .main-section__picture: +bgimage('/img/common/main-block.png')
+      .main-section__text.revealator-slideup.revealator-once.revealator-delay1 Не можете найти место для парковки рядом с работой, потому <br> что все ближайшие дворы закрыты шлагбаумами?
+      .main-section__promo.revealator-slideup.revealator-once.revealator-delay2 Присоединяйтесь к сервису <br> ШлагSharing!
+      .main-section__btn.revealator-slideup.revealator-once.revealator-delay3
+        button.btn.btn-big Присоедениться к сервису
+  section.how-it-work
+    .container
+      .how-it-work__logo: +bgimage('/img/common/logo-vertical.svg')
+      .how-it-work__subtitle Как это работает?
+      .how-it-work__video: +video({
+        'link': 'BHACKCNDMW8',
+        'title': 'Видео о сервисе обмена парковками',
+        'preview': '/img/common/preview.jpg'
+      })
+      .how-it-work__title.revealator-slideup.revealator-once Свободно паркуйте машину в <br> любом дворе со шлагбаумом!
+      .how-it-work__subtitle.revealator-slideup.revealator-once Искусственный интеллект поможет найти варианты временного обмена парковки <br> в вашем дворе на парковку во дворе, ближайшем к вашей работе!
+  section.section-digit
+    .container
+
+      .section-digit__laptop: +bgimage('/img/common/laptop.png')
+      .section-digit__cost
+        .digit-cost
+          .digit-cost__item.revealator-slideup.revealator-once.revealator-delay1
+            .digit-cost__bar
+              svg(width='264' height='264' viewBox='0 0 264 264' fill='none')
+                circle(cx='131' cy='132' r='126' stroke='white' stroke-width='2')
+                circle.progress-bar-red-1(cx='132' cy='132' r='127' stroke='white' stroke-width='10')
+
+            .digit-cost__text
+              .digit-cost__text-title Пользователей сервиса
+              .digit-cost__text-count 5203
+          .digit-cost__item.revealator-slideup.revealator-once.revealator-delay2
+            .digit-cost__bar
+              svg(width='264' height='264' viewBox='0 0 264 264' fill='none')
+                circle(cx='131' cy='132' r='126' stroke='white' stroke-width='2')
+                circle.progress-bar-red-2(cx='132' cy='132' r='127' stroke='white' stroke-width='10')
+
+            .digit-cost__text
+              .digit-cost__text-title Регистрация
+              .digit-cost__text-count 0 руб.
+          .digit-cost__item.revealator-slideup.revealator-once.revealator-delay3
+            .digit-cost__bar
+              svg(width='264' height='264' viewBox='0 0 264 264' fill='none')
+                circle(cx='131' cy='132' r='126' stroke='white' stroke-width='2')
+                circle.progress-bar-red-3(cx='132' cy='132' r='127' stroke='white' stroke-width='10')
+
+            .digit-cost__text
+              .digit-cost__text-title Поиск вариантов обмена
+              .digit-cost__text-count 0 руб.
+      .section-digit__btn
+        a(href='#'): button.btn.btn-white.btn-big Присоедениться к сервису
+      .section-digit__phone.revealator-rotateright.revealator-once: +bgimage('/img/common/mobile.png')
+  section.download-app
+    .container
+      .download-app__title Скачать мобильное приложение для Android и iOS
+
+      .download-app__apps
+        .sh-app
+          .sh-app__apple-store
+            a(href='#')
+              .link-store
+                .link-store__icon: +icons('#ic_google-play')
+                .link-store__text
+                  .link-store__desc Доступно в 
+                  .link-store__name Google play
+          .sh-app__google-store
+            a(href='#')
+              .link-store
+                .link-store__icon: +icons('#ic_app-store')
+                .link-store__text
+                  .link-store__desc Доступно в 
+                  .link-store__name App store
+
+  section.qna-block 
+    .container.revealator-slideup.revealator-once
+      .qna-block__title Ответы на вопросы
+      .qna-block__list
+        +faq(faq)
+
+  section.form-block
+    .container.revealator-slideup.revealator-once
+      .form-block__title Вы не нашли ответа на свой вопрос?
+      .form-block__subtitle Задайте его нашим специалистам
+      .form-block__form
+        form(action='#' method='POST')
+          .form
+            .form__item
+              .form__subitem: +input('text', 'Имя')
+              .form__subitem: +input('tel', 'Телефон')
+              .form__subitem: +input('email', 'Email')
+            .form__item
+              .form__subitem: textarea(placeholder="Ваше сообщение" required)
+            .form__item.form__item--submit
+              button.btn.btn-full Отправить
+
+
+
+
+
+
+
+block footer
+  .footer.footer--red
+    .footer__share
+      .footer__share-title Получить бонусные баллы на счет
+      .footer__share-list
+        ul
+          li.share-fb: a(href="#" target="_blank"): +icons('#ic_fb')
+          li.share-vk: a(href="#" target="_blank"): +icons('#ic_vk')
+          li.share-tw: a(href="#" target="_blank"): +icons('#ic_tw')
+          li.share-ig: a(href="#" target="_blank"): +icons('#ic_ig')
+          li.share-tg: a(href="#" target="_blank"): +icons('#ic_tg')
+          li.share-wa: a(href="#" target="_blank"): +icons('#ic_wa')
+
+
+    .footer__app
+      .footer__apple-store
+        a(href='#')
+          .link-store
+            .link-store__icon: +icons('#ic_google-play')
+            .link-store__text
+              .link-store__desc Доступно в 
+              .link-store__name Google play
+      .footer__google-store
+        a(href='#')
+          .link-store
+            .link-store__icon: +icons('#ic_app-store')
+            .link-store__text
+              .link-store__desc Доступно в 
+              .link-store__name App store
+  .footer-develop
+    a(href='https://promicom.ru') Digital-агентство 
+      +bgimage('../img/common/logo-promicom.svg')
+
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js")

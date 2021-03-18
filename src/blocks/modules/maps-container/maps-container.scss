@@ -20,16 +20,9 @@
     overflow: hidden;
 
     @media screen and (max-width: $w580) {
-        position: fixed;
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 111111;
-        bottom: 0;
-        top: auto !important;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-
-        padding: rem(20) rem(15);
+        box-shadow: 0px 1px 9px 6px #00000030;
     }
 
     &__close {
@@ -55,11 +48,7 @@
     }
 }
 
-.sh-balloon__content>ymaps {
-    @media screen and (max-width: $w580) {
-        width: 100% !important;
-    }
-}
+
 
 .baloon-loading {
     display: flex;
