@@ -14,10 +14,10 @@ mixin order-edit()
             ])
 
           .form__item: .form__label Выбор локации удобные для парковки по обмену через бонусные баллы:
-          .form__item: .form__subitem: +input-icon('text', 'ул. Череповецкая, д. 6', 'min8', '#ic_gps')
+          .form__item: .form__subitem(id="address-in-geo")
 
-          .form__item: a(href='#')
-            span(data-fancybox="2" data-src="https://yandex.com/map-widget/v1/-/CCUMvPu6tD" data-type="iframe") Добавить локацию
+          .form__item: a(href='#' data-select-geo="")
+            span Добавить локацию
 
           .form__item: .form__subitem: +checkbox('Ограниченная парковка (2 проезда в сутки)', 'limit-park')
           .form__item: .form__subitem: +checkbox('Безлимитная парковка', 'limit-park', true)

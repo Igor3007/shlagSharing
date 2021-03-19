@@ -1,2 +1,14 @@
-mixin maps-add-parking(balloon, icon)
-  .maps-container(id="maps-add-parking")
+include ../maps-container/maps-container.pug
+
+
+mixin maps-add-parking()
+  script.
+    const mapsParams = [
+      {
+        'pin': [55.74481370529173, 37.67514980332959],
+        'url': '/_balloon-add-parking.html',
+        'icon': '/img/svg/ic_pin-parking.svg',
+        'draggable': true,
+      }
+    ];
+  +maps-container()

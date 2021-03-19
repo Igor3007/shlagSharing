@@ -24,10 +24,11 @@
         border-bottom-right-radius: 0;
         box-shadow: 0px 1px 9px 6px #00000030;
 
-        padding: rem(30) rem(0) rem(30) rem(25);
+        padding: rem(35) rem(0) rem(25) rem(0);
 
         & .bln-scroll-offset {
             padding-right: rem(25);
+            padding-left: rem(25);
         }
     }
 

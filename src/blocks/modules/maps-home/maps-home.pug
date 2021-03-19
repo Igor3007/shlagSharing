@@ -1,13 +1,35 @@
 include ../../modules/header-wallet/header-wallet.pug
+include ../../modules/maps-container/maps-container.pug
 
 mixin maps-home(balloon, icon)
-  .maps-container(id="maps-home")
+  script.
+    const mapsParams = [
+      {
+        'pin': [55.74481370529173, 37.67514980332959],
+        'url': '/_balloon-add-parking-8.html',
+        'icon': '/img/svg/ic_pin-parking.svg'
+      },
+      {
+        'pin': [55.74142447125276, 37.59343898789991],
+        'url': '/_balloon-map-offer.html',
+        'icon': '/img/svg/ic_pin-offer.svg'
+      },
+      {
+        'pin': [55.785141099836416, 37.61463455491718],
+        'url': '/_balloon-map-swap.html',
+        'icon': '/img/svg/ic_pin-swap.svg'
+      }
+    ];
+  +maps-container()
   .maps-home-button
-    .maps-home-button__menu
-      .burger
-        i
-        i
-        i
-    .maps-home-button__cash: +header-wallet()
-    .maps-home-button__find: +icons('#ic_loupe')
-    .maps-home-button__add(data-fancybox="" data-src="_modal-add-parking.html" data-type="ajax"): +icons('#ic_cross-one')
+    .maps-home-button__top-bar
+      .maps-home-button__menu
+        .burger
+          i
+          i
+          i
+      .maps-home-button__cash: +header-wallet()
+    .maps-home-button__bottom-bar
+      .maps-home-button__find(data-fancybox="" data-src="#header-search" data-type="inline"): +icons('#ic_loupe')
+      .maps-home-button__filter(data-fancybox="" data-src="#map-filter" data-type="inline"): +icons('#ic_filter')
+      .maps-home-button__add(data-fancybox="" data-src="_modal-tooltip-status-order.html" data-type="ajax"): +icons('#ic_cross-one')

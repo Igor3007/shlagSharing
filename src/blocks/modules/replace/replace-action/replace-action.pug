@@ -1,9 +1,9 @@
 mixin replace-action(data)
-  .replace-action
-    .replace-action__title: +h2(data[0])
+  .dafault-action
+    .dafault-action__title: +h2(data[0])
     if (data[1])
-      .replace-action__inmap
+      .dafault-action__inmap
         +icons('#ic_gps', 20)
         a(href=''+data[1]+'') Смотреть на карте
-    .replace-action__back
+    .dafault-action__back
       a(href='/'): +icons('#ic_back', 20)

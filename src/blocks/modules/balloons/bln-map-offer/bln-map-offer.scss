@@ -1,6 +1,7 @@
 .bln-map-offer {
 
-    min-width: rem(500);
+    min-width: rem(480);
+    font-size: 13px;
 
     @media screen and (max-width: $w580) {
         min-width: auto;
@@ -133,10 +134,17 @@
     &__location {
         & .order-location {
             padding-bottom: rem(20);
+
         }
 
         & .order-location__address {
             padding-top: rem(5);
+            font-size: 13px;
+        }
+
+        & .order-location__title {
+            padding-top: rem(5);
+            font-size: 13px;
         }
     }
 

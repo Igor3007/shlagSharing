@@ -1,5 +1,4 @@
 
-
 ymaps.ready(function () {
 
     try {
@@ -160,12 +159,6 @@ ymaps.ready(function () {
                 '<div class="bln-scroll-offset" >$[properties.balloonContent]</div>'
             );
 
-        var coordinates = [{
-                'pin': [55.74481370529173, 37.67514980332959],
-                'url': $('#maps-container').data('balloon'),
-                'icon': $('#maps-container').data('icon')
-            },
-        ];
 
         var PlacemarkArr = [];
 
@@ -182,10 +175,10 @@ ymaps.ready(function () {
         }
 
 
-        for (let i = 0; i < coordinates.length; i++) {
+        for (let i = 0; i < mapsParams.length; i++) {
 
             // Создание метки с пользовательским макетом балуна.
-            PlacemarkArr[i] = window.myPlacemark = new ymaps.Placemark(coordinates[i].pin, {
+            PlacemarkArr[i] = window.myPlacemark = new ymaps.Placemark(mapsParams[i].pin, {
                 balloonContent: ''
             }, {
                 balloonShadow: false,
@@ -201,18 +194,18 @@ ymaps.ready(function () {
 
                 // balloonContentLayout: LayoutActivatePoint,
                 iconLayout: 'default#image',
-                iconImageHref: coordinates[i].icon,
+                iconImageHref: mapsParams[i].icon,
                 iconImageSize: [53, 55],
-                pane: 'balloon'
+                pane: 'balloon',
+                draggable: (mapsParams[i].draggable ? true : false)
             });
 
             PlacemarkArr[i].events.add('balloonopen', function (e) {
                 PlacemarkArr[i].properties.set('balloonContent', "<span class='baloon-loading' ></span>");
 
-                $('.maps-home-button__find').fadeOut(300)
-                $('.maps-home-button__add').fadeOut(300)
+                $('.maps-home-button__bottom-bar').fadeOut(300)
 
-                const url = coordinates[i].url;
+                const url = mapsParams[i].url;
 
                 $.ajax({
                     method: 'GET',
@@ -229,8 +222,7 @@ ymaps.ready(function () {
             });
 
             PlacemarkArr[i].events.add('balloonclose', function (e) {
-                $('.maps-home-button__find').fadeIn(300)
-                $('.maps-home-button__add').fadeIn(300)
+                $('.maps-home-button__bottom-bar').fadeIn(300)
             })
 
             myMap.geoObjects.add(PlacemarkArr[i]);

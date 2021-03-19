@@ -25,7 +25,15 @@ block pa-action
 
 
 block pa-main
-  +maps-container("/_balloon-offer-test-open.html", "/img/svg/ic_pin-offer.svg")
+  script.
+    const mapsParams = [
+      {
+        'pin': [55.74481370529173, 37.67514980332959],
+        'url': '/_balloon-offer-test-open.html',
+        'icon': '/img/svg/ic_pin-offer.svg'
+      }
+    ];
+  +maps-container()
 
 block scripts
 

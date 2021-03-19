@@ -1,13 +1,14 @@
 mixin map-filter()
   .map-filter
     .map-filter__wrp    
-      .map-filter__title: h2 Карта
-      .map-filter__check 
-        .map-filter__input: +checkbox('Мои парковки')
-        .map-filter__input: +checkbox('Мои заявки')
-        .map-filter__input: +checkbox('Подменные парковки')
-
-
+      .map-filter__title: +h2('Карта')
+      .map-filter__form(id="map-filter")
+        form( action='/' method='POST')
+          .map-filter__check 
+            .map-filter__input: +checkbox('Мои парковки')
+            .map-filter__input: +checkbox('Мои заявки')
+            .map-filter__input: +checkbox('Подменные парковки')
+            .map-filter__btn: button.btn Показать
 //- mixin map-filter()
 //-   .map-filter
 //-     .map-filter__wrp    

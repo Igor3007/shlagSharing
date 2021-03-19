@@ -25,12 +25,14 @@ mixin support()
             .form__subitem
               textarea(placeholder="Ваше сообщение")
           .form__item
-            label(for='attach-file')
-              input(id='attach-file' type="file" name="file")
-              +icons('#ic_attach-icon', 35)
-              span Прикрепить файл
+            .form__subitem
+              label(for='attach-file')
+                input(id='attach-file' type="file" name="file")
+                +icons('#ic_attach-icon', 35)
+                span Прикрепить файл
+              ul.upload-files
           .form__item
             .form__subitem
-              span.recaptcha
+              div.recaptcha
             .form__subitem
               button.btn.btn-full.btn-big Отправить

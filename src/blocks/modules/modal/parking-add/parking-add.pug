@@ -7,14 +7,39 @@ mixin parking-add()
       form(action='#' method='POST')
         .form
           .form__item: .form__label Адрес, по которому расположен шлагбаум:
-          .form__item: .form__subitem: +input('text', 'Адрес')
-          .form__item.form__item--select-inmap: a(href='/add-parking-map.html') Выбрать геометку на карте
+          .form__item: .form__subitem(id="address-in-map"): +input('text', 'Адрес')
+          .form__item.form__item--select-inmap: a(href='#' data-select-inmap="") Выбрать геометку на карте
           .form__item: span.form__label Номер телефона с которого вы открывате (шлагбаум/ворота):
           .form__item: .form__subitem: .form__select: +select(['+7 859 522 58 25', '+7 000 000 00 00', '+7 000 000 00 00'])
           .form__item: .form__label Номер телефона шлагбаума/ворот:
           .form__item: .form__subitem: .form__select: +select(['+7 859 522 58 25', '+7 000 000 00 00', '+7 000 000 00 00'])
           .form__item: .form__label Тип ограждающего устройства:
-          .form__item: .form__subitem: .form__select: +select(['- Выберите -'])
+          .form__item: .form__subitem: .form__select: +select([
+            'Шлагбаум',
+            'Ворота'
+            ])
+          .form__item: .form__label Прикрепите фотографию шлагбаума/ворот:
+          .form__item: .form__subitem: +attach('screen', 'Выбрать')
+          .form__item: button(type="submit").btn.btn-full Добавить
+
+mixin parking-edit()
+  .parking-add
+    .parking-add__title Редактировать парковку
+    .parking-add__form
+      form(action='#' method='POST')
+        .form
+          .form__item: .form__label Адрес, по которому расположен шлагбаум:
+          .form__item: .form__subitem: +input('text', 'Адрес')
+          .form__item.form__item--select-inmap: a(href='#' data-select-inmap="") Выбрать геометку на карте
+          .form__item: span.form__label Номер телефона с которого вы открывате (шлагбаум/ворота):
+          .form__item: .form__subitem: .form__select: +select(['+7 859 522 58 25', '+7 000 000 00 00', '+7 000 000 00 00'])
+          .form__item: .form__label Номер телефона шлагбаума/ворот:
+          .form__item: .form__subitem: .form__select: +select(['+7 859 522 58 25', '+7 000 000 00 00', '+7 000 000 00 00'])
+          .form__item: .form__label Тип ограждающего устройства:
+          .form__item: .form__subitem: .form__select: +select([
+            'Шлагбаум',
+            'Ворота'
+            ])
           .form__item: .form__label Прикрепите фотографию шлагбаума/ворот:
           .form__item: .form__subitem: +attach('screen', 'Выбрать')
           .form__item: button(type="submit").btn.btn-full Добавить

@@ -1,5 +1,9 @@
+@import "helpers/variables";
+
 .personal-area {
     &__action {
-        display: none;
+        @media screen and (max-width: $w580) {
+            display: none;
+        }
     }
 }

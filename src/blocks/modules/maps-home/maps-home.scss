@@ -4,6 +4,27 @@
         display: none;
     }
 
+    &__top-bar {
+        position: absolute;
+        top: rem(15);
+        right: rem(20);
+        left: rem(20);
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__bottom-bar {
+        position: absolute;
+        bottom: rem(15);
+        right: rem(20);
+        left: rem(20);
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__filter,
     &__find,
     &__add,
     &__menu {
@@ -12,13 +33,13 @@
         display: inline-block;
         background-color: #fff;
         border-radius: 50%;
-        position: absolute;
         z-index: 2;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         display: flex;
         align-items: center;
         justify-content: center;
         border: 1px solid #D8D8D8;
+        cursor: pointer;
 
         & svg {
             width: 20px;
@@ -29,10 +50,8 @@
     }
 
     &__cash {
-        position: absolute;
         z-index: 2;
-        top: rem(15);
-        right: rem(20);
+
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
         & .header-wallet {
@@ -42,21 +61,16 @@
         }
     }
 
-    &__find {
-        bottom: rem(15);
-        left: rem(20);
+    &__filter {
+        margin-left: auto;
+        margin-right: rem(15);
     }
 
     &__add {
-        bottom: rem(15);
-        right: rem(20);
         border: 1px solid $red;
     }
 
-    &__menu {
-        top: rem(15);
-        left: rem(20);
-    }
+    &__menu {}
 }
 
 

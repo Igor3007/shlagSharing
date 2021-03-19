@@ -42,6 +42,11 @@
         width: 36%;
         min-width: rem(170);
 
+        @media screen and (max-width: $w580) {
+            width: rem(170);
+            min-width: rem(170);
+        }
+
         @media screen and (max-width: $w480) {
             width: 100%;
             margin-bottom: rem(25);
@@ -120,7 +125,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-top: rem(25);
+        padding-top: rem(35);
+
 
         @media screen and (max-width: $w480) {
             flex-direction: column;
@@ -231,6 +237,7 @@
         text-align: center;
         max-width: rem(340);
         margin: 0 auto;
+        font-size: rem(14);
     }
 
     &__form {

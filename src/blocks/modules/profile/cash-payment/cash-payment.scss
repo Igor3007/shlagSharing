@@ -6,26 +6,35 @@
 
 .select-digit {
 
-    padding-top: rem(10);
-    padding-bottom: rem(30);
+    padding-top: rem(0);
+    padding-bottom: rem(18);
 
     & ul {
 
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+        z-index: 5;
 
         & li {
-            color: $red;
-            margin-right: rem(15);
 
             &:last-child {
                 margin-right: 0;
             }
 
-            & span {
-                border-bottom: 1px dashed $red;
+            & a {
+                color: $red;
                 cursor: pointer;
+                padding: rem(12) rem(7);
+                display: block;
+
+
+
+                & span {
+                    border-bottom: 1px dashed $red;
+
+                }
             }
         }
     }

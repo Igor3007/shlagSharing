@@ -499,21 +499,22 @@
     & li {
         list-style-type: none;
         font-size: rem(13);
-        padding-top: 15px;
+        margin-top: rem(5);
+        margin-bottom: rem(5);
         display: flex;
-        line-height: 25px;
+        line-height: rem(25);
 
 
         &::before {
             width: 25px;
             height: 25px;
-            background: #212121;
+
             content: '';
             display: block;
             margin-right: 10px;
             border-radius: 50%;
 
-            background-image: url(/img/svg/ic_checked-green.svg);
+            background-image: url(../img/svg/ic_input-valid.svg);
             background-repeat: no-repeat;
             background-position: center;
         }

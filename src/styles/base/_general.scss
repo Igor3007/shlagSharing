@@ -36,7 +36,7 @@ main {
     }
 
     @media screen and (max-width: $w580) {
-        height: calc(100vh - 5.35rem);
+        height: calc(100vh - 5rem);
     }
 }
 
@@ -70,7 +70,7 @@ main .container {
     @media screen and (max-width: $w580) {
         padding-left: 0 !important;
         padding-right: 0 !important;
-        display: flex;
+        display: flex !important;
         justify-content: flex-end;
         padding: 0;
     }
@@ -183,4 +183,18 @@ img {
 
 .red {
     color: $red;
+}
+
+#maps-container-select {
+
+    @media screen and (min-width: $w580) {
+        width: 90%;
+        height: 90%;
+    }
+
+    @media screen and (max-width: $w580) {
+        height: 90vh;
+        padding: 0px;
+        padding-top: 47px;
+    }
 }

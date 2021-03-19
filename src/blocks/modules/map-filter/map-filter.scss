@@ -14,14 +14,58 @@
         display: flex;
         flex-grow: 1;
         justify-content: flex-end;
+
+        @media screen and (max-width: $w580) {
+            flex-direction: column;
+        }
+    }
+
+    &__form {
+        flex-grow: 1;
     }
 
     &__input {
         margin-right: rem(30);
+
+        @media screen and (max-width: $w580) {
+            margin-bottom: rem(13);
+
+            & .checkbox__text {
+                font-size: 14px;
+            }
+        }
     }
 
     &__select {
         display: flex;
         align-items: center;
+    }
+
+    &__btn {
+        @media screen and (min-width: $w580) {
+            display: none;
+        }
+
+        @media screen and (max-width: $w580) {
+            padding-top: rem(10);
+
+            & .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.fancybox-content {
+    @media screen and (max-width: $w580) {
+        height: auto;
+        bottom: 0;
+        margin-top: auto;
+        width: 100%;
+        overflow-y: auto;
+        padding: rem(30) rem(30);
+
+        border-top-left-radius: rem(20);
+        border-top-right-radius: rem(20);
     }
 }

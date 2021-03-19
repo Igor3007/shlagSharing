@@ -26,7 +26,16 @@ block pa-action
 
 
 block pa-main
-  +maps-container("/_balloon-add-parking-8.html", "/img/svg/ic_pin-parking.svg")
+
+  script.
+    const mapsParams = [
+      {
+        'pin': [55.74481370529173, 37.67514980332959],
+        'url': '/_balloon-add-parking-8.html',
+        'icon': '/img/svg/ic_pin-parking.svg'
+      }
+    ];
+  +maps-container()
 
 block scripts
 

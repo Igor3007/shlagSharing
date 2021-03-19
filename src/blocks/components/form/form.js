@@ -148,13 +148,13 @@ $(document).ready(function () {
         let files = this.files;
         let elem = $(this);
 
+        
+
         sendFiles(files, function (data) {
-            elem.parents('.form__subitem')
+            elem.parents('.form__item')
                 .find('.upload-files')
                 .append('<li>'+data.name+'</li>');
-        
         });
-
     });
 
     /* input-attach */
