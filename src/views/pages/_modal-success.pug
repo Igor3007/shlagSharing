@@ -1,0 +1,10 @@
+include ../../blocks/modules/modal/submit-success/submit-success
+
+.sh-modal
+  .sh-modal__wrp
+    .sh-modal__close
+    .sh-modal__content
+      +submit-success({
+        'title': 'Отправлено',
+        'desc': 'Ваше сообщение успешно отправлено. Наши операторы свяжутся с вами в ближайшее время. <br> С ув. команда ShlagSharing '
+      })

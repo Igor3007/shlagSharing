@@ -12,12 +12,26 @@ mixin profile-page()
         .profile-page__item
           .profile-page__item-label Имя:
           .profile-page__item-text ivanstepanov
+          .profile-page__item-form(data-edit-name="login")
+            form(action='/profile.html' method='POST')
+              .form
+                .form__item
+                  .form__subitem: input(type="text" value="ivanstepanov" placeholder="Имя")
+                  .form__subitem: button.btn Сохранить
           .profile-page__item-link
-            a(href="#edit") Изменить
+            a(href="#edit" data-edit-name="login") Изменить
 
         .profile-page__item
           .profile-page__item-label Телефоны:
           .profile-page__item-text + 7 (952) 154-25-45
           .profile-page__item-text + 7 (987) 265-63-21
+          .profile-page__item-form(data-edit-name="phone")
+            form(action='/profile.html' method='POST')
+              .form
+                .form__item
+                  .form__subitem: input(type="tel" value="" placeholder="+7")
+                  .form__subitem: button.btn Сохранить
           .profile-page__item-link
-            a(href="#edit") Добавить
+            a(href="#edit" data-edit-name="phone") Добавить
+    .profile-page__exit
+      a(href='#logout'): button.btn.btn-gray Выйти

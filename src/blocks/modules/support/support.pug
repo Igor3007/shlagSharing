@@ -13,8 +13,8 @@ mixin support()
           span Telegram
 
     .support-page__form
-      form
-        .form(action="#")
+      form(action="#" id="send-support" method="POST" enctype="multipart/form-data")
+        .form
           .form__item
             .form__subitem: +input('text', 'Имя')
             .form__subitem: +input('tel', 'Телефон')

@@ -40,7 +40,7 @@ main {
     }
 }
 
-.chrome-navbar main {
+.chrome-navbar main:not(.main-full-height) {
 
     @media screen and (max-width: $w580) {
         height: calc(100vh - 8.6rem);

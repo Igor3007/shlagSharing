@@ -1,0 +1,9 @@
+include ../../../../views/helpers/mixins.pug
+
+mixin submit-success(data)
+  .submit-success
+    .submit-success__logo: +bgimage('/img/common/logo.svg')
+    .submit-success__title!= data.title 
+    .submit-success__desc!= data.desc 
+    .submit-success__btn
+      a( href="#" class="close-fancybox"): button.btn Закрыть

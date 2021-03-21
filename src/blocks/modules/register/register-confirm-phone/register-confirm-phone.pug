@@ -9,7 +9,7 @@ mixin register-confirm-phone()
           .form__item.form__item--confirm-type
             .form__subitem: +radio('СМС-код', 'phone-confirm-type', '1', true)
             .form__subitem: +radio('Телефонный звонок', 'phone-confirm-type', '2', false)
-          .form__item: .form__subitem: +input('text', 'Телефон')
+          .form__item: .form__subitem: +input('tel', 'Телефон')
           .form__item: .form__subitem: +input('text', 'Код из SMS')
           .form__item
             .resend-code

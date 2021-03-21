@@ -10,9 +10,27 @@
     &__label {
         color: $gray;
         margin-bottom: rem(5);
+        font-size: rem(14);
     }
 
     &__text {
         font-size: rem(24);
+
+        @media screen and (max-width: $w580) {
+            font-size: rem(18);
+            font-weight: 500;
+        }
+    }
+
+    &__back {
+        @media screen and (min-width: $w580) {
+            display: none;
+        }
+    }
+
+    &__exit {
+        @media screen and (max-width: $w580) {
+            display: none;
+        }
     }
 }

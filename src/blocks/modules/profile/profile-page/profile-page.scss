@@ -3,11 +3,31 @@
     max-width: rem(630);
     margin-right: auto;
     padding: rem(30) 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 
 
 
     &__personal {
-        padding-top: rem(30)
+        padding-top: rem(30);
+        flex-grow: 1;
+    }
+
+    &__exit {
+        margin-top: auto;
+
+        @media screen and (min-width: $w580) {
+            display: none;
+        }
+
+        & .btn {
+            background-color: transparent;
+            color: $gray;
+            border: 1px solid $gray;
+            font-size: rem(14);
+            font-weight: 500;
+        }
     }
 
     &__list {
@@ -25,17 +45,62 @@
     &__item-label {
         color: $gray;
         margin-bottom: rem(8);
+        font-size: rem(14);
     }
 
     &__item-text {
         font-size: rem(16);
         margin-bottom: rem(5);
+        font-size: rem(14);
+    }
+
+    &__item-form {
+        display: none;
+
+        @media screen and (max-width: $w480) {
+            & .form__item {
+                flex-direction: row;
+            }
+
+            & .form__subitem {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    &__item-form.open {
+        display: flex;
     }
 
     &__item-link {
         & a {
             color: $red;
             text-decoration: underline;
+            font-size: rem(14);
+
+            &.open {
+                display: none;
+            }
+
+
+        }
+    }
+
+    & input {
+        border: 1px solid $lgray;
+        width: 100%;
+        display: block;
+        height: rem(40);
+        background-color: transparent;
+        padding: 0 rem(15);
+        border-radius: 50px;
+        font-size: rem(14);
+        min-width: rem(150);
+    }
+
+    & .btn {
+        @media screen and (max-width: $w580) {
+            height: rem(40);
         }
     }
 }

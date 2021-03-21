@@ -124,6 +124,21 @@ $(document).ready(function () {
           $.fancybox.close()
       })
 
+      $(document).on('submit', '#send-support', function(event){
+          event.preventDefault()
+          $.fancybox.open({
+              type: 'ajax',
+              src: '_modal-success.html'
+          })
+      })
+
+      $(document).on('click', '[data-edit-name]', function(event){
+          var name = $(this).data('edit-name')
+          $('[data-edit-name='+name+']').toggleClass('open')
+      })
+
+
+
       /* 
       =====================================================
       select in map

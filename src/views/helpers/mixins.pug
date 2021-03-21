@@ -59,7 +59,7 @@ mixin input-material(type, placeholder, tooltip, valid)
 
 mixin input(type, placeholder, valid)
   .input-primary
-    input(type=''+type+'', placeholder=placeholder data-valid-type=''+(valid ? valid : '')+'' )
+    input(type=''+type+'', placeholder=placeholder data-valid-type=''+(valid ? valid : '')+'' required )
     if type == 'password'
       span.tooltip-showpass
     else
@@ -69,7 +69,7 @@ mixin input-icon(type, placeholder, valid, icon)
   .input-primary.input-icon
     if icon
       +icons(''+icon+'', 16)
-    input(type=''+type+'', placeholder=placeholder data-valid-type=''+(valid ? valid : '')+'' )
+    input(type=''+type+'', placeholder=placeholder data-valid-type=''+(valid ? valid : '')+'' required )
     if type == 'password'
       span.tooltip-showpass
     else

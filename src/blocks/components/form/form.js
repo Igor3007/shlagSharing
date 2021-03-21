@@ -9,19 +9,19 @@ $(document).ready(function () {
 
     //Латиница или цифры
     function validatePasswordEnNum(pass){
-       var regexp = '^[a-zA-Z0-9]+$';
+       var regexp = '(?=^.{8,}$)((?=.*\d)|(?=.*\W+)).*';
        return pass.match(regexp);
     }
 
     //мининум 1 цифра
     function validatePasswordOneNum(pass){
-       var regexp = '/(\d{4})/';
+       var regexp = '(?=.*[0-9])';
        return pass.match(regexp);
     }
 
     //минимум 1 заглавная
     function validatePasswordCap(pass){
-        var regexp = '^[a-zA-Z0-9]+$';
+        var regexp = '((?=.*\d)|(?=.*\W+)).*';
         return pass.match(regexp);
      }
      
@@ -46,27 +46,44 @@ $(document).ready(function () {
 
             break;
 
-            case 'password': 
+            case 'text': 
 
-            const rulesArray = {
-                '0': validatePasswordEnNum(value),
-                '1': validatePasswordOneNum(value),
-                '2': validatePasswordCap(value)
-            }
+            // const rulesArray = {
+            //     '0': validatePasswordEnNum(value),
+            //     '1': validatePasswordOneNum(value),
+            //     '2': validatePasswordCap(value)
+            // }
 
             const rulesList = $(this).parents('form').find('.valid-rules li');
 
-            rulesList.each(function(index, elem){
+            if(validatePasswordEnNum(value)) {
+                rulesList.eq(0).addClass('active')
+            }else{
+                rulesList.eq(0).removeClass('active')
+            }
+            if(validatePasswordOneNum(value)) {
+                rulesList.eq(1).addClass('active')
+            }else{
+                rulesList.eq(1).removeClass('active')
+            }
+            if(validatePasswordCap(value)) {
+                rulesList.eq(2).addClass('active')
+            }else{
+                rulesList.eq(2).removeClass('active')
+            }
 
-                // console.log(index)
-                // console.log(Array.isArray(rulesArray[index]))
 
-                if(Array.isArray(rulesArray[index])){
-                    $(this).addClass('active')
-                }else{
-                    $(this).removeClass('active') 
-                }
-            })
+            // rulesList.each(function(index, elem){
+
+            //     // console.log(index)
+            //     // console.log(Array.isArray(rulesArray[index]))
+
+            //     if(Array.isArray(rulesArray[index])){
+            //         $(this).addClass('active')
+            //     }else{
+            //         $(this).removeClass('active') 
+            //     }
+            // })
 
             // const rulesList = $($this).parents('form').find('.valid-rules li');
 
@@ -74,11 +91,13 @@ $(document).ready(function () {
             //     rulesList.eq(0).addClass('active')
             // }
 
-            if(value.length < 6){
-                elem.attr('area-valid', 'false')
-            }else{
-                elem.attr('area-valid', 'true')
-            }
+            // if(value.length < 6){
+            //     elem.attr('area-valid', 'false')
+            // }else{
+            //     elem.attr('area-valid', 'true')
+            // }
+
+            
 
             break;
             
