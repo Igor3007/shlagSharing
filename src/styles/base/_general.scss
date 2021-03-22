@@ -40,6 +40,15 @@ main {
     }
 }
 
+
+
+.safari-navbar main:not(.main-full-height) {
+
+    @media screen and (max-width: $w580) {
+        height: calc(100vh - 10.1rem);
+    }
+}
+
 .chrome-navbar main:not(.main-full-height) {
 
     @media screen and (max-width: $w580) {

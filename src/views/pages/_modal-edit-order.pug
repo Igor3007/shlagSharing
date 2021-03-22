@@ -1,7 +1,10 @@
-include ../../blocks/modules/modal/order-edit/order-edit
+include ../../blocks/modules/modal/order-add/order-add
 
 .sh-modal
   .sh-modal__wrp
     .sh-modal__close
     .sh-modal__content
-      +order-edit()
+      +order-add({
+        'title': 'Редактировать заявку',
+        'btn': 'Сохранить',
+      })

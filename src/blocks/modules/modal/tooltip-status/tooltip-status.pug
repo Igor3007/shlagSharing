@@ -1,7 +1,21 @@
-mixin tooltip-status()
+mixin tooltip-before-parking()
   .tooltip-status
     .tooltip-status__title Внимание
     .tooltip-status__subtitle Вы можете добавить шлагбаумы или ворота, если они снабжены устройством для открывания телефонным звонком
     .tooltip-status__text Любое электромеханическое ограждающее устройство открывается с помощью разного типа ключей (пульт, карта доступа, GSM-модуль и т.п.). <br> Если на Вашем шлагбауме (воротах) не установлено устройство для открывания телефонным звонком (GSM-модуль), Вы не сможете произвести обмен парковкой. Обратитесь в любую специализированную монтажную организацию для установки такого устройства!
     .tooltip-status__btn
       a(href='#' class="close-fancybox" data-fancybox="" data-src="_modal-add-parking.html" data-type="ajax"): button.btn Далее
+
+mixin tooltip-status()
+  .tooltip-status
+    .tooltip-status__title Статус заявки
+    .tooltip-status__subtitle Описание  
+    .tooltip-status__text 
+      strong Обычный 
+      p - бесплатно
+      strong Серебрянный 
+      p  - 100 руб. за 7 дней,
+      strong Серебрянный 
+      p  - Золотой - 300 руб. за 7 дней 
+    .tooltip-status__btn
+      a(href='#' class="close-fancybox"): button.btn Закрыть

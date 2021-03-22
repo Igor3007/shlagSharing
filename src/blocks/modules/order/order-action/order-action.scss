@@ -4,6 +4,10 @@
     align-items: center;
     max-width: 852px;
 
+    @media screen and (max-width: 376px) {
+        height: rem(60);
+    }
+
     &__title {
         flex-grow: 1;
     }

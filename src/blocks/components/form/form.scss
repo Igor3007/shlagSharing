@@ -80,6 +80,14 @@
 
     }
 
+    &__tabitem {
+        display: none;
+
+        &.open {
+            display: block;
+        }
+    }
+
     &__item {
 
         display: flex;
@@ -187,7 +195,7 @@
             -moz-appearance: none;
             appearance: none;
             border-width: 0;
-            height: rem(40);
+            height: 45px;
             padding-left: 12px;
             min-width: calc(100% - 50px);
             cursor: pointer;
@@ -419,6 +427,10 @@
         align-items: center;
         background-color: #fff;
 
+        &.empty-field {
+            border: 1px solid $red;
+        }
+
         & input {
             border: none;
             width: 100%;
@@ -483,6 +495,7 @@
             margin-left: rem(15);
             min-width: rem(16);
             width: rem(16);
+            cursor: pointer;
         }
 
         &.input-icon input {

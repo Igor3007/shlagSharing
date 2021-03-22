@@ -1,25 +1,73 @@
 include ../../../../views/helpers/mixins
 
-mixin order-add()
+mixin order-add(data)
   .order-add
-    .order-add__title Добавление заявки
+    .order-add__title= data.title
     .order-add__form
       form(action='#' method='POST')
         .form
           .form__item: .form__label Выберите тип заявки
-          .form__item: .form__subitem: .form__select: +select-icons([
+          .form__item: .form__subitem: .form__select(id="change-type-order"): +select-icons([
             'Заявка на обмен парковками',
             'Заявка на получение подменной парковки по бонусным баллам',
             'Заявка на предоставление подменной парковки по бонусным баллам',
             ])
-          .form__item: .form__label Выбор своей парковки, предлагаемой на обмен:
-          .form__item: .form__subitem: .form__select: +select-icons(['ул. Череповецкая, д. 6', 'ул. Череповецкая, д. 658'])
-          .form__item: .form__label Искомые локации парковки по обмену:
-          .form__item: .form__subitem(id="address-in-geo"): +input-icon('text', 'ул. Череповецкая, д. 6', 'min8', '#ic_gps')
-          .form__item: a(href='#' data-select-geo="")
-            span Добавить локацию
-          .form__item: .form__label Статус заявки: 
-            span.state-tooltip( data-fancybox="1" data-src="_modal-tooltip-status-order.html" data-type="ajax")
-          .form__item: .form__subitem: .form__select: +select(['Золотой - 300 руб. за 7 дней', 'Простой - 100 руб. за 7 дней'])
-          .form__item: button(type="submit").btn.btn-full Добавить
-    .order-add__insuff Недостаточно денежных средств на счете, необходимо<a href="/my-cash.html">пополнить баланс</a>
+          .form__tab
+            //- select - 2
+            .form__tabitem.open(id="order-select-0")
+              .form__item: .form__label Выбор своей парковки, предлагаемой на обмен:
+              .form__item: .form__subitem: .form__select: +select-icons(['Выберите','ул. Череповецкая, д. 6', 'ул. Череповецкая, д. 658'])
+
+
+              .form__list
+                .form__list-item2
+                  .form__item: .form__label Искомые локации парковки по обмену:
+                  .form__item: .form__subitem: +input-icon('text', 'Введите адрес или выберите на карте', 'min8', '#ic_gps')
+              .form__add2
+                a(href='#'): span Добавить локацию
+
+
+
+
+              .form__item: .form__label
+                span Статус заявки:
+                a(href="#" data-fancybox="" data-src="_modal-tooltip-status-order.html" data-type="ajax"): span.state-tooltip
+              .form__item: .form__subitem: .form__select: +select(['Золотой - 300 руб. за 7 дней', 'Простой - 100 руб. за 7 дней'])
+              .form__item: button(type="submit").btn.btn-full= data.btn
+
+              //- select - 2
+            .form__tabitem(id="order-select-1")
+
+
+              .form__list
+                .form__list-item
+                  .form__item: .form__label Выбор локации удобные для парковки по обмену через бонусные баллы:
+                  .form__item: .form__subitem(id="address-in-geo"): +input-icon('text', 'Введите адрес или выберите на карте', 'min8', '#ic_gps')
+              .form__add
+                a(href='#'): span Добавить локацию
+
+              .form__item: .form__label
+              .form__item: .form__subitem: +checkbox('Ограниченная парковка (2 проезда в сутки)', 'limit-park')
+              .form__item: .form__subitem: +checkbox('Безлимитная парковка', 'limit-park', true)
+
+              .form__item: .form__label 
+                span Статус заявки:
+                a(href="#" data-fancybox="1" data-src="_modal-tooltip-status-order.html" data-type="ajax"): span.state-tooltip
+              .form__item: .form__subitem: .form__select: +select(['Золотой - 300 руб. за 7 дней', 'Простой - 100 руб. за 7 дней'])
+              .form__item: button(type="submit").btn.btn-full= data.btn
+
+            //- select 3
+            .form__tabitem(id="order-select-2") 
+              .form__item: .form__label Выбор своей парковки, предлагаемой на обмен:
+              .form__item: .form__subitem: .form__select: +select-icons(['Выберите', 'ул. Череповецкая, д. 6', 'ул. Череповецкая, д. 658'])
+
+              .form__item: .form__label Баллы в месяц
+              .form__item: .form__subitem: +input('text', '000')
+
+              .form__item: .form__label
+                span Статус заявки:
+                a(href="#" data-fancybox="" data-src="_modal-tooltip-status-order.html" data-type="ajax"): span.state-tooltip
+              .form__item: .form__subitem: .form__select: +select(['Золотой - 300 руб. за 7 дней', 'Простой - 100 руб. за 7 дней'])
+              .form__item: button(type="submit").btn.btn-full= data.btn
+
+    .order-add__insuff Недостаточно денежных средств на счете, необходимо<a href="/my-cash.html">пополнить баланс</a> 

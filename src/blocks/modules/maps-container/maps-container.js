@@ -204,6 +204,7 @@ ymaps.ready(function () {
                 PlacemarkArr[i].properties.set('balloonContent', "<span class='baloon-loading' ></span>");
 
                 $('.maps-home-button__bottom-bar').fadeOut(300)
+                $('.maps-home-button__top-bar').fadeOut(300)
 
                 const url = mapsParams[i].url;
 
@@ -223,6 +224,7 @@ ymaps.ready(function () {
 
             PlacemarkArr[i].events.add('balloonclose', function (e) {
                 $('.maps-home-button__bottom-bar').fadeIn(300)
+                $('.maps-home-button__top-bar').fadeIn(300)
             })
 
             myMap.geoObjects.add(PlacemarkArr[i]);

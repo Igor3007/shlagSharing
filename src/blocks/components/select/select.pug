@@ -1,18 +1,18 @@
 mixin select(data)
   .select
-    select
-      each item in data
-        option= item
+    select(name="select")
+      each item, index in data
+        option(value=""+index+"")= item
 
 mixin select-icons(data)
   .select
-    +icons('#ic_gps', 16)
-    select
-      each item in data
-        option= item
+    //- +icons('#ic_gps', 16)
+    select(name="select-icons")
+      each item, index in data
+        option(value=""+index+"")= item
 
 mixin select-fill(data)
   .select.select-fill
-    select
-      each item in data
-        option= item
+    select(name="select-fill")
+      each item, index in data
+        option(value=""+index+"")= item

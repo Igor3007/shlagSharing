@@ -27,4 +27,16 @@
             margin-left: 5px;
         }
     }
+
+    & .form__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & a {
+            margin: 0;
+            margin-left: 10px;
+            border: none;
+        }
+    }
 }

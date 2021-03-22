@@ -7,150 +7,167 @@ $(document).ready(function () {
         return re.test(String(email).toLowerCase());
     }
 
-    //Латиница или цифры
-    function validatePasswordEnNum(pass){
-       var regexp = '(?=^.{8,}$)((?=.*\d)|(?=.*\W+)).*';
-       return pass.match(regexp);
+    function passValidateRules (pass)
+    {
+        this.value = pass;
+
+        this.validatePasswordEnNum = function (pass) {
+            let regexp = '(?=^.{8,}$)((?=.*\d)|(?=.*\W+)).*';
+            return (this.value.match(regexp) ? true : false);
+        }
+
+        this.validatePasswordRus = function (pass) {
+            let regexp = '(?=.*[А-яЁё])';
+            return (this.value.match(regexp) ? true : false);
+        }
+ 
+        this.validatePasswordOneNum = function (pass) {
+            let regexp = '(?=.*[0-9])';
+            return (this.value.match(regexp) ? true : false);
+        }
+
+        this.validatePasswordCap = function (pass) {
+            // debugger
+            let regexp = '((?=.*\d)|(?=.*\W+)).*';
+            return (this.value.match(regexp) ? true : false);
+        }
     }
+    
 
-    //мининум 1 цифра
-    function validatePasswordOneNum(pass){
-       var regexp = '(?=.*[0-9])';
-       return pass.match(regexp);
-    }
 
-    //минимум 1 заглавная
-    function validatePasswordCap(pass){
-        var regexp = '((?=.*\d)|(?=.*\W+)).*';
-        return pass.match(regexp);
-     }
-     
 
-    $(document).on('keyup', 'input[type=text], input[type=email], input[type=password], textarea', function(){
-        
+
+    $(document).on('keyup', 'input[type=text], input[type=email], input[type=password], textarea', function () {
+
         let value = $(this).val();
         let elem = $(this);
 
-        
 
-        switch($(this).attr('type')){
 
-            case 'email': 
+        switch ($(this).attr('type')) {
 
-                if(!validateEmail(value)){
+            case 'email':
+
+                if (!validateEmail(value)) {
                     elem.attr('area-valid', 'false')
                     //elem.parent().find('.tooltip').text('Не корректный Email')
-                }else{
+                } else {
                     elem.attr('area-valid', 'true')
                 }
 
-            break;
+                break;
 
-            case 'text': 
+            case 'text':
+            case 'password':
 
-            // const rulesArray = {
-            //     '0': validatePasswordEnNum(value),
-            //     '1': validatePasswordOneNum(value),
-            //     '2': validatePasswordCap(value)
-            // }
+                const validState = new passValidateRules(value);
+                const rulesList = $(this).parents('form').find('.valid-rules li');
 
-            const rulesList = $(this).parents('form').find('.valid-rules li');
+                if ($('ul').is('.valid-rules')) {
+                    if (validState.validatePasswordEnNum()) {
+                        rulesList.eq(0).addClass('active')
+                    } else {
+                        rulesList.eq(0).removeClass('active')
+                    }
 
-            if(validatePasswordEnNum(value)) {
-                rulesList.eq(0).addClass('active')
-            }else{
-                rulesList.eq(0).removeClass('active')
-            }
-            if(validatePasswordOneNum(value)) {
-                rulesList.eq(1).addClass('active')
-            }else{
-                rulesList.eq(1).removeClass('active')
-            }
-            if(validatePasswordCap(value)) {
-                rulesList.eq(2).addClass('active')
-            }else{
-                rulesList.eq(2).removeClass('active')
-            }
+                    if (validState.validatePasswordRus()) {
+                        rulesList.eq(0).removeClass('active')
+                    } 
+
+                    if (validState.validatePasswordOneNum()) {
+                        rulesList.eq(1).addClass('active')
+                    } else {
+                        rulesList.eq(1).removeClass('active')
+                    }
+
+                    if (validState.validatePasswordCap()) {
+                        rulesList.eq(2).addClass('active')
+                    } else {
+                        rulesList.eq(2).removeClass('active')
+                    }
+                }
 
 
-            // rulesList.each(function(index, elem){
 
-            //     // console.log(index)
-            //     // console.log(Array.isArray(rulesArray[index]))
 
-            //     if(Array.isArray(rulesArray[index])){
-            //         $(this).addClass('active')
-            //     }else{
-            //         $(this).removeClass('active') 
-            //     }
-            // })
+                // rulesList.each(function(index, elem){
 
-            // const rulesList = $($this).parents('form').find('.valid-rules li');
+                //     // console.log(index)
+                //     // console.log(Array.isArray(rulesArray[index]))
 
-            // if(validatePasswordEnNum(value)) {
-            //     rulesList.eq(0).addClass('active')
-            // }
+                //     if(Array.isArray(rulesArray[index])){
+                //         $(this).addClass('active')
+                //     }else{
+                //         $(this).removeClass('active') 
+                //     }
+                // })
 
-            // if(value.length < 6){
-            //     elem.attr('area-valid', 'false')
-            // }else{
-            //     elem.attr('area-valid', 'true')
-            // }
+                // const rulesList = $($this).parents('form').find('.valid-rules li');
 
-            
+                // if(validatePasswordEnNum(value)) {
+                //     rulesList.eq(0).addClass('active')
+                // }
 
-            break;
-            
+                // if(value.length < 6){
+                //     elem.attr('area-valid', 'false')
+                // }else{
+                //     elem.attr('area-valid', 'true')
+                // }
 
-            case 'text': 
 
-                switch (elem.data('valid-type')){
+
+                break;
+
+
+            case 'text':
+
+                switch (elem.data('valid-type')) {
                     case 'min8':
-                        if(value.length < 8){
+                        if (value.length < 8) {
                             elem.attr('area-valid', 'false')
-                        }else{
+                        } else {
                             elem.attr('area-valid', 'true')
                         }
-                    break;
+                        break;
 
-                    default: 
+                    default:
 
-                        if(value.length < 0){
+                        if (value.length < 0) {
                             elem.attr('area-valid', 'false')
-                        }else{
+                        } else {
                             elem.attr('area-valid', 'true')
                         }
                 }
 
-            break;
+                break;
 
-            
-            default: 
-                if(value.length < 0){
+
+            default:
+                if (value.length < 0) {
                     elem.attr('area-valid', 'false')
-                }else{
+                } else {
                     elem.attr('area-valid', 'true')
                 }
         }
 
-        if(!value){
+        if (!value) {
             elem.removeAttr('area-valid')
         }
 
     })
 
-   
-    
-        
-    $('.input-material input, .input-primary input').each(function(){
-        if($(this).val() != ''){
+
+
+
+    $('.input-material input, .input-primary input').each(function () {
+        if ($(this).val() != '') {
             $(this).attr('area-valid', '')
         }
     })
 
 
     //upload files
-     function sendFiles(files, callback) {
+    function sendFiles(files, callback) {
         for (var i = 0; i < files.length; i++) {
             var file = files.item(i);
             if (file.size > 2200000) {
@@ -167,12 +184,12 @@ $(document).ready(function () {
         let files = this.files;
         let elem = $(this);
 
-        
+
 
         sendFiles(files, function (data) {
             elem.parents('.form__item')
                 .find('.upload-files')
-                .append('<li>'+data.name+'</li>');
+                .append('<li>' + data.name + '</li>');
         });
     });
 
@@ -185,7 +202,7 @@ $(document).ready(function () {
             elem.parent()
                 .find('.file-name')
                 .text(data.name);
-        
+
         });
 
     });
@@ -201,26 +218,26 @@ $(document).ready(function () {
             reader.readAsDataURL(data);
             reader.onload = function (e) {
                 elem.parent()
-                .find('.upload-image')
-                .css({
-                    'background-image': 'url('+e.target.result+')'
-                });
+                    .find('.upload-image')
+                    .css({
+                        'background-image': 'url(' + e.target.result + ')'
+                    });
             }
         });
 
     });
 
     //showpass
-    $(document).on('click', '.tooltip-showpass', function(event){
-        if($(this).parent().children('input').attr('type') == 'text'){
+    $(document).on('click', '.tooltip-showpass', function (event) {
+        if ($(this).parent().children('input').attr('type') == 'text') {
             $(this).parent().children('input').attr('type', 'password')
-        }else {
+        } else {
             $(this).parent().children('input').attr('type', 'text')
         }
     })
 
     // $(document).on('mouseup', function(event){
     //     $('.tooltip-showpass').parent().children('input').attr('type', 'password')
-        
+
     // })
 });

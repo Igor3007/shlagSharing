@@ -4,4 +4,7 @@ include ../../blocks/modules/modal/order-add/order-add
   .sh-modal__wrp
     .sh-modal__close
     .sh-modal__content
-      +order-add()
+      +order-add({
+        'title': 'Добавление заявки',
+        'btn': 'Добавить',
+      })
