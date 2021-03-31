@@ -125,7 +125,7 @@
                     width: rem(12);
                     min-width: rem(12);
                     height: rem(12);
-                    background: url(/img/svg/ic_subcat.svg);
+                    background: url(./img/svg/ic_subcat.svg);
                     @include bgimage_contain;
                 }
             }
@@ -162,7 +162,7 @@
             width: rem(12);
             min-width: rem(12);
             height: rem(12);
-            background: url(/img/svg/ic_subcat-back.svg);
+            background: url(./img/svg/ic_subcat-back.svg);
             @include bgimage_contain;
             margin-right: rem(10);
         }

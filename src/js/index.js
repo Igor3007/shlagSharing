@@ -104,22 +104,12 @@ $(document).ready(function () {
         } else {
             mobileMenu.onOpen()
         }
-
-        // $(this).toggleClass('open')
-        // $(this).parent().toggleClass('open-parent')
-        // $('.personal-layout__aside').toggleClass('open')
     })
 
     //закрыть при клике вне
     $(document).on('click', function (e) {
         var div = $(".burger, .personal-layout__aside"); //класс элемента вне которого клик
         if (!div.is(e.target) && div.has(e.target).length === 0) {
-            //закрыть popup
-            //   if ($('.burger').hasClass('open')) {
-            //     $('.personal-layout__aside').remove('open')
-            //     $('.burger').toggleClass('open')
-            //   }
-
             mobileMenu.onClose()
 
         }
@@ -288,11 +278,8 @@ $(document).ready(function () {
                              */
                             build: function () {
                                 this.constructor.superclass.build.call(this);
-
                                 this._$elementCenter = $('.sh-balloon', this.getParentElement());
-
                                 this.applyElementOffset();
-
                                 this._$elementCenter.find('.sh-balloon__close')
                                     .on('click', $.proxy(this.onCloseClick, this));
                             },
@@ -304,11 +291,7 @@ $(document).ready(function () {
                              * @name clear
                              */
                             clear: function () {
-                                this._$elementCenter.find('.sh-balloon__close')
-                                    .off('click');
-
-
-
+                                this._$elementCenter.find('.sh-balloon__close') .off('click');
                                 this.constructor.superclass.clear.call(this);
                             },
 
@@ -326,7 +309,6 @@ $(document).ready(function () {
                                 }
 
                                 this.applyElementOffset();
-
                                 this.events.fire('shapechange');
                             },
 
@@ -432,15 +414,10 @@ $(document).ready(function () {
 
                 }
 
-
-
-
                 // Создание метки с пользовательским макетом балуна.
                 selectPlacemark = window.selectPlacemark = new ymaps.Placemark([55.74481370529173, 37.67514980332959], {
                     balloonContent: ''
                 }, {
-
-
                     openBalloonOnClick: false,
                     balloonShadow: false,
                     balloonLayout: MyBalloonLayout,
@@ -461,26 +438,13 @@ $(document).ready(function () {
                     draggable: false
                 });
 
-                // selectPlacemark.events.add('balloonopen', function (e) {
-                //     selectPlacemark.properties.set('balloonContent', "<span class='baloon-loading' ></span>");
-                //     $('.maps-home-button__bottom-bar').fadeOut(300)
-
-                // });
-
                 selectPlacemark.events.add('click', function (e) {
-
-
-
                     var cord = e.get('target').geometry.getCoordinates();
                     $('#address-in-map input').val(cord);
 
                     $.fancybox.close()
 
                 });
-
-                // selectPlacemark.events.add('balloonclose', function (e) {
-                //     $('.maps-home-button__bottom-bar').fadeIn(300)
-                // })
 
                 myMapSelect.geoObjects.add(selectPlacemark);
 
@@ -495,11 +459,6 @@ $(document).ready(function () {
                     var geoCenter = myMapSelect.options.get('projection').fromGlobalPixels(current_state.globalPixelCenter, current_state.zoom);
                     selectPlacemark.geometry.setCoordinates(geoCenter);
                 });
-
-
-
-                //autoscale
-                //myMapSelect.setBounds(myMapSelect.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 15 });
 
 
             } catch {
@@ -535,8 +494,6 @@ $(document).ready(function () {
                         }, {
                             searchControlProvider: 'yandex#search'
                         }),
-
-                        // Создаём макет содержимого.
                         MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
                             '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
                         ),
@@ -545,13 +502,9 @@ $(document).ready(function () {
                             hintContent: '',
                             balloonContent: 'Это красивая метка'
                         }, {
-                            // Опции.
-                            // Необходимо указать данный тип макета.
                             openBalloonOnClick: false,
                             iconLayout: 'default#image',
-                            // Своё изображение иконки метки.
                             iconImageHref: '/img/svg/ic_pin-parking.svg',
-                            // Размеры метки.
                             iconImageSize: [54, 56],
                             draggable: false,
                             iconImageOffset: [-27, -28]
