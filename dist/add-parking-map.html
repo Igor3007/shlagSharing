@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>shlagSharing</title>
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500&amp;display=swap" rel="stylesheet">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;mode=debug"></script>
+    <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="img/favicons/apple-touch-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
+    <link rel="stylesheet" href="styles/main.min.css?v=1.65">
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="personal-layout">
+          <div class="personal-layout__aside">
+            <div class="menu-left-user">
+              <div class="menu-left-user__label">Профиль</div>
+              <div class="menu-left-user__profile"> <a href="/profile.html"> <span>ivanstepanov@gmail.com</span>
+                  <svg width="25" height="25">
+                    <use xlink:href="../img/sprites/sprite.svg#ic_pencil"></use>
+                  </svg></a></div>
+              <div class="menu-left-user__cash"><a href="/my-cash.html">
+                  <svg width="25" height="25">
+                    <use xlink:href="../img/sprites/sprite.svg#ic_cash"></use>
+                  </svg><span>1 920 руб. </span></a></div>
+            </div>
+            <div class="menu-left">
+              <div class="menu-left__logo"><a href="/"><img src="./img/common/logo.svg"/></a></div>
+              <div class="menu-left__nav">
+                <ul>
+                  <li><a href="/">
+                      <svg width="25" height="25">
+                        <use xlink:href="../img/sprites/sprite.svg#ic_pin"></use>
+                      </svg>Карта</a></li>
+                  <li><a href="/my-parking.html">
+                      <svg width="25" height="25">
+                        <use xlink:href="../img/sprites/sprite.svg#ic_parking"></use>
+                      </svg>Мои парковки</a></li>
+                  <li><a href="/orders.html">
+                      <svg width="25" height="25">
+                        <use xlink:href="../img/sprites/sprite.svg#ic_order"></use>
+                      </svg>Заявки</a></li>
+                  <li><a href="/replace-parking.html">
+                      <svg width="25" height="25">
+                        <use xlink:href="../img/sprites/sprite.svg#ic_replace"></use>
+                      </svg>Подменные парковки</a></li>
+                  <li><a href="/my-cash.html">
+                      <svg width="25" height="25">
+                        <use xlink:href="../img/sprites/sprite.svg#ic_cash"></use>
+                      </svg>Мои счет</a></li>
+                  <li><a href="/support.html">
+                      <svg width="25" height="25">
+                        <use xlink:href="../img/sprites/sprite.svg#ic_gear"></use>
+                      </svg>Техподдержка</a></li>
+                </ul>
+              </div>
+              <div class="menu-left__btn">
+                <button class="btn btn-red btn-big" data-fancybox="" data-src="_modal-tooltip-before-parking.html" data-type="ajax">Добавить парковку </button>
+              </div>
+              <div class="menu-left__logout"><a href="#">
+                  <svg width="25" height="25">
+                    <use xlink:href="../img/sprites/sprite.svg#ic_close"></use>
+                  </svg><span>Выйти</span></a></div>
+            </div>
+          </div>
+          <div class="personal-layout__content">
+            <div class="personal-area">
+              <div class="personal-area__header">
+                <div class="header-menu">
+                  <div class="burger"><i></i><i></i><i></i></div>
+                </div>
+                <div class="header-search" id="header-search">
+                  <div class="header-search__wrp">
+                    <form acton="#">
+                      <div class="header-search__form">
+                        <div class="header-search__input">
+                          <input type="text" placeholder="Поиск парковки по адресу"/>
+                        </div>
+                        <div class="header-search__btn">
+                          <button type="submit">
+                            <svg width="25" height="25">
+                              <use xlink:href="../img/sprites/sprite.svg#ic_loupe"></use>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="header-profile">
+                  <div class="header-profile__link"><a href="profile.html">Мой профиль</a></div>
+                  <div class="header-profile__nickname">ivanstepanov</div>
+                </div>
+                <div class="header-wallet">
+                  <div class="header-wallet__current">
+                    <svg width="25" height="25">
+                      <use xlink:href="../img/sprites/sprite.svg#ic_cash"></use>
+                    </svg><span>1 920 руб. </span>
+                  </div>
+                  <div class="header-wallet__add" data-fancybox="" data-src="/_modal-payment.html" data-type="ajax"><a href="#">
+                      <svg width="25" height="25">
+                        <use xlink:href="../img/sprites/sprite.svg#ic_cross"></use>
+                      </svg></a></div>
+                </div>
+              </div>
+              <div class="personal-area__action">
+                <div class="dafault-action">
+                  <div class="dafault-action__title">
+                    <div class="section-h2">Добавление парковки через геометку</div>
+                  </div>
+                  <div class="dafault-action__back"><a href="/">
+                      <svg width="20" height="20">
+                        <use xlink:href="../img/sprites/sprite.svg#ic_back"></use>
+                      </svg></a></div>
+                </div>
+              </div>
+              <div class="personal-area__main">
+                <script>
+                  const mapsParams = [
+                    {
+                      'pin': [55.74481370529173, 37.67514980332959],
+                      'url': '/_balloon-add-parking.html',
+                      'icon': './img/svg/ic_pin-parking.svg',
+                      'draggable': true,
+                    }
+                  ];
+                </script>
+                <div class="maps-container" id="maps-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="modile-bottom-nav">
+        <div class="modile-bottom-nav__wrp">
+          <nav> 
+            <ul>
+              <li><a href="/my-parking.html">
+                  <svg width="25" height="25">
+                    <use xlink:href="../img/sprites/sprite.svg#ic_parking"></use>
+                  </svg><span>Мои парковки</span></a></li>
+              <li><a href="/orders.html">
+                  <svg width="25" height="25">
+                    <use xlink:href="../img/sprites/sprite.svg#ic_order"></use>
+                  </svg><span>Заявки</span></a></li>
+              <li><a href="/my-cash.html">
+                  <svg width="25" height="25">
+                    <use xlink:href="../img/sprites/sprite.svg#ic_cash"></use>
+                  </svg><span>Мои счет</span></a></li>
+              <li><a href="/support.html">
+                  <svg width="25" height="25">
+                    <use xlink:href="../img/sprites/sprite.svg#ic_gear"></use>
+                  </svg><span>Техподдержка</span></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="container">
+        <div class="footer">
+          <div class="footer__share">
+            <div class="footer__share-title">Получить бонусные баллы на счет</div>
+            <div class="footer__share-list">
+              <ul>
+                <li class="share-fb"><a href="#" target="_blank">
+                    <svg width="25" height="25">
+                      <use xlink:href="../img/sprites/sprite.svg#ic_fb"></use>
+                    </svg></a></li>
+                <li class="share-vk"><a href="#" target="_blank">
+                    <svg width="25" height="25">
+                      <use xlink:href="../img/sprites/sprite.svg#ic_vk"></use>
+                    </svg></a></li>
+                <li class="share-tw"><a href="#" target="_blank">
+                    <svg width="25" height="25">
+                      <use xlink:href="../img/sprites/sprite.svg#ic_tw"></use>
+                    </svg></a></li>
+                <li class="share-ig"><a href="#" target="_blank">
+                    <svg width="25" height="25">
+                      <use xlink:href="../img/sprites/sprite.svg#ic_ig"></use>
+                    </svg></a></li>
+                <li class="share-tg"><a href="#" target="_blank">
+                    <svg width="25" height="25">
+                      <use xlink:href="../img/sprites/sprite.svg#ic_tg"></use>
+                    </svg></a></li>
+                <li class="share-wa"><a href="#" target="_blank">
+                    <svg width="25" height="25">
+                      <use xlink:href="../img/sprites/sprite.svg#ic_wa"></use>
+                    </svg></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__app">
+            <div class="footer__apple-store"><a href="#">
+                <div class="link-store">
+                  <div class="link-store__icon">
+                    <svg width="25" height="25">
+                      <use xlink:href="../img/sprites/sprite.svg#ic_google-play"></use>
+                    </svg>
+                  </div>
+                  <div class="link-store__text">
+                    <div class="link-store__desc">Доступно в </div>
+                    <div class="link-store__name">Google play</div>
+                  </div>
+                </div></a></div>
+            <div class="footer__google-store"><a href="#">
+                <div class="link-store">
+                  <div class="link-store__icon">
+                    <svg width="25" height="25">
+                      <use xlink:href="../img/sprites/sprite.svg#ic_app-store"></use>
+                    </svg>
+                  </div>
+                  <div class="link-store__text">
+                    <div class="link-store__desc">Доступно в </div>
+                    <div class="link-store__name">App store</div>
+                  </div>
+                </div></a></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.min.js?v=1.65"></script>
+    <script src="js/vendor.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,191 @@
+
+<div class="sh-modal">
+  <div class="sh-modal__wrp">
+    <div class="sh-modal__close"></div>
+    <div class="sh-modal__content">
+      <div class="order-add">
+        <div class="order-add__title">Добавление заявки</div>
+        <div class="order-add__form">
+          <form action="#" method="POST">
+            <div class="form">
+              <div class="form__item">
+                <div class="form__label">Выберите тип заявки</div>
+              </div>
+              <div class="form__item">
+                <div class="form__subitem">
+                  <div class="form__select" id="change-type-order">
+                    <div class="select">
+                      <select name="select-icons">
+                        <option value="0">Заявка на обмен парковками</option>
+                        <option value="1">Заявка на получение подменной парковки по бонусным баллам</option>
+                        <option value="2">Заявка на предоставление подменной парковки по бонусным баллам</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form__tab">
+                <div class="form__tabitem open" id="order-select-0">
+                  <div class="form__item">
+                    <div class="form__label">Выбор своей парковки, предлагаемой на обмен:</div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <div class="form__select">
+                        <div class="select">
+                          <select name="select-icons">
+                            <option value="0">Выберите</option>
+                            <option value="1">ул. Череповецкая, д. 6</option>
+                            <option value="2">ул. Череповецкая, д. 658</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__list">
+                    <div class="form__list-item2">
+                      <div class="form__item">
+                        <div class="form__label">Искомые локации парковки по обмену:</div>
+                      </div>
+                      <div class="form__item">
+                        <div class="form__subitem">
+                          <div class="input-primary input-icon">
+                            <svg width="16" height="16">
+                              <use xlink:href="../img/sprites/sprite.svg#ic_gps"></use>
+                            </svg>
+                            <input type="text" placeholder="Введите адрес или выберите на карте" data-valid-type="min8" required="required"/><span class="tooltip"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__add2"><a href="#"><span>Добавить локацию</span></a></div>
+                  <div class="form__item">
+                    <div class="form__label"><span>Статус заявки:</span><a href="#" data-fancybox="" data-src="_modal-tooltip-status-order.html" data-type="ajax"><span class="state-tooltip"></span></a></div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <div class="form__select">
+                        <div class="select">
+                          <select name="select">
+                            <option value="0">Золотой - 300 руб. за 7 дней</option>
+                            <option value="1">Простой - 100 руб. за 7 дней</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <button class="btn btn-full" type="submit">Добавить</button>
+                  </div>
+                </div>
+                <div class="form__tabitem" id="order-select-1">
+                  <div class="form__list">
+                    <div class="form__list-item">
+                      <div class="form__item">
+                        <div class="form__label">Выбор локации удобные для парковки по обмену через бонусные баллы:</div>
+                      </div>
+                      <div class="form__item">
+                        <div class="form__subitem" id="address-in-geo">
+                          <div class="input-primary input-icon">
+                            <svg width="16" height="16">
+                              <use xlink:href="../img/sprites/sprite.svg#ic_gps"></use>
+                            </svg>
+                            <input type="text" placeholder="Введите адрес или выберите на карте" data-valid-type="min8" required="required"/><span class="tooltip"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__add"><a href="#"><span>Добавить локацию</span></a></div>
+                  <div class="form__item">
+                    <div class="form__label"></div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <label class="checkbox">
+                        <input type="checkbox" name="limit-park"/><span class="checkbox__elem"></span><span class="checkbox__text">Ограниченная парковка (2 проезда в сутки)</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <label class="checkbox">
+                        <input type="checkbox" name="limit-park" checked=""/><span class="checkbox__elem"></span><span class="checkbox__text">Безлимитная парковка</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__label"> <span>Статус заявки:</span><a href="#" data-fancybox="1" data-src="_modal-tooltip-status-order.html" data-type="ajax"><span class="state-tooltip"></span></a></div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <div class="form__select">
+                        <div class="select">
+                          <select name="select">
+                            <option value="0">Золотой - 300 руб. за 7 дней</option>
+                            <option value="1">Простой - 100 руб. за 7 дней</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <button class="btn btn-full" type="submit">Добавить</button>
+                  </div>
+                </div>
+                <div class="form__tabitem" id="order-select-2"> 
+                  <div class="form__item">
+                    <div class="form__label">Выбор своей парковки, предлагаемой на обмен:</div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <div class="form__select">
+                        <div class="select">
+                          <select name="select-icons">
+                            <option value="0">Выберите</option>
+                            <option value="1">ул. Череповецкая, д. 6</option>
+                            <option value="2">ул. Череповецкая, д. 658</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__label">Баллы в месяц</div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <div class="input-primary">
+                        <input type="text" placeholder="000" data-valid-type=""/><span class="tooltip"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__label"><span>Статус заявки:</span><a href="#" data-fancybox="" data-src="_modal-tooltip-status-order.html" data-type="ajax"><span class="state-tooltip"></span></a></div>
+                  </div>
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <div class="form__select">
+                        <div class="select">
+                          <select name="select">
+                            <option value="0">Золотой - 300 руб. за 7 дней</option>
+                            <option value="1">Простой - 100 руб. за 7 дней</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__item">
+                    <button class="btn btn-full" type="submit">Добавить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="order-add__insuff">Недостаточно денежных средств на счете, необходимо<a href="/my-cash.html">пополнить баланс</a> </div>
+      </div>
+    </div>
+  </div>
+</div>
