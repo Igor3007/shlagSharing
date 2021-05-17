@@ -16,11 +16,12 @@ import $, {
 } from 'jquery';
 import './import/jquery.fancybox.min';
 import 'inputmask/dist/jquery.inputmask';
+import './import/jquery.suggestions.min';
+
 
 
 window.onload = function () {
     document.querySelector('body').classList.add('page-loaded')
-
 };
 
 $(document).ready(function () {
@@ -30,10 +31,10 @@ $(document).ready(function () {
     if (/Chrome/i.test(ua)) {
         $('html').addClass('chrome-navbar');
     }
+
     if (/Safari/i.test(ua)) {
         $('html').addClass('safari-navbar');
     }
-
 
     /* init inputmask */
 
@@ -104,12 +105,22 @@ $(document).ready(function () {
         } else {
             mobileMenu.onOpen()
         }
+
+        // $(this).toggleClass('open')
+        // $(this).parent().toggleClass('open-parent')
+        // $('.personal-layout__aside').toggleClass('open')
     })
 
     //закрыть при клике вне
     $(document).on('click', function (e) {
         var div = $(".burger, .personal-layout__aside"); //класс элемента вне которого клик
         if (!div.is(e.target) && div.has(e.target).length === 0) {
+            //закрыть popup
+            //   if ($('.burger').hasClass('open')) {
+            //     $('.personal-layout__aside').remove('open')
+            //     $('.burger').toggleClass('open')
+            //   }
+
             mobileMenu.onClose()
 
         }
@@ -249,9 +260,10 @@ $(document).ready(function () {
             'url': '/_balloon-add-parking-8.html',
             'icon': '/img/svg/ic_pin-parking.svg'
         }];
+
         ymaps.ready(function () {
 
-            try {
+           try {
 
                 // Создание экземпляра карты и его привязка к созданному контейнеру.
                 var myMapSelect = new ymaps.Map('maps-container-select', {
@@ -260,144 +272,7 @@ $(document).ready(function () {
                         controls: []
                     }, {
                         suppressMapOpenBlock: true,
-                    }),
-
-                    // Создание макета балуна на основе Twitter Bootstrap.
-                    MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
-
-                        '<div class="sh-balloon" >' +
-                        '<div class="sh-balloon__close" >+</div>' +
-                        '<div class="sh-balloon__content" >$[[options.contentLayout observeSize class=sh-wrp minWidth=235 maxWidth=480 maxHeight=400]]</div>' +
-                        '<div class="sh-balloon__arrow" >!</div>' +
-                        '</div>', {
-                            /**
-                             * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
-                             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
-                             * @function
-                             * @name build
-                             */
-                            build: function () {
-                                this.constructor.superclass.build.call(this);
-                                this._$elementCenter = $('.sh-balloon', this.getParentElement());
-                                this.applyElementOffset();
-                                this._$elementCenter.find('.sh-balloon__close')
-                                    .on('click', $.proxy(this.onCloseClick, this));
-                            },
-
-                            /**
-                             * Удаляет содержимое макета из DOM.
-                             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
-                             * @function
-                             * @name clear
-                             */
-                            clear: function () {
-                                this._$elementCenter.find('.sh-balloon__close') .off('click');
-                                this.constructor.superclass.clear.call(this);
-                            },
-
-                            /**
-                             * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
-                             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
-                             * @function
-                             * @name onSublayoutSizeChange
-                             */
-                            onSublayoutSizeChange: function () {
-                                MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
-
-                                if (!this._isElement(this._$elementCenter)) {
-                                    return;
-                                }
-
-                                this.applyElementOffset();
-                                this.events.fire('shapechange');
-                            },
-
-                            /**
-                             * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
-                             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
-                             * @function
-                             * @name applyElementOffset
-                             */
-                            applyElementOffset: function () {
-
-                                var positionDefault = {
-                                    left: -(this._$elementCenter[0].offsetWidth / 2),
-                                    top: -(this._$elementCenter[0].offsetHeight + this._$elementCenter.find('.sh-balloon__arrow')[0].offsetHeight)
-                                }
-
-                                if ($(window).width() <= 580) {
-
-                                    var positionDefault = {
-                                        left: 0,
-                                        right: 0,
-                                        bottom: 0
-                                    }
-                                }
-
-                                this._$elementCenter.css(positionDefault);
-                            },
-
-                            /**
-                             * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
-                             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
-                             * @function
-                             * @name onCloseClick
-                             */
-                            onCloseClick: function (e) {
-                                e.preventDefault();
-
-                                this.events.fire('userclose');
-                            },
-
-                            /**
-                             * Используется для автопозиционирования (balloonAutoPan).
-                             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
-                             * @function
-                             * @name getClientBounds
-                             * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
-                             */
-                            getShape: function () {
-                                if (!this._isElement(this._$elementCenter)) {
-                                    return MyBalloonLayout.superclass.getShape.call(this);
-                                }
-
-                                var position = this._$elementCenter.position();
-                                pos1 = [position.left, position.top]
-                                pos2 = [
-                                    position.left + this._$elementCenter[0].offsetWidth,
-                                    position.top + this._$elementCenter[0].offsetHeight + this._$elementCenter.find('.sh-balloon__arrow')[0].offsetHeight
-                                ]
-
-                                if ($(window).width() <= 580) {
-
-                                    var heightElem = this._$elementCenter.height() + 55
-                                    var widthElem = (this._$elementCenter.width() / 2) - 25
-
-                                    pos1 = [0, 0]
-                                    pos2 = [widthElem, heightElem]
-                                }
-
-
-                                return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([pos1, pos2]));
-                            },
-
-                            /**
-                             * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
-                             * @function
-                             * @private
-                             * @name _isElement
-                             * @param {jQuery} [element] Элемент.
-                             * @returns {Boolean} Флаг наличия.
-                             */
-                            _isElement: function (element) {
-                                return element && element[0] && element.find('.sh-balloon__arrow')[0];
-                            }
-                        });
-
-                // Создание вложенного макета содержимого балуна.
-                MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
-                    '<div class="bln-scroll-offset" >$[properties.balloonContent]</div>'
-                );
+                    });
 
 
                 var PlacemarkArr = [];
@@ -418,19 +293,12 @@ $(document).ready(function () {
                 selectPlacemark = window.selectPlacemark = new ymaps.Placemark([55.74481370529173, 37.67514980332959], {
                     balloonContent: ''
                 }, {
+
                     openBalloonOnClick: false,
                     balloonShadow: false,
-                    balloonLayout: MyBalloonLayout,
-                    balloonContentLayout: MyBalloonContentLayout,
-                    balloonPanelLayout: MyBalloonLayout,
-                    //balloonPanelContentLayout: MyBalloonContentLayout,
                     balloonPanelMaxMapArea: ballonMapArea,
-                    // Не скрываем иконку при открытом балуне.
                     hideIconOnBalloonOpen: showBaloonMode,
-                    // И дополнительно смещаем балун, для открытия над иконкой.
                     balloonOffset: [15, -18],
-
-                    // balloonContentLayout: LayoutActivatePoint,
                     iconLayout: 'default#image',
                     iconImageHref: mapsParamsSelect[0].icon,
                     iconImageSize: [53, 55],
@@ -439,6 +307,7 @@ $(document).ready(function () {
                 });
 
                 selectPlacemark.events.add('click', function (e) {
+
                     var cord = e.get('target').geometry.getCoordinates();
                     $('#address-in-map input').val(cord);
 
@@ -446,7 +315,10 @@ $(document).ready(function () {
 
                 });
 
+
                 myMapSelect.geoObjects.add(selectPlacemark);
+
+                //центрируем метку
 
                 myMapSelect.events.add('actiontick', function (e) {
                     var current_state = myMapSelect.action.getCurrentState();
@@ -459,6 +331,9 @@ $(document).ready(function () {
                     var geoCenter = myMapSelect.options.get('projection').fromGlobalPixels(current_state.globalPixelCenter, current_state.zoom);
                     selectPlacemark.geometry.setCoordinates(geoCenter);
                 });
+
+                //autoscale
+                //myMapSelect.setBounds(myMapSelect.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 15 });
 
 
             } catch {
@@ -476,6 +351,7 @@ $(document).ready(function () {
             'url': '/_balloon-add-parking-8.html',
             'icon': '/img/svg/ic_pin-parking.svg'
         }];
+        
         ymaps.ready(function () {
 
             try {
@@ -494,6 +370,8 @@ $(document).ready(function () {
                         }, {
                             searchControlProvider: 'yandex#search'
                         }),
+
+                        // Создаём макет содержимого.
                         MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
                             '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
                         ),
@@ -502,9 +380,13 @@ $(document).ready(function () {
                             hintContent: '',
                             balloonContent: 'Это красивая метка'
                         }, {
+                            // Опции.
+                            // Необходимо указать данный тип макета.
                             openBalloonOnClick: false,
                             iconLayout: 'default#image',
+                            // Своё изображение иконки метки.
                             iconImageHref: '/img/svg/ic_pin-parking.svg',
+                            // Размеры метки.
                             iconImageSize: [54, 56],
                             draggable: false,
                             iconImageOffset: [-27, -28]
@@ -579,7 +461,7 @@ $(document).ready(function () {
 
     })
 
-    $(document).on('click', '.input-primary.input-icon svg', function (event) {
+    $(document).on('click', '.input-primary.input-icon a', function (event) {
 
         $(this).parent().addClass('required-address')
 
@@ -596,6 +478,32 @@ $(document).ready(function () {
         })
 
     })
+
+    
+    $('[data-fancybox]').fancybox({
+        afterShow : function( instance, current ) {
+
+            
+        
+        }
+    });
+
+    $(document).on('focus', "#address-in-map input", function(){
+        $(this).suggestions({
+            token: "16606eb95053d3dd45c2d750025a934774edaf58",
+            type: "ADDRESS",
+            /* Вызывается, когда пользователь выбирает одну из подсказок */
+            onSelect: function(suggestion) {
+                console.log(suggestion);
+            }
+        });
+    })
+
+    
+
+     
+
+    //alert('ee')
 
     /* выбор  */
 })
