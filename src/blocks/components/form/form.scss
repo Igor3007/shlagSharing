@@ -230,7 +230,7 @@
             pointer-events: none;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
-            background: url(./img/svg/ic_arr-down.svg);
+            background: url(/img/svg/ic_arr-down.svg);
             background-repeat: no-repeat;
             background-position: center;
             /*! margin-right: 8px; */
@@ -372,7 +372,7 @@
             width: 13px;
             height: 13px;
             display: block;
-            background-image: url(./img/svg/ic_checked-green.svg);
+            background-image: url(/img/svg/ic_checked-green.svg);
             font-size: 0;
             background-repeat: no-repeat;
             background-position: center;
@@ -426,6 +426,7 @@
         display: flex;
         align-items: center;
         background-color: #fff;
+        position: relative;
 
         &.empty-field {
             border: 1px solid $red;
@@ -465,7 +466,7 @@
 
         & textarea[area-valid=true]~.tooltip,
         & input[area-valid=true]~.tooltip {
-            background-image: url(./img/svg/ic_input-valid.svg);
+            background-image: url(/img/svg/ic_input-valid.svg);
             font-size: 0;
             opacity: 1;
 
@@ -476,13 +477,13 @@
 
         & .tooltip-showpass {
             opacity: 1;
-            background-image: url(./img/svg/ic_eye.svg);
+            background-image: url(/img/svg/ic_eye.svg);
             cursor: pointer;
         }
 
         & textarea[area-valid=false]~.tooltip,
         & input[area-valid=false]~.tooltip {
-            background-image: url(./img/svg/ic_input-invalid.svg);
+            background-image: url(/img/svg/ic_input-invalid.svg);
             font-size: 0;
             opacity: 1;
 
@@ -504,8 +505,19 @@
         }
     }
 
+}
 
 
+.form .suggestions-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+}
+
+.form .suggestions-suggestions {
+    padding: 10px;
+    border-color: #d8d8d8;
 }
 
 .upload-files {
@@ -528,7 +540,7 @@
             margin-right: 10px;
             border-radius: 50%;
 
-            background-image: url(.../img/svg/ic_input-valid.svg);
+            background-image: url(../img/svg/ic_input-valid.svg);
             background-repeat: no-repeat;
             background-position: center;
         }

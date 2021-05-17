@@ -1,0 +1,12 @@
+/* font */
+
+/* media breakpoints */
+
+/*  */
+
+@media screen and (max-width: 580px) {
+  .personal-area__action {
+    display: none;
+  }
+}
+/*# sourceMappingURL=maps/map.css.map */

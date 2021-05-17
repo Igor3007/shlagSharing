@@ -53,11 +53,12 @@ $(document).ready(function () {
                     //elem.parent().find('.tooltip').text('Не корректный Email')
                 } else {
                     elem.attr('area-valid', 'true')
+                    elem.parents('.input-primary').removeClass('empty-field')
                 }
 
                 break;
 
-            case 'text':
+            
             case 'password':
 
                 const validState = new passValidateRules(value);
@@ -87,39 +88,38 @@ $(document).ready(function () {
                     }
                 }
 
-
-
-
-                // rulesList.each(function(index, elem){
-
-                //     // console.log(index)
-                //     // console.log(Array.isArray(rulesArray[index]))
-
-                //     if(Array.isArray(rulesArray[index])){
-                //         $(this).addClass('active')
-                //     }else{
-                //         $(this).removeClass('active') 
-                //     }
-                // })
-
-                // const rulesList = $($this).parents('form').find('.valid-rules li');
-
-                // if(validatePasswordEnNum(value)) {
-                //     rulesList.eq(0).addClass('active')
-                // }
-
-                // if(value.length < 6){
-                //     elem.attr('area-valid', 'false')
-                // }else{
-                //     elem.attr('area-valid', 'true')
-                // }
-
-
-
                 break;
 
 
             case 'text':
+
+                if ($('ul').is('.valid-rules')) {
+
+                    const validState = new passValidateRules(value);
+                    const rulesList = $(this).parents('form').find('.valid-rules li');
+
+                    if (validState.validatePasswordEnNum()) {
+                        rulesList.eq(0).addClass('active')
+                    } else {
+                        rulesList.eq(0).removeClass('active')
+                    }
+
+                    if (validState.validatePasswordRus()) {
+                        rulesList.eq(0).removeClass('active')
+                    } 
+
+                    if (validState.validatePasswordOneNum()) {
+                        rulesList.eq(1).addClass('active')
+                    } else {
+                        rulesList.eq(1).removeClass('active')
+                    }
+
+                    if (validState.validatePasswordCap()) {
+                        rulesList.eq(2).addClass('active')
+                    } else {
+                        rulesList.eq(2).removeClass('active')
+                    }
+                }
 
                 switch (elem.data('valid-type')) {
                     case 'min8':
@@ -127,7 +127,12 @@ $(document).ready(function () {
                             elem.attr('area-valid', 'false')
                         } else {
                             elem.attr('area-valid', 'true')
+                            elem.parents('.input-primary').removeClass('empty-field')
                         }
+                        break;
+
+                    case 'number':
+                        elem.val(value.replace (/\D/, ''));
                         break;
 
                     default:
@@ -136,6 +141,7 @@ $(document).ready(function () {
                             elem.attr('area-valid', 'false')
                         } else {
                             elem.attr('area-valid', 'true')
+                            elem.parents('.input-primary').removeClass('empty-field')
                         }
                 }
 
